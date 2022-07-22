@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Быки и коровы</title>
+	<link rel="shortcut icon" href="../icons/ico-6gon.png" type="image/png">
+	<style>
+		.big_button {
+			font-family: 'Arbutus Slab', 'Gabriela';
+			text-align: center;
+			background-color: #58cc02;
+			font-size: 16px;
+			padding: 6px;
+			margin: 0px;
+			border-radius: 10px;
+			border: 2px solid #58a700;
+			color: #ffffff;
+		}
+
+		#input-note {
+			text-align: center;
+		}
+
+		#main-table {
+			margin: auto;
+		}
+		#main-table > tbody > tr {
+			margin: 0px;
+			padding: 0px;
+		}
+		#main-table > tbody > tr > td {
+			margin: 0px;
+			padding: 2px;
+		}
+
+		form {
+			display: inline-block;
+			margin: 0px;
+		}
+
+		#ans {
+			display: inline-block;
+			width: 90px;
+			height: 30px;
+			text-align: center;
+			color: #000;
+			background-color: #f5f5dc;
+			font-size: 25px;
+			padding: 6px;
+			margin: 0px;
+			border-radius: 10px;
+			border: 2px solid #58a700;
+		}
+		#ans-text {
+			display: inline-block;
+			font-size: 25px;
+			margin: auto;
+		}
+
+		.input-text {
+			font-family: 'Arbutus Slab', 'Gabriela';
+			width: 60px;
+			color: #000;
+			background-color: #ffffff;
+			font-size: 16px;
+			padding: 6px;
+			margin: 0px;
+			border-radius: 10px;
+			border: 2px solid #58a700;
+		}
+
+		#game-table {
+			margin: auto;
+			border: 2px solid #58a700;
+			border-collapse: separate;
+			border-radius: 15px;
+			border-spacing: 0px;
+			background-color: #f5f5dc;
+		}
+		#game-table > tbody > tr > th, #game-table > tbody > tr > td {
+			padding: 6px; 
+			text-align: center;
+			vertical-align: center;
+			border-left: 2px solid #bbb;
+			border-top: 2px solid #bbb;
+		}
+		#game-table > tbody > tr > th:first-child, #game-table > tbody > tr > td:first-child {
+			border-left: 0;		
+		}
+		#game-table > tbody > tr:first-child > th {
+			border-top: 0;
+		}
+
+		.center{
+			display: inline-block;
+			position: relative;
+			left: 50%;
+			transform: translate(-50%, 0);
+		}
+		html {
+			font-family: 'Arbutus Slab', 'Gabriela';
+			text-align: justify;
+			scroll-behavior: smooth;
+		}
+		a {
+			color: #5a6fd4;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #e1e9f0;
+		}
+	</style>
+	<link rel="stylesheet" href="../fonts/Gabriela/gabriela.css">
+	<link rel="stylesheet" href="../fonts/ArbutusSlab/arbutusslab.css">
+</head>
+
+<body>
+<table id="main-table">
+<tr><td style="padding-bottom: 30px;">
+<a href="..">Home page</a>
+</td></tr><tr><td>
+<div id="ans-text">Ответ:&ensp;</div><div id="ans" onclick="hide_ans(this)">*,*,*,*</div>
+</td></tr><tr><td>
+<div id="ans-text">Проверка:&ensp;</div>
+<form name="ExtraTurn"> 
+	<input class="input-text" type="password" name="check_ans"/>
+	<input class="big_button" type="Submit" value=" ? " onClick="Extra_turn(); return false;"/>
+	<span id="ok" style="color: green; font-size:22px; display: none">&#10004;</span>
+	<span id="ne_ok" style="color: red; font-size:22px; display: none">&#10008;</span>
+</form>
+</td></tr><tr><td>
+<table id="game-table">
+<tr><th style="width:20px;">Ход</th><th style="width:100px;"></th><th>Быки</th><th>Коровы</th></tr>
+<tbody id="turns-list">
+</tbody>
+</table>
+</td></tr><tr><td>
+<form name="Turn" class="center"> 
+	<input class="input-text" type="number" name="input"/>
+	<input class="big_button" type="Submit" value="Сделать ход" onClick="Make_turn(); return false;"/> 
+</form>
+</td></tr><tr><td>
+<div id="input-note"></div>
+</td></tr>
+</table>
+<script>
+	var num;
+	var list_n;
+	var ok = document.getElementById("ok");
+	var neok = document.getElementById("ne_ok");
+	
+	function Make_turn(){
+	var n = document.Turn.input.value;
+	if (/^\d\d\d\d$/.test(n)){
+		document.getElementById("input-note").innerHTML = "";
+	} else {
+		document.getElementById("input-note").innerHTML = "Неправильный формат ввода.";
+		return;
+	}
+	if (/(\d).*\1/.test(n)){
+		document.getElementById("input-note").innerHTML = "Цифры не должны повторяться.";
+		return;
+	} else {
+		document.getElementById("input-note").innerHTML = "";
+		success_turn(n);
+		console.log(n.type);
+	}
+	}
+	
+	function Extra_turn(){
+		var n = document.ExtraTurn.check_ans.value;
+		if (/^\d\d\d\d$/.test(n) && n[0] == num[0] && n[1] == num[1] && n[2] == num[2] && n[3] == num[3]){
+			ok.style.display = "inline-block";
+			setTimeout(function () {
+				ok.style.display = "none";
+			}, 2000);
+		} else {
+			neok.style.display = "inline-block";
+			setTimeout(function () {
+				neok.style.display = "none";
+			}, 3000);
+		}
+	}
+	
+	function success_turn(n){
+		var bull = 0;
+		var cow = 0;
+		for(var i=0; i<4; i++){
+			if (n[i] == num[0]) {cow+=1;}
+			if (n[i] == num[1]) {cow+=1;}
+			if (n[i] == num[2]) {cow+=1;}
+			if (n[i] == num[3]) {cow+=1;}
+			if (n[i] == num[i]) {cow-=1; bull+=1;}
+		}
+		if (bull == 4){
+			document.getElementById("turns-list").innerHTML += "<tr><td>"+list_n+"<span style='color: green; font-size:24px;'>&#10004;</span></td><td>"+n+"</td><td>"+bull+"</td><td>"+cow+"</td></tr>";
+		} else {
+			document.getElementById("turns-list").innerHTML += "<tr><td>"+list_n+"</td><td>"+n+"</td><td>"+bull+"</td><td>"+cow+"</td></tr>";
+		}
+		list_n += 1;
+		document.Turn.input.value = "";
+	}
+
+	function reset_game(){
+		num=[-1, -1, -1, -1];
+		make_num();
+		list_n = 1;
+		document.getElementById("input-note").innerHTML = "";
+		document.getElementById("turns-list").innerHTML = "";
+	}
+
+	function rnd(){
+		return Math.floor(Math.random()*10)
+	}
+	
+	function make_num(){
+		for(var i=0; i<4; i++){
+			do{
+				var a = rnd();
+			} while(a==num[0]||a==num[1]||a==num[2]||a==num[3])
+			num[i]=a;
+		}
+	}
+	
+	function hide_ans(item){
+		console.log(item);
+		console.log(item.innerHTML);
+		if (item.innerHTML == "*,*,*,*") {
+			item.innerHTML = num;
+		} else {
+			item.innerHTML = "*,*,*,*";
+		}
+	}
+	reset_game();
+
+
+</script>
+</body>
+</html>

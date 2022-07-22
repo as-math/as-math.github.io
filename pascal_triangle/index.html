@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Pascal Triangle</title>
+	<link rel="shortcut icon" href="../_icons/ico-6gon.png" type="image/png">
+	<style>
+		.big_button {
+			font-family: 'Arbutus Slab', 'Gabriela';
+			text-align: center;
+			background-color: #58cc02;
+			font-size: 16px;
+			padding: 6px;
+			margin: 2px;
+			border-radius: 10px;
+			border: 2px solid #58a700;
+			color: #ffffff;
+		}
+		.input-text {
+			font-family: 'Arbutus Slab', 'Gabriela';
+			width: 60px;
+			color: #000;
+			background-color: #ffffff;
+			font-size: 16px;
+			padding: 6px;
+			margin: 2px;
+			border-radius: 10px;
+			border: 2px solid #58a700;
+			}
+		html {
+			font-family: 'Arbutus Slab', 'Gabriela';
+			font-size: 16px;
+		}
+		a {
+			color: #5a6fd4;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #e1e9f0;
+		}
+	</style>
+	<link rel="stylesheet" href="../_fonts/Gabriela/gabriela.css">
+	<link rel="stylesheet" href="../_fonts/ArbutusSlab/arbutusslab.css">
+</head>
+<body>
+<a href="..">Home page</a><br>
+<input type="number" size="1" id="N" min="1" value="10" class="input-text">N<br>
+<input type="number" size="1" id="radius" min="1" value="20" class="input-text">Радиус<br>
+<input type="checkbox" id="even_color" value="1">Покрасить нечётные<br>
+<input type="button" value="Нарисовать" onclick="drawPascalTriangle()" class="big_button"><br>
+<a id="save">Сохранить</a><br>
+
+<canvas id="PascalTriangle"></canvas>
+
+<script>
+// Draw Pascal Triangle
+function drawPascalTriangle(){
+	var N = Number(document.getElementById('N').value);
+	var radius = Number(document.getElementById('radius').value);
+	var x = 0;
+	var y = 0;
+	var arr = Array.from(Array(N), () => 0);
+	arr[0] = 1;
+	var fontsize = 0;
+	var canvas = document.getElementById("PascalTriangle");
+	canvas.width = 2*(N+2)*radius;
+	canvas.height = (N+1)*radius*Math.sqrt(3);
+	var context = canvas.getContext("2d");
+	context.font = radius+"px Arial";
+	context.textAlign = "center";
+
+	for (var i=0; i<N; i++){
+		x = (N+4-i)*radius;
+		y = (i+1)*radius*Math.sqrt(3);
+		context.fillText("n="+i, x-3*radius, y+radius*0.3, radius*1.5);
+		for (var j=0; j<=i; j++){
+			context.beginPath();
+			context.moveTo(x, y);
+			if(!(~i&j) && document.getElementById("even_color").checked){
+				context.fillStyle = "yellow";
+				context.arc(x-radius,y, radius, 0, Math.PI*2, true);
+				context.fill()
+			} else {
+				context.arc(x-radius,y, radius, 0, Math.PI*2, true);
+			}
+			context.fillStyle = "black";
+			context.fillText(arr[j], x-radius, y+radius*0.3, radius*1.5);
+			x += 2 * radius;
+			context.stroke();
+		}
+		for (var j=N; j>0; j--){
+			arr[j]+=arr[j-1]
+		}
+	}
+	document.getElementById("save").href = canvas.toDataURL("test.png");
+	document.getElementById("save").download = "PascalTriangle.png";
+}
+
+</script>
+
+</body>

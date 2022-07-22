@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="puzzles.xsl"?>
+<document>
+
+	<group>
+		<date>26 Jan 2022</date>
+		<puzzle>
+			<id>017</id>
+			<image>017.png</image>
+			<question>
+				<text>Side of the triangle?</text>
+				<answer>1.6</answer>
+			</question>
+		</puzzle>
+		<puzzle>
+			<id>018</id>
+			<image>018.png</image>
+			<question>
+				<text>Major axis of the ellipse?</text>
+				<answer>1+sqrt(3)</answer>
+			</question>
+		</puzzle>
+		<puzzle>
+			<id>019</id>
+			<image>019.png</image>
+			<question>
+				<text>Major axis of the ellipse?</text>
+				<answer>sqrt(7)</answer>
+			</question>
+		</puzzle>
+	</group>
+
+	<group>
+		<date>19 Jan 2022</date>
+		<puzzle>
+			<id>016</id>
+			<image>016.png</image>
+			<question>
+				<text>Length of the leaf?</text>
+				<answer>5</answer>
+			</question>
+			<question>
+				<text>Height of center?</text>
+				<answer>5/7</answer>
+			</question>
+		</puzzle>
+	</group>
+
+	<group>
+		<date>13 Jan 2022</date>
+		<puzzle>
+			<id>014</id>
+			<image>014.png</image>
+			<question>
+				<text>S=?</text>
+				<answer>66</answer>
+			</question>
+		</puzzle>
+		<puzzle>
+			<id>015</id>
+			<image>015.png</image>
+			<question>
+				<text>R/r=?</text>
+				<answer>sqrt(2)</answer>
+			</question>
+		</puzzle>
+	</group>
+
+	<group>
+		<date>12 Jan 2022</date>
+		<puzzle>
+			<id>013</id>
+			<text>
+				В коробке лежат 48 шариков: 10 красных, 13 синих, 18 зелёных и 7 жёлтых. Какое минимальное количество шариков надо вытащить за раз не глядя, чтобы среди них точно был:
+			</text>
+			<questions>
+				<question>
+					<text>a) не жёлтый шарик;</text>
+					<answer>8</answer>
+				</question>
+				<question>
+					<text>б) шарик не синего и не красного цвета;</text>
+					<answer>24</answer>
+				</question>
+				<question>
+					<text>в) 2 шарика одинакового цвета;</text>
+					<answer>5</answer>
+				</question>
+				<question>
+					<text>г) 2 шарика разного цвета;</text>
+					<answer>19</answer>
+				</question>
+				<question>
+					<text>д) 3 шарика одинакового цвета;</text>
+					<answer>9</answer>
+				</question>
+				<question>
+					<text>е) 3 шарика разного цвета;</text>
+					<answer>32</answer>
+				</question>
+				<question>
+					<text>ё) 4 шарика одинакового цвета;</text>
+					<answer>13</answer>
+				</question>
+				<question>
+					<text>ж) 4 шарика разного цвета;</text>
+					<answer>42</answer>
+				</question>
+				<question>
+					<text>з) 5 синих шариков;</text>
+					<answer>40</answer>
+				</question>
+				<question>
+					<text>и) 7 жёлтых шариков;</text>
+					<answer>48</answer>
+				</question>
+				<question>
+					<text>й) 11 красных шариков;</text>
+					<answer></answer>
+				</question>
+				<question>
+					<text>к) 2 красных и 3 синих;</text>
+					<answer>40</answer>
+				</question>
+				<question>
+					<text>л) 7 зелёных и 5 жёлтых;</text>
+					<answer>46</answer>
+				</question>
+				<question>
+					<text>м) 2 синих, 3 зелёных и 4 красных;</text>
+					<answer>42</answer>
+				</question>
+				<question>
+					<text>н) 5 жёлтых, 6 синих и 7 зелёных;</text>
+					<answer>46</answer>
+				</question>
+				<question>
+					<text>о) либо 3 красных, либо 5 зелёных;</text>
+					<answer>27</answer>
+				</question>
+				<question>
+					<text>п) либо 5 синих, либо 3 зелёных, либо 2 жёлтых;</text>
+					<answer>18</answer>
+				</question>
+				<question>
+					<text>р) 2 синих и 2 красных либо 2 зелёных и 2 жёлтых;</text>
+					<answer>34</answer>
+				</question>
+				<question>
+					<text>с) 3 шарика одинакового цвета либо 2 разного цвета;</text>
+					<answer>3</answer>
+				</question>
+				<question>
+					<text>т) 3 шарика разного цвета и среди них был синий шарик?</text>
+					<answer>36</answer>
+				</question>
+			</questions>
+		</puzzle>
+	</group>
+
+	<group>
+		<date>10 Jan 2022</date>
+		<puzzle>
+			<id>011</id>
+			<image>011.png</image>
+			<question>
+				<text>Shaded area?</text>
+				<answer>10/17*pi</answer>
+			</question>
+		</puzzle>
+		<puzzle>
+			<id>012</id>
+			<image>012.png</image>
+			<question>
+				<text>Length?</text>
+				<answer>4/3</answer>
+			</question>
+		</puzzle>
+	</group>
+
+	<group>
+		<date>8 Jan 2022</date>
+		<puzzle>
+			<id>010</id>
+			<image>010.png</image>
+			<question>
+				<text>S=?</text>
+				<answer>2/(2-sqrt(3))</answer>
+			</question>
+		</puzzle>
+	</group>
+
+	<group>
+		<date>28 Dec 2021</date>
+		<puzzle>
+			<id>003</id>
+			<image>003.png</image>
+			<question>
+				<text>Length?</text>
+				<answer type="text">x</answer>
+			</question>
+		</puzzle>
+		<puzzle>
+			<id>004</id>
+			<image>004.png</image>
+			<question>
+				<text>Angle?</text>
+				<answer>pi/2</answer>
+				<answer>90</answer>
+			</question>
+		</puzzle>
+		<puzzle>
+			<id>005</id>
+			<image>005.png</image>
+			<question>
+				<text>Length?</text>
+				<answer type="text">x+y</answer>
+				<answer type="text">y+x</answer>
+			</question>
+		</puzzle>
+		<puzzle>
+			<id>006</id>
+			<image>006.png</image>
+			<question>
+				<text>Length?</text>
+				<answer type="text">4sqrt(xy)</answer>
+				<answer type="text">4sqrt(yx)</answer>
+				<answer type="text">4*sqrt(xy)</answer>
+				<answer type="text">4*sqrt(yx)</answer>
+				<answer type="text">4sqrt(x*y)</answer>
+				<answer type="text">4sqrt(y*x)</answer>
+				<answer type="text">4*sqrt(x*y)</answer>
+				<answer type="text">4*sqrt(y*x)</answer>
+			</question>
+		</puzzle>
+		<puzzle>
+			<id>007</id>
+			<image>007.png</image>
+			<question>
+				<text>Length?</text>
+				<answer type="text">y-x</answer>
+			</question>
+		</puzzle>
+		<puzzle>
+			<id>008</id>
+			<image>008.png</image>
+			<question>
+				<text>Angle?</text>
+				<answer>45</answer>
+				<answer>pi/4</answer>
+			</question>
+		</puzzle>
+		<puzzle>
+			<id>009</id>
+			<image>009.png</image>
+			<question>
+				<text>Length?</text>
+				<answer>15</answer>
+			</question>
+		</puzzle>
+	</group>
+
+	<group>
+		<date>26 Dec 2021</date>
+		<puzzle>
+			<id>001</id>
+			<image>001.png</image>
+			<question>
+				<text>S=?</text>
+				<answer>16</answer>
+			</question>
+		</puzzle>
+		<puzzle>
+			<id>002</id>
+			<image>002.png</image>
+			<question>
+				<text>S=?</text>
+				<answer>32</answer>
+			</question>
+		</puzzle>
+	</group>
+
+</document>
