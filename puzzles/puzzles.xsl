@@ -11,7 +11,7 @@
 <xsl:template name="html_head">
 	<head>
 		<title>AS - Math Puzzles</title>
-		<link rel="shortcut icon" href="../config/icons/ico-6gon.png" type="image/png" />
+		<link rel="shortcut icon" href="/config/icons/ico-6gon.png" type="image/png" />
 		<xsl:call-template name="html_head_style"/>
 		<script src="../config/nerdamer.core.js"></script>
 	</head>
@@ -19,8 +19,8 @@
 
 <xsl:template name="html_head_style">
 	<style>
-		@import url("../config/fonts/ArbutusSlab/arbutusslab.css");
-		@import url("../config/fonts/Gabriela/gabriela.css");
+		@import url("/config/fonts/ArbutusSlab/arbutusslab.css");
+		@import url("/config/fonts/Gabriela/gabriela.css");
 		:root {
 			--color_gray_1: #d3d3d3;
 			--color_gray_2: #a3a3a3;
@@ -116,7 +116,7 @@
 <xsl:template name="puzzles_page_title">
 	<table style="margin: auto;">
 		<tr>
-			<td><img style="height: 100px;" src="../config/icons/title-6gon.png" /></td>
+			<td><img style="height: 100px;" src="/config/icons/title-6gon.png" /></td>
 			<td style="vertical-align: middle;"><h1 style="color: var(--color_blue_1); display:inline-block; margin: 0;">Math Puzzles by AS</h1></td>
 		</tr>
 	</table>
