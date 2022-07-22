@@ -3,5 +3,5 @@
 Here are sources for [Web-pages](https://as-math.github.io) with math puzzles by Anastasia Serova!
 
 <p align="center">
-	<img src="./icons/title-6gon.png">
+	<img src="./_config/icons/title-6gon.png">
 </p>
