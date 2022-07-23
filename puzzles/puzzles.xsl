@@ -150,7 +150,7 @@
 </xsl:template>
 
 <xsl:template match="text" mode="puzzle_content">
-	<p style="display: block; width: 100%; text-align: justify;"><xsl:value-of select="."/></p>
+	<p style="display: block; width: 100%; text-align: justify;"><xsl:copy-of select="node()"/></p>
 </xsl:template>
 
 <xsl:template name="question_block">
