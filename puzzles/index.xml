@@ -3,6 +3,32 @@
 <document>
 
 	<group>
+		<date>23 Jun 2022</date>
+		<puzzle>
+			<id>020</id>
+			<text>TEST problem.</text>
+			<question>
+				<text>Side of the triangle?</text>
+				<answer>1.6</answer>
+			</question>
+			<questions>
+				<question>
+					<text>Side of the triangle?</text>
+					<answer>1.6</answer>
+				</question>
+				<question>
+					<text>Side of the triangle?</text>
+					<answer>1.6</answer>
+				</question>
+			</questions>
+			<question>
+				<text>Side of the triangle?</text>
+				<answer>1.6</answer>
+			</question>
+		</puzzle>
+	</group>
+
+	<group>
 		<date>26 Jan 2022</date>
 		<puzzle>
 			<id>017</id>
