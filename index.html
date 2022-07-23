@@ -14,7 +14,10 @@
 			--color_red_1: #fc9898;
 			--color_red_2: #ff0500;
 			--color_white: #ffffff;
-		}
+			}
+			html {
+				font-size: 16px;
+			}
 			body {
 				font-family: 'Arbutus Slab', 'Gabriela';
 				width: 100%;
@@ -25,14 +28,12 @@
 		</style>
 	</head>
 	<body>
-		<table style="margin: auto;">
-			<tr>
-				<td><img style="height: 100px;" src="/config/icons/title-6gon.png" /></td>
-				<td style="vertical-align: middle;"><h1 style="color: var(--color_blue_1); display:inline-block; margin: 0;">AS - Math</h1></td>
-			</tr>
-		</table>
-		<div><a href="./puzzles">Math puzzles</a></div>
-		<div><a href="./bulls_and_cows">Bull and cows</a></div>
-		<div><a href="./pascal_triangle">Pascal triangle</a></div>
+		<div style="margin: auto; display: table; max-width: 90vw;">
+			<img src="/config/icons/title-6gon.png" style="display: table-cell; vertical-align: middle; height: 7em;"/>
+			<h1 style="display: table-cell; vertical-align: middle; font-size: 2.5em; white-space: nowrap; color: var(--color_blue_1);">AS - Math</h1>
+		</div>
+		<div><a href="/puzzles">Math puzzles</a></div>
+		<div><a href="/bulls_and_cows">Bull and cows</a></div>
+		<div><a href="/pascal_triangle">Pascal triangle</a></div>
 	</body>
 </html>
