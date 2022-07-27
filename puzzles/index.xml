@@ -3,12 +3,32 @@
 <document>
 
 	<group>
+		<date>27 Jul 2022</date>
+		<puzzle>
+			<id>021</id>
+			<text>
+				Квадрокоптер на одном заряде аккумулятора летает 8&#160;мин. Если с полным аккумулятором полететь по ветру, то аккумулятор сядет через 6&#160;км, а если против ветра — через&#160;4 км. Сколько минут надо лететь по ветру, чтобы улететь как можно дальше, но потом успеть вернуться назад? На какое максимальное расстояние можно улететь таким образом? Изменится ли ответ, если сначала полететь против ветра, а потом по ветру?
+			</text>
+			<image>021.svg</image>
+			<question>
+				<text>Time? (min)</text>
+				<answer>3.2</answer>
+			</question>
+			<question>
+				<text>Max distance? (km)</text>
+				<answer>4.2</answer>
+			</question>
+		</puzzle>
+	</group>
+
+	<group>
 		<date>23 Jul 2022</date>
 		<puzzle>
 			<id>020</id>
 			<text>
 				Компьютер загадывает четыре неповторяющиеся цифры для игры в быков и коров. Делает он это таким образом: цифры выбирает по очереди, генерируя их случайным образом; если сгенерированная цифра не совпадает с уже имеющимися, то добавляет её в набор, а если совпадает, то генерирует цифру заново.<br/>
-				<b>Вопрос:</b> сколько в среднем раз компьютер генерирует случайную цифру, загадывая набор цифр для игры?</text>
+				<b>Вопрос:</b> сколько в среднем раз компьютер генерирует случайную цифру, загадывая набор цифр для игры?
+			</text>
 			<question>
 				<text>Average number of generations?</text>
 				<answer>1207/252</answer>
@@ -85,7 +105,7 @@
 		<puzzle>
 			<id>013</id>
 			<text>
-				В коробке лежат 48 шариков: 10 красных, 13 синих, 18 зелёных и 7 жёлтых. Какое минимальное количество шариков надо вытащить за раз не глядя, чтобы среди них точно был:
+				В коробке лежат 48&#160;шариков: 10&#160;красных, 13&#160;синих, 18&#160;зелёных и 7&#160;жёлтых. Какое минимальное количество шариков надо вытащить за раз не глядя, чтобы среди них точно был:
 			</text>
 			<questions>
 				<question>
@@ -97,75 +117,75 @@
 					<answer>24</answer>
 				</question>
 				<question>
-					<text>в) 2 шарика одинакового цвета;</text>
+					<text>в) 2&#160;шарика одинакового цвета;</text>
 					<answer>5</answer>
 				</question>
 				<question>
-					<text>г) 2 шарика разного цвета;</text>
+					<text>г) 2&#160;шарика разного цвета;</text>
 					<answer>19</answer>
 				</question>
 				<question>
-					<text>д) 3 шарика одинакового цвета;</text>
+					<text>д) 3&#160;шарика одинакового цвета;</text>
 					<answer>9</answer>
 				</question>
 				<question>
-					<text>е) 3 шарика разного цвета;</text>
+					<text>е) 3&#160;шарика разного цвета;</text>
 					<answer>32</answer>
 				</question>
 				<question>
-					<text>ё) 4 шарика одинакового цвета;</text>
+					<text>ё) 4&#160;шарика одинакового цвета;</text>
 					<answer>13</answer>
 				</question>
 				<question>
-					<text>ж) 4 шарика разного цвета;</text>
+					<text>ж) 4&#160;шарика разного цвета;</text>
 					<answer>42</answer>
 				</question>
 				<question>
-					<text>з) 5 синих шариков;</text>
+					<text>з) 5&#160;синих шариков;</text>
 					<answer>40</answer>
 				</question>
 				<question>
-					<text>и) 7 жёлтых шариков;</text>
+					<text>и) 7&#160;жёлтых шариков;</text>
 					<answer>48</answer>
 				</question>
 				<question>
-					<text>й) 11 красных шариков;</text>
+					<text>й) 11&#160;красных шариков;</text>
 					<answer></answer>
 				</question>
 				<question>
-					<text>к) 2 красных и 3 синих;</text>
+					<text>к) 2&#160;красных и 3&#160;синих;</text>
 					<answer>40</answer>
 				</question>
 				<question>
-					<text>л) 7 зелёных и 5 жёлтых;</text>
+					<text>л) 7&#160;зелёных и 5&#160;жёлтых;</text>
 					<answer>46</answer>
 				</question>
 				<question>
-					<text>м) 2 синих, 3 зелёных и 4 красных;</text>
+					<text>м) 2&#160;синих, 3&#160;зелёных и 4&#160;красных;</text>
 					<answer>42</answer>
 				</question>
 				<question>
-					<text>н) 5 жёлтых, 6 синих и 7 зелёных;</text>
+					<text>н) 5&#160;жёлтых, 6&#160;синих и 7&#160;зелёных;</text>
 					<answer>46</answer>
 				</question>
 				<question>
-					<text>о) либо 3 красных, либо 5 зелёных;</text>
+					<text>о) либо 3&#160;красных, либо 5&#160;зелёных;</text>
 					<answer>27</answer>
 				</question>
 				<question>
-					<text>п) либо 5 синих, либо 3 зелёных, либо 2 жёлтых;</text>
+					<text>п) либо 5&#160;синих, либо 3&#160;зелёных, либо 2&#160;жёлтых;</text>
 					<answer>18</answer>
 				</question>
 				<question>
-					<text>р) 2 синих и 2 красных либо 2 зелёных и 2 жёлтых;</text>
+					<text>р) 2&#160;синих и 2&#160;красных либо 2&#160;зелёных и 2&#160;жёлтых;</text>
 					<answer>34</answer>
 				</question>
 				<question>
-					<text>с) 3 шарика одинакового цвета либо 2 разного цвета;</text>
+					<text>с) 3&#160;шарика одинакового цвета либо 2&#160;разного цвета;</text>
 					<answer>3</answer>
 				</question>
 				<question>
-					<text>т) 3 шарика разного цвета и среди них был синий шарик?</text>
+					<text>т) 3&#160;шарика разного цвета и среди них был синий шарик?</text>
 					<answer>36</answer>
 				</question>
 			</questions>
@@ -229,7 +249,6 @@
 			<question>
 				<text>Length?</text>
 				<answer type="text">x+y</answer>
-				<answer type="text">y+x</answer>
 			</question>
 		</puzzle>
 		<puzzle>
@@ -237,14 +256,7 @@
 			<image>006.png</image>
 			<question>
 				<text>Length?</text>
-				<answer type="text">4sqrt(xy)</answer>
-				<answer type="text">4sqrt(yx)</answer>
-				<answer type="text">4*sqrt(xy)</answer>
-				<answer type="text">4*sqrt(yx)</answer>
-				<answer type="text">4sqrt(x*y)</answer>
-				<answer type="text">4sqrt(y*x)</answer>
 				<answer type="text">4*sqrt(x*y)</answer>
-				<answer type="text">4*sqrt(y*x)</answer>
 			</question>
 		</puzzle>
 		<puzzle>

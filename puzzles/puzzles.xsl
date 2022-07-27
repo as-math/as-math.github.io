@@ -97,6 +97,10 @@
 		.result:hover + .result_note{
 			opacity: 1;
 		}
+		a.head_link {
+			display: block;
+			color: var(--color_blue_1);
+		}
 	</style>
 </xsl:template>
 
@@ -117,7 +121,8 @@
 </xsl:template>
 
 <xsl:template name="go_to_home_page">
-	<a href="..">Home page</a>
+	<a class="head_link" href="..">Home page</a>
+	<a class="head_link" href="https://t.me/SerovaA_math">Telegram</a>
 </xsl:template>
 
 <xsl:template match="group">
