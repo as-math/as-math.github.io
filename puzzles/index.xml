@@ -18,6 +18,9 @@
 				<text>Max distance? (km)</text>
 				<answer>2.4</answer>
 			</question>
+			<text>
+				<b>P.S.</b> Найдите геометрическое место точек, максимально достижимых во всех направлениях.
+			</text>
 		</puzzle>
 	</group>
 
