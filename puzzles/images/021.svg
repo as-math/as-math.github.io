@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="380px" height="60px" xmlns="http://www.w3.org/2000/svg" >
+	<g id="drone" fill="black" stroke="black" stroke-linecap="round" transform="rotate(30, 30, 30) ">
+		<!-- Drone -->
+		<ellipse cx="30" cy="30" rx="10" ry="3" />
+		<g id="front_propeller">
+			<path stroke-width="3" d="M 27 30 L 10 22"/>
+			<ellipse cx="10" cy="22" rx="10" ry="6" fill="none" stroke-width="0.5"/>
+			<g id="front_propeller_lines" fill="none" stroke-width="0.5">
+				<path d="M 10 16 A 10 6 0 0 1 20 22" transform="scale(0.9, 0.9) translate(1, 3)"/>
+				<path d="M 10 16 A 10 6 0 0 1 20 22" transform="scale(0.7, 0.7) translate(4.5, 10)"/>
+				<path d="M 10 16 A 10 6 0 0 1 20 22" transform="scale(0.5, 0.5) translate(11, 22.5)"/>
+			</g>
+			<use href="#front_propeller_lines" transform="translate(20.5, 44) scale(-1, -1)" />
+		</g>
+		<use href="#front_propeller" transform="translate(60, 0) scale(-1, 1)" />
+		<g id="back_propeller">
+			<path stroke-width="3" d="M 27 30 L 14 35"/>
+			<ellipse cx="14" cy="35" rx="8" ry="5" fill="none" stroke-width="0.5"/>
+			<g id="front_propeller_lines" fill="none" stroke-width="0.5">
+				<path d="M 14 40 A 8 5 0 0 1 6 35" transform="scale(0.9, 0.9) translate(1.5, 3.5)"/>
+				<path d="M 14 40 A 8 5 0 0 1 6 35" transform="scale(0.7, 0.7) translate(5.4, 14.5)"/>
+				<path d="M 14 40 A 8 5 0 0 1 6 35" transform="scale(0.5, 0.5) translate(12.5, 34.5)"/>
+			</g>
+		</g>
+		<use href="#back_propeller" transform="translate(60, 0) scale(-1, 1)" />
+	</g>
+	<!-- Drone path -->
+	<path d="M 40 20 c 10 -10 30 -30 50 -5 s -30 30 0 0 s 40 20 60 0 s 30 -3 40 25 s 20 10 30 0 c 40 -40 -40 -40 0 0 s 70 5 50 0 s 0 -20 10 -20 c 10 -5 60 0 70 10" stroke="#e93c39" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" fill="none" />
+	<path d="M 350 25 l 15 15 m 0 -15 l -15 15" stroke="#e93c39" stroke-width="3" stroke-linecap="round" fill="none" />
+</svg>
