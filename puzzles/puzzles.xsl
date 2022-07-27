@@ -55,6 +55,11 @@
 			--result_note_padding: 1rem;
 			--result_note_width: 15rem;
 		}
+		@media only screen and (max-device-width: 640px) {
+			:root {
+				font-size: 30px;
+			}
+		}
 		body {
 			font-family: 'Arbutus Slab', 'Gabriela';
 			width: 100%;
@@ -121,8 +126,9 @@
 </xsl:template>
 
 <xsl:template name="go_to_home_page">
-	<a class="head_link" href="..">Home page</a>
-	<a class="head_link" href="https://t.me/SerovaA_math">Telegram</a>
+	<a class="head_link" href="/">Home page</a>
+	<a class="head_link" href="https://t.me/SerovaA_math"><img src="/config/icons/telegram_icon.svg" style="height: 1em; margin-right: 0.2em; margin-bottom: -0.1em;"/>Telegram channel</a>
+	
 </xsl:template>
 
 <xsl:template match="group">
