@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<xsl:template match="/document">
-	<html>
-		<xsl:call-template name="html_head"/>
-		<xsl:call-template name="html_body"/>
-	</html>
-</xsl:template>
-
-<xsl:template name="html_head">
-	<head>
-		<title>AS - Math Puzzles</title>
-		<link rel="shortcut icon" href="/config/icons/ico-6gon.png" type="image/png" />
-		<xsl:call-template name="html_head_style"/>
-		<script src="/config/nerdamer.core.js"></script>
-	</head>
-</xsl:template>
-
 <xsl:template name="html_head_style">
 	<style>
 		@import url("/config/fonts/ArbutusSlab/arbutusslab.css");
@@ -109,6 +93,23 @@
 	</style>
 </xsl:template>
 
+<!-- MAIN DOCUMENT -->
+<xsl:template match="/document">
+	<html>
+		<xsl:call-template name="html_head"/>
+		<xsl:call-template name="html_body"/>
+	</html>
+</xsl:template>
+
+<xsl:template name="html_head">
+	<head>
+		<title>AS - Math Puzzles</title>
+		<link rel="shortcut icon" href="/config/icons/ico-6gon.png" type="image/png" />
+		<xsl:call-template name="html_head_style"/>
+		<script src="/config/nerdamer.core.js"></script>
+	</head>
+</xsl:template>
+
 <xsl:template name="html_body">
 	<body>
 		<xsl:call-template name="puzzles_page_title"/>
@@ -131,6 +132,7 @@
 	
 </xsl:template>
 
+<!-- GROUP -->
 <xsl:template match="group">
 	<div class="group" style="display: block; margin: 2rem auto;">
 		<xsl:call-template name="group_head"/>
@@ -144,7 +146,11 @@
 	</div>
 </xsl:template>
 
+<!-- PUZZLE -->
 <xsl:template match="puzzle">
+	<xsl:variable name="id">
+		<xsl:value-of select="./id" />
+	</xsl:variable>
 	<div style="display: inline-block; width: var(--puzzle_max_width);">
 		<xsl:attribute name="id"><xsl:value-of select="id" /></xsl:attribute>
 		<xsl:for-each select="image|text">
@@ -153,6 +159,11 @@
 		<xsl:for-each select="question|questions">
 			<xsl:call-template name="question_block"/>
 		</xsl:for-each>
+		<xsl:if test="count(./question)+count(./questions) = 0">
+			<xsl:call-template name="question_status">
+				<xsl:with-param name="question_id" select="$id"/>
+			</xsl:call-template>
+		</xsl:if>
 	</div>
 </xsl:template>
 
@@ -170,6 +181,7 @@
 	</xsl:choose> 
 </xsl:template>
 
+<!-- Puzzle content -->
 <xsl:template match="text" mode="puzzle_content">
 	<p style="display: block; width: 100%; text-align: justify;"><xsl:copy-of select="node()"/></p>
 </xsl:template>
@@ -186,19 +198,20 @@
 
 <xsl:template match="node()" mode="svg_image">
 	<xsl:copy>
-		<xsl:apply-templates select="@*"/>
+		<xsl:apply-templates select="@*" mode="copy"/>
 		<xsl:attribute name="width">100%</xsl:attribute>
 		<xsl:attribute name="height"></xsl:attribute>
-		<xsl:apply-templates select="node()"/>
+		<xsl:apply-templates select="node()" mode="copy"/>
 	</xsl:copy>
 </xsl:template>
 
-<xsl:template match="@*|node()">
+<xsl:template match="@*|node()" mode="copy">
 		<xsl:copy>
-				<xsl:apply-templates select="@*|node()"/>
+				<xsl:apply-templates select="@*|node()" mode="copy"/>
 		</xsl:copy>
 </xsl:template>
 
+<!-- QUESTION BLOCK -->
 <xsl:template name="question_block">
 	<xsl:variable name="question_id_variable">
 		<xsl:value-of select="../id" />
@@ -207,20 +220,28 @@
 			<xsl:value-of select="count(preceding-sibling::question)+count(preceding-sibling::questions)+1" />
 		</xsl:if>
 	</xsl:variable>
-	<div style="display: block; width: 100%; text-align: left;">
-		<div style="display: inline-block; font-weight: bold; font-size: var(--question_id_font_size); color: var(--color_gray_2); padding-left: 10%;">
-			#<xsl:value-of select="$question_id_variable"/>
-		</div>
-		<div style="position: relative; left: 0.5rem; display: inline-block;">
-			<div class="result" id="result_{$question_id_variable}" style="display: inline-block; font-weight: normal; font-size: var(--question_result_font_size);"></div>
-			<div class="result_note" id="result_note_{$question_id_variable}"></div>
-		</div>
-	</div>
+	<xsl:call-template name="question_status">
+		<xsl:with-param name="question_id" select="$question_id_variable"/>
+	</xsl:call-template>
 	<xsl:apply-templates select="." mode="puzzle_content">
 		<xsl:with-param name="question_id" select="$question_id_variable"/>
 	</xsl:apply-templates>
 </xsl:template>
 
+<xsl:template name="question_status">
+	<xsl:param name="question_id"/>
+	<div style="display: block; width: 100%; text-align: left;">
+		<div style="display: inline-block; font-weight: bold; font-size: var(--question_id_font_size); color: var(--color_gray_2); padding-left: 10%;">
+			#<xsl:value-of select="$question_id"/>
+		</div>
+		<div style="position: relative; left: 0.5rem; display: inline-block;">
+			<div class="result" id="result_{$question_id}" style="display: inline-block; font-weight: normal; font-size: var(--question_result_font_size);"></div>
+			<div class="result_note" id="result_note_{$question_id}"></div>
+		</div>
+	</div>
+</xsl:template>
+
+<!-- Question -->
 <xsl:template match="question" mode="puzzle_content">
 	<xsl:param name="question_id"/>
 	<div style="display:block; width: 100%;">
@@ -256,6 +277,7 @@
 	</button>
 </xsl:template>
 
+<!-- Questions -->
 <xsl:template match="questions" mode="puzzle_content">
 	<xsl:param name="question_id"/>
 	<table>
@@ -320,6 +342,7 @@
 	</button>
 </xsl:template>
 
+<!-- JavaScript -->
 <xsl:template name="js-script">
 	<script>
 		async function check(id, ans){
