@@ -145,7 +145,7 @@
 </xsl:template>
 
 <xsl:template match="puzzle">
-	<div style="display: inline-block; max-width: var(--puzzle_max_width);">
+	<div style="display: inline-block; width: var(--puzzle_max_width);">
 		<xsl:attribute name="id"><xsl:value-of select="id" /></xsl:attribute>
 		<xsl:for-each select="image|text">
 			<xsl:apply-templates select="." mode="puzzle_content"/>
@@ -157,11 +157,46 @@
 </xsl:template>
 
 <xsl:template match="image" mode="puzzle_content">
-	<img src="./images/{.}" style="display: block; width: 100%; max-height: var(--puzzle_image_max_height);"/>
+	<xsl:choose>
+		<xsl:when test="./@type='svg'">
+			<xsl:variable name="svg_src" select="concat('./images/', ./node())"/>
+			<xsl:call-template name="include_svg__width_100">
+				<xsl:with-param name="src" select="$svg_src"/>
+			</xsl:call-template>
+		</xsl:when>
+		<xsl:otherwise>
+			<img src="./images/{.}" style="display: block; max-width: 100%; max-height: var(--puzzle_image_max_height); margin: auto;"/>
+		</xsl:otherwise>
+	</xsl:choose> 
 </xsl:template>
 
 <xsl:template match="text" mode="puzzle_content">
 	<p style="display: block; width: 100%; text-align: justify;"><xsl:copy-of select="node()"/></p>
+</xsl:template>
+
+<xsl:template name="include_svg__width_100">
+	<xsl:param name="src"/>
+	<xsl:apply-templates select="document($src)" mode="svg_image"/>
+</xsl:template>
+
+<xsl:template name="include_svg">
+	<xsl:param name="src"/>
+	<xsl:copy-of select="document($src)"/>
+</xsl:template>
+
+<xsl:template match="node()" mode="svg_image">
+	<xsl:copy>
+		<xsl:apply-templates select="@*"/>
+		<xsl:attribute name="width">100%</xsl:attribute>
+		<xsl:attribute name="height"></xsl:attribute>
+		<xsl:apply-templates select="node()"/>
+	</xsl:copy>
+</xsl:template>
+
+<xsl:template match="@*|node()">
+		<xsl:copy>
+				<xsl:apply-templates select="@*|node()"/>
+		</xsl:copy>
 </xsl:template>
 
 <xsl:template name="question_block">
