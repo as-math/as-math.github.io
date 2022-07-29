@@ -3,8 +3,8 @@
 
 <xsl:template name="html_head_style">
 	<style>
-		@import url("/config/fonts/ArbutusSlab/arbutusslab.css");
-		@import url("/config/fonts/Gabriela/gabriela.css");
+		@import url("/_config/fonts/ArbutusSlab/arbutusslab.css");
+		@import url("/_config/fonts/Gabriela/gabriela.css");
 		:root {
 			--color_gray_1: #d3d3d3;
 			--color_gray_2: #a3a3a3;
@@ -104,9 +104,9 @@
 <xsl:template name="html_head">
 	<head>
 		<title>AS - Math Puzzles</title>
-		<link rel="shortcut icon" href="/config/icons/ico-6gon.png" type="image/png" />
+		<link rel="shortcut icon" href="/_config/icons/ico-6gon.png" type="image/png" />
 		<xsl:call-template name="html_head_style"/>
-		<script src="/config/nerdamer.core.js"></script>
+		<script src="/_config/nerdamer.core.js"></script>
 	</head>
 </xsl:template>
 
@@ -121,14 +121,14 @@
 
 <xsl:template name="puzzles_page_title">
 	<div style="margin: auto; display: table; max-width: 90vw;">
-		<img src="/config/icons/title-6gon.png" style="display: table-cell; vertical-align: middle; height: 7rem;"/>
+		<img src="/_config/icons/title-6gon.png" style="display: table-cell; vertical-align: middle; height: 7rem;"/>
 		<h1 style="display: table-cell; vertical-align: middle; font-size: 2.5rem; white-space: nowrap; color: var(--color_blue_1);">Math Puzzles by AS</h1>
 	</div>
 </xsl:template>
 
 <xsl:template name="go_to_home_page">
 	<a class="head_link" href="/">Home page</a>
-	<a class="head_link" href="https://t.me/SerovaA_math"><img src="/config/icons/telegram_icon.svg" style="height: 1em; margin-right: 0.2em; margin-bottom: -0.1em;"/>Telegram channel</a>
+	<a class="head_link" href="https://t.me/SerovaA_math"><img src="/_config/icons/telegram_icon.svg" style="height: 1em; margin-right: 0.2em; margin-bottom: -0.1em;"/>Telegram channel</a>
 	
 </xsl:template>
 
