@@ -8,8 +8,8 @@ extension-element-prefixes="str">
 <!--#####   CSS   #####-->
 <xsl:template name="html_head_style">
 	<style>
-		@import url("/_config/fonts/ArbutusSlab/arbutusslab.css");
-		@import url("/_config/fonts/Gabriela/gabriela.css");
+		@import url("/config/fonts/ArbutusSlab/arbutusslab.css");
+		@import url("/config/fonts/Gabriela/gabriela.css");
 		:root {
 			--color_gray_1: #d3d3d3;
 			--color_gray_2: #a3a3a3;
@@ -221,9 +221,9 @@ extension-element-prefixes="str">
 	<head>
 		<meta charset="utf-8"/>
 		<title>AS - Math Puzzles</title>
-		<link rel="shortcut icon" href="/_config/icons/ico-6gon.png" type="image/png" />
+		<link rel="shortcut icon" href="/config/icons/ico-6gon.png" type="image/png" />
 		<xsl:call-template name="html_head_style"/>
-		<script src="/_config/nerdamer.core.js"></script>
+		<script src="/config/nerdamer.core.js"></script>
 	</head>
 </xsl:template>
 
@@ -240,7 +240,7 @@ extension-element-prefixes="str">
 <!-- title -->
 <xsl:template name="puzzles_page_title">
 	<div class="puzzles_page_title">
-		<img class="puzzles_page_title" src="/_config/icons/title-6gon.png"/>
+		<img class="puzzles_page_title" src="/config/icons/title-6gon.png"/>
 		<h1 class="puzzles_page_title">Math Puzzles by AS</h1>
 	</div>
 </xsl:template>
@@ -248,7 +248,7 @@ extension-element-prefixes="str">
 <!-- title links -->
 <xsl:template name="title_links">
 	<a class="puzzles_page_title" href="/">Home page</a>
-	<a class="puzzles_page_title" href="https://t.me/SerovaA_math"><img src="/_config/icons/telegram_icon.svg" style="height: 1em; margin-right: 0.2em; margin-bottom: -0.1em;"/>Telegram channel</a>
+	<a class="puzzles_page_title" href="https://t.me/SerovaA_math"><img src="/config/icons/telegram_icon.svg" style="height: 1em; margin-right: 0.2em; margin-bottom: -0.1em;"/>Telegram channel</a>
 
 </xsl:template>
 
