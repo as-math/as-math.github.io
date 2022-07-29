@@ -46,16 +46,14 @@
 				<answer>1.6</answer>
 			</question>
 		</puzzle>
-		<puzzle>
-			<id>018</id>
+		<puzzle id="018">
 			<image>018.png</image>
 			<question>
 				<text>Major axis of the ellipse?</text>
 				<answer>1+sqrt(3)</answer>
 			</question>
 		</puzzle>
-		<puzzle>
-			<id>019</id>
+		<puzzle id="019">
 			<image>019.png</image>
 			<question>
 				<text>Major axis of the ellipse?</text>
@@ -197,8 +195,7 @@
 				<answer>10/17*pi</answer>
 			</question>
 		</puzzle>
-		<puzzle>
-			<id>012</id>
+		<puzzle id="012">
 			<image>012.png</image>
 			<question>
 				<text>Length?</text>
