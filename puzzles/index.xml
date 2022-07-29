@@ -3,24 +3,6 @@
 <document>
 
 	<group>
-		<date>8 Jan 5555</date>
-		<puzzle id="111">
-			<text>The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. The quick brown fox jumped over the lazy dog. </text>
-		</puzzle>
-	</group>
-
-	<group>
-		<date>8 Jan 5555</date>
-		<puzzle id="222">
-			<image type="svg">010.svg</image>
-			<question>
-				<text>S=?</text>
-				<answer>2/(2-sqrt(3))</answer>
-			</question>
-		</puzzle>
-	</group>
-
-	<group>
 		<date>27 Jul 2022</date>
 		<puzzle id="021">
 			<text>

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+xmlns:str="http://exslt.org/strings"
+extension-element-prefixes="str">
 
 <!--###################-->
 <!--#####   CSS   #####-->
@@ -103,19 +106,27 @@
 			width: 100%;
 		}
 		div.question_status {
-			display: block;
-			width: 100%;
+			display: table;
+			width: 80%;
+			margin: auto;
 			text-align: left;
 		}
 		div.question_id {
 			display: inline-block;
+			width: max-content;
 			font-weight: bold;
 			font-size: 1.5rem;
 			color: var(--color_gray_2);
-			padding-left: 10%;
+		}
+		button.puzzle_lang_button {
+			display: inline-block;
+			width: max-content;
+			float:right;
 		}
 		div.question_result_block, div.questions_result_block {
 			position: relative;
+			width: 1.3rem;
+			display: inline-block;
 		}
 		div.question_result, div.questions_result {
 			font-weight: normal;
@@ -172,14 +183,10 @@
 			padding: 0;
 			margin-top: 4px;
 			margin-bottom: 4px;
-			line-height: 1;
+			line-height: 1em;
 		}
 		div.question_result_block {
-			left: 0.5rem;
-			display: inline-block;
-		}
-		div.question_result {
-			display: inline-block;
+			padding-left: 0.5rem;
 		}
 		div.question_result_note {
 			left: 23px;
@@ -197,13 +204,6 @@
 			padding: 0.2rem;
 			margin: 0.1rem;
 		}
-		div.questions_result_block {
-		}
-		div.questions_result {
-			width: 1.3rem;
-		}
-		div.questions_result_note {
-		}
 	</style>
 </xsl:template>
 
@@ -219,6 +219,7 @@
 <!-- head -->
 <xsl:template name="html_head">
 	<head>
+		<meta charset="utf-8"/>
 		<title>AS - Math Puzzles</title>
 		<link rel="shortcut icon" href="/_config/icons/ico-6gon.png" type="image/png" />
 		<xsl:call-template name="html_head_style"/>
@@ -248,7 +249,7 @@
 <xsl:template name="title_links">
 	<a class="puzzles_page_title" href="/">Home page</a>
 	<a class="puzzles_page_title" href="https://t.me/SerovaA_math"><img src="/_config/icons/telegram_icon.svg" style="height: 1em; margin-right: 0.2em; margin-bottom: -0.1em;"/>Telegram channel</a>
-	
+
 </xsl:template>
 
 <!--#####################-->
@@ -266,6 +267,9 @@
 	<xsl:variable name="puzzle_id">
 		<xsl:value-of select="./@id" />
 	</xsl:variable>
+	<xsl:variable name="lang_list">
+		<xsl:value-of select="./@lang" />
+	</xsl:variable>
 	<div class="puzzle">
 		<xsl:attribute name="id"><xsl:value-of select="$puzzle_id" /></xsl:attribute>
 		<xsl:apply-templates mode="puzzle_content">
@@ -275,6 +279,7 @@
 			<xsl:call-template name="question_status">
 				<xsl:with-param name="puzzle_id" select="$puzzle_id"/>
 				<xsl:with-param name="question_id" select="$puzzle_id"/>
+				<xsl:with-param name="lang_list" select="$lang_list"/>
 			</xsl:call-template>
 		</xsl:if>
 	</div>
@@ -295,9 +300,8 @@
 
 <xsl:template match="node()" mode="svg_image__width_100">
 	<xsl:copy>
-		<xsl:apply-templates select="@*" mode="copy"/>
+		<xsl:apply-templates select="@*[not(name(.) = 'height')]" mode="copy"/>
 		<xsl:attribute name="width">100%</xsl:attribute>
-		<xsl:attribute name="height"></xsl:attribute>
 		<xsl:apply-templates select="node()" mode="copy"/>
 	</xsl:copy>
 </xsl:template>
@@ -320,6 +324,7 @@
 <xsl:template name="question_status">
 	<xsl:param name="puzzle_id"/>
 	<xsl:param name="question_id"/>
+	<xsl:param name="lang_list"/>
 	<div class="question_status">
 		<div class="question_id">
 			#<xsl:value-of select="$question_id"/>
@@ -328,12 +333,21 @@
 			<div class="question_result" id="result_{$question_id}"></div>
 			<div class="question_result_note" id="result_note_{$question_id}"></div>
 		</div>
+		<!--<xsl:if test="$question_id=$puzzle_id or $question_id=concat($puzzle_id, '_1')">
+			<button id="lang_button_EO_{$puzzle_id}" class="puzzle_lang_button" onclick="change_puzzle_lang('EO', '{$puzzle_id}')">EO</button>
+			<button id="lang_button_RU_{$puzzle_id}" class="puzzle_lang_button" onclick="change_puzzle_lang('RU', '{$puzzle_id}')">RU</button>
+			<button id="lang_button_EN_{$puzzle_id}" class="puzzle_lang_button" onclick="change_puzzle_lang('EN', '{$puzzle_id}')">EN</button>
+			<xsl:for-each select="str:tokenize($lang_list, ';')">
+				<p><xsl:value-of select="."/></p>
+			</xsl:for-each>
+		</xsl:if>-->
 	</div>
 </xsl:template>
 
 <!-- question/questions -->
 <xsl:template match="question | questions" mode="puzzle_content">
 	<xsl:param name="puzzle_id"/>
+	<xsl:param name="lang_list"/>
 	<xsl:variable name="question_id">
 		<xsl:value-of select="$puzzle_id" />
 		<xsl:if test="count(../question)+count(../questions) > 1">
@@ -344,6 +358,7 @@
 	<xsl:call-template name="question_status">
 		<xsl:with-param name="puzzle_id" select="$puzzle_id"/>
 		<xsl:with-param name="question_id" select="$question_id"/>
+		<xsl:with-param name="lang_list" select="$lang_list"/>
 	</xsl:call-template>
 	<xsl:apply-templates select="." mode="questions">
 		<xsl:with-param name="question_id" select="$question_id"/>
@@ -460,6 +475,10 @@
 <!--#####   JavaScript   #####-->
 <xsl:template name="js-script">
 	<script>
+		function change_puzzle_lang(lang, id) {
+			console.log('change_lang', lang, id)
+		}
+
 		async function check(id, ans){
 			var input_node = document.getElementById("input_"+id);
 			var result_node = document.getElementById("result_"+id);
