@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+<!--###################-->
+<!--#####   CSS   #####-->
 <xsl:template name="html_head_style">
 	<style>
 		@import url("/_config/fonts/ArbutusSlab/arbutusslab.css");
@@ -14,30 +16,6 @@
 			--color_red_1: #ffaaa7;
 			--color_red_2: #ff0500;
 			--color_white: #ffffff;
-			--puzzle_max_width: min(30rem, 90vw);
-			--puzzle_image_max_height: 20rem;
-			--group_head_font_size: 1rem;
-			--question_id_font_size: 1.5rem;
-			--question_result_font_size: 1.3rem;
-			--question_input_font_size: 1rem;
-			--question_input_padding: 0.5rem;
-			--question_input_margin: 0.2rem;
-			--question_input_width: 80%;
-			--question_input_min_width: 13rem;
-			--question_button_font_size: 1rem;
-			--question_button_padding: 0.5rem;
-			--question_button_margin: 0.1rem;
-			--question_result_small_font_size: 1.3rem;
-			--question_result_small_width: 1.3rem;
-			--question_input_small_font_size: 0.9rem;
-			--question_input_small_padding: 0.2rem;
-			--question_input_small_margin: 0.1rem;
-			--question_input_small_width: 2rem;
-			--question_button_small_font_size: 0.9rem;
-			--question_button_small_padding: 0.2rem;
-			--question_button_small_margin: 0.1rem;
-			--result_note_padding: 1rem;
-			--result_note_width: 15rem;
 		}
 		@media only screen and (max-device-width: 640px) {
 			:root {
@@ -54,46 +32,183 @@
 		table {
 			border-collapse: collapse;
 		}
-		button {
-			font-family: 'Arbutus Slab', 'Gabriela';
-			text-align:  center;
-			border-radius: 10px;
-			background-color: var(--color_blue_1);
-			border: 2px solid var(--color_blue_1);
-			color: var(--color_white);
+
+		/* *********************** */
+		/* ** PUZZLE PAGE TITLE ** */
+		/* *********************** */
+		div.puzzles_page_title {
+			display: table;
+			margin: auto;
+			max-width: 90vw;
 		}
-		input {
-			font-family: 'Arbutus Slab', 'Gabriela';
-			text-align:  center;
-			background-color: var(--color_white);
-			border-radius: 10px;
-			border: 2px solid var(--color_blue_1);
+		img.puzzles_page_title {
+			display: table-cell;
+			vertical-align: middle;
+			height: 7rem;
 		}
-		.result_note {
+		h1 {
+			display: table-cell;
+			vertical-align: middle;
+			font-size: 2.5rem;
+			white-space: nowrap;
+			color: var(--color_blue_1);
+		}
+		a.puzzles_page_title {
+			display: block;
+			color: var(--color_blue_1);
+		}
+
+		/* *********** */
+		/* ** GROUP ** */
+		/* *********** */
+		div.group {
+			display: block;
+			margin: 2rem auto;
+		}
+		hr.group {
+			width: 95%;
+			border: none;
+			border-top: 0.2rem solid var(--color_gray_1);
+			margin: 0.1rem auto;
+			text-align: left;
+			font-weight: bold;
+			font-size: 1rem;
+			color: var(--color_gray_2);
+		}
+
+		/* ************ */
+		/* ** PUZZLE ** */
+		/* ************ */
+		div.puzzle {
+			display: inline-block;
+			width: min(30rem, 90vw);
+		}
+		.puzzle_content {
+			display: block;
+			max-width: 100%;
+		}
+		p.puzzle_content {
+			text-align: justify;
+		}
+		img.puzzle_content {
+			max-height: 20rem;
+			margin: auto;
+		}
+
+		/* ************** */
+		/* ** QUESTION ** */
+		/* ************** */
+		div.puzzle_content_block {
+			display: block;
+			width: 100%;
+		}
+		div.question_status {
+			display: block;
+			width: 100%;
+			text-align: left;
+		}
+		div.question_id {
+			display: inline-block;
+			font-weight: bold;
+			font-size: 1.5rem;
+			color: var(--color_gray_2);
+			padding-left: 10%;
+		}
+		div.question_result_block, div.questions_result_block {
+			position: relative;
+		}
+		div.question_result, div.questions_result {
+			font-weight: normal;
+			font-size: 1.3rem;
+		}
+		div.question_result_note, div.questions_result_note {
 			opacity: 0;
 			transition: opacity 0.5s;
 			pointer-events: none;
-			border-radius: 10px;
-			border: 2px solid black;
+			border-radius: 0.7em;
+			border: 0.15em solid black;
 			text-align: justify;
 			display: none;
 			position: absolute;
-			left: 23px;
-			width: var(--result_note_width);
-			max-width: var(--result_note_max_width);
-			padding: var(--result_note_padding);
+			width: 15rem;
+			padding: 1rem;
+			z-index: 1;
 		}
-		.result:hover + .result_note{
+		div.question_result:hover + div.question_result_note,
+		div.questions_result:hover + div.questions_result_note {
 			opacity: 1;
 		}
-		a.head_link {
-			display: block;
-			color: var(--color_blue_1);
+		input.question, input.questions {
+			font-family: 'Arbutus Slab', 'Gabriela';
+			text-align: center;
+			background-color: var(--color_white);
+			border-radius: 0.7rem;
+			border: 0.15rem solid var(--color_blue_1);
+		}
+		button.question, button.questions {
+			font-family: 'Arbutus Slab', 'Gabriela';
+			text-align: center;
+			border-radius: 0.7rem;
+			background-color: var(--color_blue_1);
+			border: 0.1.5rem solid var(--color_blue_1);
+			color: var(--color_white);
+		}
+
+		/* ** Question ** */
+		input.question {
+			font-size: 1rem;
+			padding: 0.5rem;
+			margin: 0.2rem;
+			width: 80%;
+			min-width: 13rem;
+		}
+		button.question {
+			font-size: 1rem;
+			padding: 0.5rem;
+			margin: 0.1rem;
+		}
+		p.questions {
+			text-align: justify;
+			padding: 0;
+			margin-top: 4px;
+			margin-bottom: 4px;
+			line-height: 1;
+		}
+		div.question_result_block {
+			left: 0.5rem;
+			display: inline-block;
+		}
+		div.question_result {
+			display: inline-block;
+		}
+		div.question_result_note {
+			left: 23px;
+		}
+
+		/* ** Questions ** */
+		input.questions {
+			font-size: 0.9rem;
+			padding: 0.2rem;
+			margin: 0.1rem;
+			width: 2rem;
+		}
+		button.questions {
+			font-size: 0.9rem;
+			padding: 0.2rem;
+			margin: 0.1rem;
+		}
+		div.questions_result_block {
+		}
+		div.questions_result {
+			width: 1.3rem;
+		}
+		div.questions_result_note {
 		}
 	</style>
 </xsl:template>
 
-<!-- MAIN DOCUMENT -->
+<!--#############################-->
+<!--#####   MAIN DOCUMENT   #####-->
 <xsl:template match="/document">
 	<html>
 		<xsl:call-template name="html_head"/>
@@ -101,6 +216,7 @@
 	</html>
 </xsl:template>
 
+<!-- head -->
 <xsl:template name="html_head">
 	<head>
 		<title>AS - Math Puzzles</title>
@@ -110,93 +226,74 @@
 	</head>
 </xsl:template>
 
+<!-- body -->
 <xsl:template name="html_body">
 	<body>
 		<xsl:call-template name="puzzles_page_title"/>
-		<xsl:call-template name="go_to_home_page"/>
+		<xsl:call-template name="title_links"/>
 		<xsl:apply-templates />
 		<xsl:call-template name="js-script"/>
 	</body>
 </xsl:template>
 
+<!-- title -->
 <xsl:template name="puzzles_page_title">
-	<div style="margin: auto; display: table; max-width: 90vw;">
-		<img src="/_config/icons/title-6gon.png" style="display: table-cell; vertical-align: middle; height: 7rem;"/>
-		<h1 style="display: table-cell; vertical-align: middle; font-size: 2.5rem; white-space: nowrap; color: var(--color_blue_1);">Math Puzzles by AS</h1>
+	<div class="puzzles_page_title">
+		<img class="puzzles_page_title" src="/_config/icons/title-6gon.png"/>
+		<h1 class="puzzles_page_title">Math Puzzles by AS</h1>
 	</div>
 </xsl:template>
 
-<xsl:template name="go_to_home_page">
-	<a class="head_link" href="/">Home page</a>
-	<a class="head_link" href="https://t.me/SerovaA_math"><img src="/_config/icons/telegram_icon.svg" style="height: 1em; margin-right: 0.2em; margin-bottom: -0.1em;"/>Telegram channel</a>
+<!-- title links -->
+<xsl:template name="title_links">
+	<a class="puzzles_page_title" href="/">Home page</a>
+	<a class="puzzles_page_title" href="https://t.me/SerovaA_math"><img src="/_config/icons/telegram_icon.svg" style="height: 1em; margin-right: 0.2em; margin-bottom: -0.1em;"/>Telegram channel</a>
 	
 </xsl:template>
 
-<!-- GROUP -->
+<!--#####################-->
+<!--#####   GROUP   #####-->
 <xsl:template match="group">
-	<div class="group" style="display: block; margin: 2rem auto;">
-		<xsl:call-template name="group_head"/>
+	<div class="group">
+		<hr class="group"><xsl:value-of select="date"/></hr>
 		<xsl:apply-templates select="puzzle"/>
 	</div>
 </xsl:template>
 
-<xsl:template name="group_head">
-	<div class="group_head" style="width: 95%; border-top: 0.2rem solid var(--color_gray_1); margin: 0.1rem auto; text-align: left; font-weight: bold; font-size: var(--group_head_font_size); color: var(--color_gray_2);">
-		<xsl:value-of select="date"/>
-	</div>
-</xsl:template>
-
-<!-- PUZZLE -->
+<!--######################-->
+<!--#####   PUZZLE   #####-->
 <xsl:template match="puzzle">
-	<xsl:variable name="id">
-		<xsl:value-of select="./id" />
+	<xsl:variable name="puzzle_id">
+		<xsl:value-of select="./@id" />
 	</xsl:variable>
-	<div style="display: inline-block; width: var(--puzzle_max_width);">
-		<xsl:attribute name="id"><xsl:value-of select="id" /></xsl:attribute>
-		<xsl:for-each select="image|text">
-			<xsl:apply-templates select="." mode="puzzle_content"/>
-		</xsl:for-each>
-		<xsl:for-each select="question|questions">
-			<xsl:call-template name="question_block"/>
-		</xsl:for-each>
+	<div class="puzzle">
+		<xsl:attribute name="id"><xsl:value-of select="$puzzle_id" /></xsl:attribute>
+		<xsl:apply-templates mode="puzzle_content">
+			<xsl:with-param name="puzzle_id" select="$puzzle_id"/>
+		</xsl:apply-templates>
 		<xsl:if test="count(./question)+count(./questions) = 0">
 			<xsl:call-template name="question_status">
-				<xsl:with-param name="question_id" select="$id"/>
+				<xsl:with-param name="puzzle_id" select="$puzzle_id"/>
+				<xsl:with-param name="question_id" select="$puzzle_id"/>
 			</xsl:call-template>
 		</xsl:if>
 	</div>
 </xsl:template>
 
-<xsl:template match="image" mode="puzzle_content">
-	<xsl:choose>
-		<xsl:when test="./@type='svg'">
-			<xsl:variable name="svg_src" select="concat('./images/', ./node())"/>
-			<xsl:call-template name="include_svg__width_100">
-				<xsl:with-param name="src" select="$svg_src"/>
-			</xsl:call-template>
-		</xsl:when>
-		<xsl:otherwise>
-			<img src="./images/{.}" style="display: block; max-width: 100%; max-height: var(--puzzle_image_max_height); margin: auto;"/>
-		</xsl:otherwise>
-	</xsl:choose> 
-</xsl:template>
-
 <!-- Puzzle content -->
+
+<!--text -->
 <xsl:template match="text" mode="puzzle_content">
-	<p style="display: block; width: 100%; text-align: justify;"><xsl:copy-of select="node()"/></p>
+	<p class="puzzle_content"><xsl:copy-of select="node()"/></p>
 </xsl:template>
 
-<xsl:template name="include_svg__width_100">
-	<xsl:param name="src"/>
-	<xsl:apply-templates select="document($src)" mode="svg_image"/>
+<!-- SVG image -->
+<xsl:template match="image[@type='svg']" mode="puzzle_content">
+	<xsl:variable name="src" select="concat('./images/', ./node())"/>
+	<xsl:apply-templates select="document($src)" mode="svg_image__width_100"/>
 </xsl:template>
 
-<xsl:template name="include_svg">
-	<xsl:param name="src"/>
-	<xsl:copy-of select="document($src)"/>
-</xsl:template>
-
-<xsl:template match="node()" mode="svg_image">
+<xsl:template match="node()" mode="svg_image__width_100">
 	<xsl:copy>
 		<xsl:apply-templates select="@*" mode="copy"/>
 		<xsl:attribute name="width">100%</xsl:attribute>
@@ -211,56 +308,70 @@
 		</xsl:copy>
 </xsl:template>
 
-<!-- QUESTION BLOCK -->
-<xsl:template name="question_block">
-	<xsl:variable name="question_id_variable">
-		<xsl:value-of select="../id" />
+<!-- image -->
+<xsl:template match="image" mode="puzzle_content">
+	<img class="puzzle_content" src="./images/{.}"/>
+</xsl:template>
+
+<!--#########################-->
+<!--#####   QUESTIONS   #####-->
+
+<!-- status -->
+<xsl:template name="question_status">
+	<xsl:param name="puzzle_id"/>
+	<xsl:param name="question_id"/>
+	<div class="question_status">
+		<div class="question_id">
+			#<xsl:value-of select="$question_id"/>
+		</div>
+		<div class="question_result_block">
+			<div class="question_result" id="result_{$question_id}"></div>
+			<div class="question_result_note" id="result_note_{$question_id}"></div>
+		</div>
+	</div>
+</xsl:template>
+
+<!-- question/questions -->
+<xsl:template match="question | questions" mode="puzzle_content">
+	<xsl:param name="puzzle_id"/>
+	<xsl:variable name="question_id">
+		<xsl:value-of select="$puzzle_id" />
 		<xsl:if test="count(../question)+count(../questions) > 1">
 			<xsl:text>_</xsl:text>
 			<xsl:value-of select="count(preceding-sibling::question)+count(preceding-sibling::questions)+1" />
 		</xsl:if>
 	</xsl:variable>
 	<xsl:call-template name="question_status">
-		<xsl:with-param name="question_id" select="$question_id_variable"/>
+		<xsl:with-param name="puzzle_id" select="$puzzle_id"/>
+		<xsl:with-param name="question_id" select="$question_id"/>
 	</xsl:call-template>
-	<xsl:apply-templates select="." mode="puzzle_content">
-		<xsl:with-param name="question_id" select="$question_id_variable"/>
+	<xsl:apply-templates select="." mode="questions">
+		<xsl:with-param name="question_id" select="$question_id"/>
 	</xsl:apply-templates>
 </xsl:template>
 
-<xsl:template name="question_status">
-	<xsl:param name="question_id"/>
-	<div style="display: block; width: 100%; text-align: left;">
-		<div style="display: inline-block; font-weight: bold; font-size: var(--question_id_font_size); color: var(--color_gray_2); padding-left: 10%;">
-			#<xsl:value-of select="$question_id"/>
-		</div>
-		<div style="position: relative; left: 0.5rem; display: inline-block;">
-			<div class="result" id="result_{$question_id}" style="display: inline-block; font-weight: normal; font-size: var(--question_result_font_size);"></div>
-			<div class="result_note" id="result_note_{$question_id}"></div>
-		</div>
-	</div>
-</xsl:template>
-
 <!-- Question -->
-<xsl:template match="question" mode="puzzle_content">
+<xsl:template match="question" mode="questions">
 	<xsl:param name="question_id"/>
-	<div style="display:block; width: 100%;">
+	<div class="puzzle_content">
 		<xsl:call-template name="question_input">
 			<xsl:with-param name="question_id" select="$question_id"/>
 		</xsl:call-template>
 	</div>
-	<div style="display:block; width: 100%;">
+	<div class="puzzle_content">
 		<xsl:call-template name="question_button">
 			<xsl:with-param name="question_id" select="$question_id"/>
 		</xsl:call-template>
 	</div>
 </xsl:template>
 
+<!-- input -->
 <xsl:template name="question_input">
 	<xsl:param name="question_id"/>
-	<input type="text" id="input_{$question_id}" style="font-size: var(--question_input_font_size); padding: var(--question_input_padding); margin: var(--question_input_margin); width: var(--question_input_width); min-width: var(--question_input_min_width);" placeholder="{text}" />
+	<input class="question" type="text" id="input_{$question_id}" placeholder="{text}" />
 </xsl:template>
 
+<!-- button -->
 <xsl:template name="question_button">
 	<xsl:param name="question_id"/>
 	<xsl:variable name="answer">
@@ -272,61 +383,64 @@
 		</xsl:for-each>
 		<xsl:text>]</xsl:text>
 	</xsl:variable>
-	<button onclick="check('{$question_id}', {$answer})" style="font-size: var(--question_button_font_size); padding: var(--question_button_padding); margin: var(--question_button_margin);">
+	<button class="question" onclick="check('{$question_id}', {$answer})">
 		Check
 	</button>
 </xsl:template>
 
 <!-- Questions -->
-<xsl:template match="questions" mode="puzzle_content">
+<xsl:template match="questions" mode="questions">
 	<xsl:param name="question_id"/>
 	<table>
 		<tbody>
 			<xsl:for-each select="./question">
-			<xsl:variable name="question_id_edited">
-				<xsl:value-of select="$question_id" />
-				<xsl:text>_</xsl:text>
-				<xsl:value-of select="count(preceding-sibling::question)+1" />
-			</xsl:variable>
-			<tr>
-				<td>
-					<xsl:call-template name="question_result_small">
-						<xsl:with-param name="question_id" select="$question_id_edited"/>
-					</xsl:call-template>
-				</td>
-				<td>
-					<xsl:call-template name="question_input_small">
-						<xsl:with-param name="question_id" select="$question_id_edited"/>
-					</xsl:call-template>
-				</td>
-				<td>
-					<xsl:call-template name="question_button_small">
-						<xsl:with-param name="question_id" select="$question_id_edited"/>
-					</xsl:call-template>
-				</td>
-				<td>
-					<p style="text-align: justify; padding: 0; margin-top: 4px; margin-bottom: 4px; line-height: 1;"><xsl:value-of select="text"/></p>
-				</td>
-			</tr>
-		</xsl:for-each>
+				<xsl:variable name="question_id_edited">
+					<xsl:value-of select="$question_id" />
+					<xsl:text>_</xsl:text>
+					<xsl:value-of select="count(preceding-sibling::question)+1" />
+				</xsl:variable>
+				<tr>
+					<td>
+						<xsl:call-template name="questions_result">
+							<xsl:with-param name="question_id" select="$question_id_edited"/>
+						</xsl:call-template>
+					</td>
+					<td>
+						<xsl:call-template name="questions_input">
+							<xsl:with-param name="question_id" select="$question_id_edited"/>
+						</xsl:call-template>
+					</td>
+					<td>
+						<xsl:call-template name="questions_button">
+							<xsl:with-param name="question_id" select="$question_id_edited"/>
+						</xsl:call-template>
+					</td>
+					<td>
+						<p class="questions"><xsl:value-of select="text"/></p>
+					</td>
+				</tr>
+			</xsl:for-each>
 		</tbody>
 	</table>
 </xsl:template>
 
-<xsl:template name="question_result_small">
+<!-- result -->
+<xsl:template name="questions_result">
 	<xsl:param name="question_id"/>
-		<div style="position: relative; width: var(--question_result_small_width); height: var(--question_result_small_height); margin: 0; padding: 0;">
-			<div class="result" id="result_{$question_id}" style="font-weight: normal; font-size: var(--question_result_small_font_size);"></div>
-			<div class="result_note" id="result_note_{$question_id}"></div>
-		</div>
+	<div class="questions_result_block">
+		<div class="questions_result" id="result_{$question_id}"></div>
+		<div class="questions_result_note" id="result_note_{$question_id}"></div>
+	</div>
 </xsl:template>
 
-<xsl:template name="question_input_small">
+<!-- input -->
+<xsl:template name="questions_input">
 	<xsl:param name="question_id"/>
-	<input type="text" id="input_{$question_id}" style="font-size: var(--question_input_small_font_size); padding: var(--question_input_small_padding); margin: var(--question_input_small_margin); width: var(--question_input_small_width);" />
+	<input class="questions" type="text" id="input_{$question_id}"/>
 </xsl:template>
 
-<xsl:template name="question_button_small">
+<!-- button -->
+<xsl:template name="questions_button">
 	<xsl:param name="question_id"/>
 	<xsl:variable name="answer">
 		<xsl:text>[</xsl:text>
@@ -337,12 +451,13 @@
 		</xsl:for-each>
 		<xsl:text>]</xsl:text>
 	</xsl:variable>
-	<button onclick="check('{$question_id}', {$answer})" style="font-size: var(--question_button_small_font_size); padding: var(--question_button_small_padding); margin: var(--question_button_small_margin);">
+	<button class="questions" onclick="check('{$question_id}', {$answer})">
 		Check
 	</button>
 </xsl:template>
 
-<!-- JavaScript -->
+<!--##########################-->
+<!--#####   JavaScript   #####-->
 <xsl:template name="js-script">
 	<script>
 		async function check(id, ans){
