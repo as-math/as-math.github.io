@@ -4,12 +4,14 @@
 
 	<group>
 		<date>27 Jul 2022</date>
-		<puzzle>
-			<id>021</id>
+		<puzzle id="021">
 			<text>
 				Квадрокоптер на одном заряде аккумулятора летает 8&#160;мин. Если с полным аккумулятором полететь по ветру, то аккумулятор сядет через 6&#160;км, а если против ветра — через&#160;4 км. Сколько минут надо лететь по ветру, чтобы улететь как можно дальше, но потом успеть вернуться назад? На какое максимальное расстояние можно улететь таким образом? Изменится ли ответ, если сначала полететь против ветра, а потом по ветру?
 			</text>
 			<image type="svg">021.svg</image>
+			<text>
+				<b>P.S.</b> Найдите геометрическое место точек, максимально достижимых во всех направлениях.
+			</text>
 			<question>
 				<text>Time? (min)</text>
 				<answer>3.2</answer>
@@ -18,16 +20,12 @@
 				<text>Max distance? (km)</text>
 				<answer>2.4</answer>
 			</question>
-			<text>
-				<b>P.S.</b> Найдите геометрическое место точек, максимально достижимых во всех направлениях.
-			</text>
 		</puzzle>
 	</group>
 
 	<group>
 		<date>23 Jul 2022</date>
-		<puzzle>
-			<id>020</id>
+		<puzzle id="020">
 			<text>
 				Компьютер загадывает четыре неповторяющиеся цифры для игры в быков и коров. Делает он это таким образом: цифры выбирает по очереди, генерируя их случайным образом; если сгенерированная цифра не совпадает с уже имеющимися, то добавляет её в набор, а если совпадает, то генерирует цифру заново.<br/>
 				<b>Вопрос:</b> сколько в среднем раз компьютер генерирует случайную цифру, загадывая набор цифр для игры?
@@ -41,8 +39,7 @@
 
 	<group>
 		<date>26 Jan 2022</date>
-		<puzzle>
-			<id>017</id>
+		<puzzle id="017">
 			<image>017.png</image>
 			<question>
 				<text>Side of the triangle?</text>
@@ -69,8 +66,7 @@
 
 	<group>
 		<date>19 Jan 2022</date>
-		<puzzle>
-			<id>016</id>
+		<puzzle id="016">
 			<image>016.png</image>
 			<question>
 				<text>Length of the leaf?</text>
@@ -85,16 +81,14 @@
 
 	<group>
 		<date>13 Jan 2022</date>
-		<puzzle>
-			<id>014</id>
+		<puzzle id="014">
 			<image>014.png</image>
 			<question>
 				<text>S=?</text>
 				<answer>66</answer>
 			</question>
 		</puzzle>
-		<puzzle>
-			<id>015</id>
+		<puzzle id="015">
 			<image>015.png</image>
 			<question>
 				<text>R/r=?</text>
@@ -105,8 +99,7 @@
 
 	<group>
 		<date>12 Jan 2022</date>
-		<puzzle>
-			<id>013</id>
+		<puzzle id="013">
 			<text>
 				В коробке лежат 48&#160;шариков: 10&#160;красных, 13&#160;синих, 18&#160;зелёных и 7&#160;жёлтых. Какое минимальное количество шариков надо вытащить за раз не глядя, чтобы среди них точно был:
 			</text>
@@ -197,8 +190,7 @@
 
 	<group>
 		<date>10 Jan 2022</date>
-		<puzzle>
-			<id>011</id>
+		<puzzle id="011">
 			<image>011.png</image>
 			<question>
 				<text>Shaded area?</text>
@@ -217,8 +209,7 @@
 
 	<group>
 		<date>8 Jan 2022</date>
-		<puzzle>
-			<id>010</id>
+		<puzzle id="010">
 			<image type="svg">010.svg</image>
 			<question>
 				<text>S=?</text>
@@ -229,16 +220,14 @@
 
 	<group>
 		<date>28 Dec 2021</date>
-		<puzzle>
-			<id>003</id>
+		<puzzle id="003">
 			<image>003.png</image>
 			<question>
 				<text>Length?</text>
 				<answer type="text">x</answer>
 			</question>
 		</puzzle>
-		<puzzle>
-			<id>004</id>
+		<puzzle id="004">
 			<image>004.png</image>
 			<question>
 				<text>Angle?</text>
@@ -246,32 +235,28 @@
 				<answer>90</answer>
 			</question>
 		</puzzle>
-		<puzzle>
-			<id>005</id>
+		<puzzle id="005">
 			<image>005.png</image>
 			<question>
 				<text>Length?</text>
 				<answer type="text">x+y</answer>
 			</question>
 		</puzzle>
-		<puzzle>
-			<id>006</id>
+		<puzzle id="006">
 			<image>006.png</image>
 			<question>
 				<text>Length?</text>
 				<answer type="text">4*sqrt(x*y)</answer>
 			</question>
 		</puzzle>
-		<puzzle>
-			<id>007</id>
+		<puzzle id="007">
 			<image>007.png</image>
 			<question>
 				<text>Length?</text>
 				<answer type="text">y-x</answer>
 			</question>
 		</puzzle>
-		<puzzle>
-			<id>008</id>
+		<puzzle id="008">
 			<image>008.png</image>
 			<question>
 				<text>Angle?</text>
@@ -279,8 +264,7 @@
 				<answer>pi/4</answer>
 			</question>
 		</puzzle>
-		<puzzle>
-			<id>009</id>
+		<puzzle id="009">
 			<image>009.png</image>
 			<question>
 				<text>Length?</text>
@@ -291,16 +275,14 @@
 
 	<group>
 		<date>26 Dec 2021</date>
-		<puzzle>
-			<id>001</id>
+		<puzzle id="001">
 			<image>001.png</image>
 			<question>
 				<text>S=?</text>
 				<answer>16</answer>
 			</question>
 		</puzzle>
-		<puzzle>
-			<id>002</id>
+		<puzzle id="002">
 			<image>002.png</image>
 			<question>
 				<text>S=?</text>

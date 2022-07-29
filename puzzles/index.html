@@ -1,4 +1,985 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <html>
-	<meta http-equiv="refresh" content="0;URL=./index.xml" />
+<head>
+<meta charset="utf-8">
+<title>AS - Math Puzzles</title>
+<link rel="shortcut icon" href="/_config/icons/ico-6gon.png" type="image/png">
+<style>
+		@import url("/_config/fonts/ArbutusSlab/arbutusslab.css");
+		@import url("/_config/fonts/Gabriela/gabriela.css");
+		:root {
+			--color_gray_1: #d3d3d3;
+			--color_gray_2: #a3a3a3;
+			--color_blue_1: #5a6fd4;
+			--color_green_1: #cfecc5;
+			--color_green_2: #339900;
+			--color_red_1: #ffaaa7;
+			--color_red_2: #ff0500;
+			--color_white: #ffffff;
+		}
+		@media only screen and (max-device-width: 640px) {
+			:root {
+				font-size: 30px;
+			}
+		}
+		body {
+			font-family: 'Arbutus Slab', 'Gabriela';
+			width: 100%;
+			max-width: 1200px;
+			text-align: center;
+			margin: auto;
+		}
+		table {
+			border-collapse: collapse;
+		}
+
+		/* *********************** */
+		/* ** PUZZLE PAGE TITLE ** */
+		/* *********************** */
+		div.puzzles_page_title {
+			display: table;
+			margin: auto;
+			max-width: 90vw;
+		}
+		img.puzzles_page_title {
+			display: table-cell;
+			vertical-align: middle;
+			height: 7rem;
+		}
+		h1 {
+			display: table-cell;
+			vertical-align: middle;
+			font-size: 2.5rem;
+			white-space: nowrap;
+			color: var(--color_blue_1);
+		}
+		a.puzzles_page_title {
+			display: block;
+			color: var(--color_blue_1);
+		}
+
+		/* *********** */
+		/* ** GROUP ** */
+		/* *********** */
+		div.group {
+			display: block;
+			margin: 2rem auto;
+		}
+		hr.group {
+			width: 95%;
+			border: none;
+			border-top: 0.2rem solid var(--color_gray_1);
+			margin: 0.1rem auto;
+			text-align: left;
+			font-weight: bold;
+			font-size: 1rem;
+			color: var(--color_gray_2);
+		}
+
+		/* ************ */
+		/* ** PUZZLE ** */
+		/* ************ */
+		div.puzzle {
+			display: inline-block;
+			width: min(30rem, 90vw);
+		}
+		.puzzle_content {
+			display: block;
+			max-width: 100%;
+		}
+		p.puzzle_content {
+			text-align: justify;
+		}
+		img.puzzle_content {
+			max-height: 20rem;
+			margin: auto;
+		}
+
+		/* ************** */
+		/* ** QUESTION ** */
+		/* ************** */
+		div.puzzle_content_block {
+			display: block;
+			width: 100%;
+		}
+		div.question_status {
+			display: table;
+			width: 80%;
+			margin: auto;
+			text-align: left;
+		}
+		div.question_id {
+			display: inline-block;
+			width: max-content;
+			font-weight: bold;
+			font-size: 1.5rem;
+			color: var(--color_gray_2);
+		}
+		button.puzzle_lang_button {
+			display: inline-block;
+			width: max-content;
+			float:right;
+		}
+		div.question_result_block, div.questions_result_block {
+			position: relative;
+			width: 1.3rem;
+			display: inline-block;
+		}
+		div.question_result, div.questions_result {
+			font-weight: normal;
+			font-size: 1.3rem;
+		}
+		div.question_result_note, div.questions_result_note {
+			opacity: 0;
+			transition: opacity 0.5s;
+			pointer-events: none;
+			border-radius: 0.7em;
+			border: 0.15em solid black;
+			text-align: justify;
+			display: none;
+			position: absolute;
+			width: 15rem;
+			padding: 1rem;
+			z-index: 1;
+		}
+		div.question_result:hover + div.question_result_note,
+		div.questions_result:hover + div.questions_result_note {
+			opacity: 1;
+		}
+		input.question, input.questions {
+			font-family: 'Arbutus Slab', 'Gabriela';
+			text-align: center;
+			background-color: var(--color_white);
+			border-radius: 0.7rem;
+			border: 0.15rem solid var(--color_blue_1);
+		}
+		button.question, button.questions {
+			font-family: 'Arbutus Slab', 'Gabriela';
+			text-align: center;
+			border-radius: 0.7rem;
+			background-color: var(--color_blue_1);
+			border: 0.1.5rem solid var(--color_blue_1);
+			color: var(--color_white);
+		}
+
+		/* ** Question ** */
+		input.question {
+			font-size: 1rem;
+			padding: 0.5rem;
+			margin: 0.2rem;
+			width: 80%;
+			min-width: 13rem;
+		}
+		button.question {
+			font-size: 1rem;
+			padding: 0.5rem;
+			margin: 0.1rem;
+		}
+		p.questions {
+			text-align: justify;
+			padding: 0;
+			margin-top: 4px;
+			margin-bottom: 4px;
+			line-height: 1em;
+		}
+		div.question_result_block {
+			padding-left: 0.5rem;
+		}
+		div.question_result_note {
+			left: 23px;
+		}
+
+		/* ** Questions ** */
+		input.questions {
+			font-size: 0.9rem;
+			padding: 0.2rem;
+			margin: 0.1rem;
+			width: 2rem;
+		}
+		button.questions {
+			font-size: 0.9rem;
+			padding: 0.2rem;
+			margin: 0.1rem;
+		}
+	</style>
+<script src="/_config/nerdamer.core.js"></script>
+</head>
+<body>
+<div class="puzzles_page_title">
+<img class="puzzles_page_title" src="/_config/icons/title-6gon.png"><h1 class="puzzles_page_title">Math Puzzles by AS</h1>
+</div>
+<a class="puzzles_page_title" href="/">Home page</a><a class="puzzles_page_title" href="https://t.me/SerovaA_math"><img src="/_config/icons/telegram_icon.svg" style="height: 1em; margin-right: 0.2em; margin-bottom: -0.1em;">Telegram channel</a>
+
+	<div class="group">
+<hr class="group">
+<div class="puzzle" id="021">
+			<p class="puzzle_content">
+				Квадрокоптер на одном заряде аккумулятора летает 8 мин. Если с полным аккумулятором полететь по ветру, то аккумулятор сядет через 6 км, а если против ветра — через 4 км. Сколько минут надо лететь по ветру, чтобы улететь как можно дальше, но потом успеть вернуться назад? На какое максимальное расстояние можно улететь таким образом? Изменится ли ответ, если сначала полететь против ветра, а потом по ветру?
+			</p>
+			<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 380 60">
+	<g id="drone" fill="black" stroke="black" stroke-linecap="round" transform="rotate(30, 30, 30) ">
+		<!-- Drone -->
+		<ellipse cx="30" cy="30" rx="10" ry="3"></ellipse>
+		<g id="front_propeller">
+			<path stroke-width="3" d="M 27 30 L 10 22"></path>
+			<ellipse cx="10" cy="22" rx="10" ry="6" fill="none" stroke-width="0.5"></ellipse>
+			<g id="front_propeller_lines" fill="none" stroke-width="0.5">
+				<path d="M 10 16 A 10 6 0 0 1 20 22" transform="scale(0.9, 0.9) translate(1, 3)"></path>
+				<path d="M 10 16 A 10 6 0 0 1 20 22" transform="scale(0.7, 0.7) translate(4.5, 10)"></path>
+				<path d="M 10 16 A 10 6 0 0 1 20 22" transform="scale(0.5, 0.5) translate(11, 22.5)"></path>
+			</g>
+			<use href="#front_propeller_lines" transform="translate(20.5, 44) scale(-1, -1)"></use>
+		</g>
+		<use href="#front_propeller" transform="translate(60, 0) scale(-1, 1)"></use>
+		<g id="back_propeller">
+			<path stroke-width="3" d="M 27 30 L 14 35"></path>
+			<ellipse cx="14" cy="35" rx="8" ry="5" fill="none" stroke-width="0.5"></ellipse>
+			<g id="front_propeller_lines" fill="none" stroke-width="0.5">
+				<path d="M 14 40 A 8 5 0 0 1 6 35" transform="scale(0.9, 0.9) translate(1.5, 3.5)"></path>
+				<path d="M 14 40 A 8 5 0 0 1 6 35" transform="scale(0.7, 0.7) translate(5.4, 14.5)"></path>
+				<path d="M 14 40 A 8 5 0 0 1 6 35" transform="scale(0.5, 0.5) translate(12.5, 34.5)"></path>
+			</g>
+		</g>
+		<use href="#back_propeller" transform="translate(60, 0) scale(-1, 1)"></use>
+	</g>
+	<!-- Drone path -->
+	<path d="M 40 20 c 10 -10 30 -30 50 -5 s -30 30 0 0 s 40 20 60 0 s 30 -3 40 25 s 20 10 30 0 c 40 -40 -40 -40 0 0 s 70 5 50 0 s 0 -20 10 -20 c 10 -5 60 0 70 10" stroke="#e93c39" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" fill="none"></path>
+	<path d="M 350 25 l 15 15 m 0 -15 l -15 15" stroke="#e93c39" stroke-width="3" stroke-linecap="round" fill="none"></path>
+</svg>
+			<p class="puzzle_content">
+				<b>P.S.</b> Найдите геометрическое место точек, максимально достижимых во всех направлениях.
+			</p>
+			<div class="question_status">
+<div class="question_id">
+			#021_1</div>
+<div class="question_result_block">
+<div class="question_result" id="result_021_1"></div>
+<div class="question_result_note" id="result_note_021_1"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_021_1" placeholder="Time? (min)"></div>
+<div class="puzzle_content"><button class="question" onclick="check('021_1', ['3.2', ])">
+		Check
+	</button></div>
+			<div class="question_status">
+<div class="question_id">
+			#021_2</div>
+<div class="question_result_block">
+<div class="question_result" id="result_021_2"></div>
+<div class="question_result_note" id="result_note_021_2"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_021_2" placeholder="Max distance? (km)"></div>
+<div class="puzzle_content"><button class="question" onclick="check('021_2', ['2.4', ])">
+		Check
+	</button></div>
+		</div>
+</div>
+
+	<div class="group">
+<hr class="group">
+<div class="puzzle" id="020">
+			<p class="puzzle_content">
+				Компьютер загадывает четыре неповторяющиеся цифры для игры в быков и коров. Делает он это таким образом: цифры выбирает по очереди, генерируя их случайным образом; если сгенерированная цифра не совпадает с уже имеющимися, то добавляет её в набор, а если совпадает, то генерирует цифру заново.<br>
+				<b>Вопрос:</b> сколько в среднем раз компьютер генерирует случайную цифру, загадывая набор цифр для игры?
+			</p>
+			<div class="question_status">
+<div class="question_id">
+			#020</div>
+<div class="question_result_block">
+<div class="question_result" id="result_020"></div>
+<div class="question_result_note" id="result_note_020"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_020" placeholder="Average number of generations?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('020', ['1207/252', ])">
+		Check
+	</button></div>
+		</div>
+</div>
+
+	<div class="group">
+<hr class="group">
+<div class="puzzle" id="017">
+			<img class="puzzle_content" src="./images/017.png">
+			<div class="question_status">
+<div class="question_id">
+			#017</div>
+<div class="question_result_block">
+<div class="question_result" id="result_017"></div>
+<div class="question_result_note" id="result_note_017"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_017" placeholder="Side of the triangle?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('017', ['1.6', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="">
+			018
+			<img class="puzzle_content" src="./images/018.png">
+			<div class="question_status">
+<div class="question_id">
+			#</div>
+<div class="question_result_block">
+<div class="question_result" id="result_"></div>
+<div class="question_result_note" id="result_note_"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_" placeholder="Major axis of the ellipse?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('', ['1+sqrt(3)', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="">
+			019
+			<img class="puzzle_content" src="./images/019.png">
+			<div class="question_status">
+<div class="question_id">
+			#</div>
+<div class="question_result_block">
+<div class="question_result" id="result_"></div>
+<div class="question_result_note" id="result_note_"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_" placeholder="Major axis of the ellipse?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('', ['sqrt(7)', ])">
+		Check
+	</button></div>
+		</div>
+</div>
+
+	<div class="group">
+<hr class="group">
+<div class="puzzle" id="016">
+			<img class="puzzle_content" src="./images/016.png">
+			<div class="question_status">
+<div class="question_id">
+			#016_1</div>
+<div class="question_result_block">
+<div class="question_result" id="result_016_1"></div>
+<div class="question_result_note" id="result_note_016_1"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_016_1" placeholder="Length of the leaf?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('016_1', ['5', ])">
+		Check
+	</button></div>
+			<div class="question_status">
+<div class="question_id">
+			#016_2</div>
+<div class="question_result_block">
+<div class="question_result" id="result_016_2"></div>
+<div class="question_result_note" id="result_note_016_2"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_016_2" placeholder="Height of center?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('016_2', ['5/7', ])">
+		Check
+	</button></div>
+		</div>
+</div>
+
+	<div class="group">
+<hr class="group">
+<div class="puzzle" id="014">
+			<img class="puzzle_content" src="./images/014.png">
+			<div class="question_status">
+<div class="question_id">
+			#014</div>
+<div class="question_result_block">
+<div class="question_result" id="result_014"></div>
+<div class="question_result_note" id="result_note_014"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_014" placeholder="S=?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('014', ['66', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="015">
+			<img class="puzzle_content" src="./images/015.png">
+			<div class="question_status">
+<div class="question_id">
+			#015</div>
+<div class="question_result_block">
+<div class="question_result" id="result_015"></div>
+<div class="question_result_note" id="result_note_015"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_015" placeholder="R/r=?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('015', ['sqrt(2)', ])">
+		Check
+	</button></div>
+		</div>
+</div>
+
+	<div class="group">
+<hr class="group">
+<div class="puzzle" id="013">
+			<p class="puzzle_content">
+				В коробке лежат 48 шариков: 10 красных, 13 синих, 18 зелёных и 7 жёлтых. Какое минимальное количество шариков надо вытащить за раз не глядя, чтобы среди них точно был:
+			</p>
+			<div class="question_status">
+<div class="question_id">
+			#013</div>
+<div class="question_result_block">
+<div class="question_result" id="result_013"></div>
+<div class="question_result_note" id="result_note_013"></div>
+</div>
+</div>
+<table><tbody>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_1"></div>
+<div class="questions_result_note" id="result_note_013_1"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_1"></td>
+<td><button class="questions" onclick="check('013_1', ['8', ])">
+		Check
+	</button></td>
+<td><p class="questions">a) не жёлтый шарик;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_2"></div>
+<div class="questions_result_note" id="result_note_013_2"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_2"></td>
+<td><button class="questions" onclick="check('013_2', ['24', ])">
+		Check
+	</button></td>
+<td><p class="questions">б) шарик не синего и не красного цвета;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_3"></div>
+<div class="questions_result_note" id="result_note_013_3"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_3"></td>
+<td><button class="questions" onclick="check('013_3', ['5', ])">
+		Check
+	</button></td>
+<td><p class="questions">в) 2 шарика одинакового цвета;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_4"></div>
+<div class="questions_result_note" id="result_note_013_4"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_4"></td>
+<td><button class="questions" onclick="check('013_4', ['19', ])">
+		Check
+	</button></td>
+<td><p class="questions">г) 2 шарика разного цвета;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_5"></div>
+<div class="questions_result_note" id="result_note_013_5"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_5"></td>
+<td><button class="questions" onclick="check('013_5', ['9', ])">
+		Check
+	</button></td>
+<td><p class="questions">д) 3 шарика одинакового цвета;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_6"></div>
+<div class="questions_result_note" id="result_note_013_6"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_6"></td>
+<td><button class="questions" onclick="check('013_6', ['32', ])">
+		Check
+	</button></td>
+<td><p class="questions">е) 3 шарика разного цвета;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_7"></div>
+<div class="questions_result_note" id="result_note_013_7"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_7"></td>
+<td><button class="questions" onclick="check('013_7', ['13', ])">
+		Check
+	</button></td>
+<td><p class="questions">ё) 4 шарика одинакового цвета;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_8"></div>
+<div class="questions_result_note" id="result_note_013_8"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_8"></td>
+<td><button class="questions" onclick="check('013_8', ['42', ])">
+		Check
+	</button></td>
+<td><p class="questions">ж) 4 шарика разного цвета;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_9"></div>
+<div class="questions_result_note" id="result_note_013_9"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_9"></td>
+<td><button class="questions" onclick="check('013_9', ['40', ])">
+		Check
+	</button></td>
+<td><p class="questions">з) 5 синих шариков;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_10"></div>
+<div class="questions_result_note" id="result_note_013_10"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_10"></td>
+<td><button class="questions" onclick="check('013_10', ['48', ])">
+		Check
+	</button></td>
+<td><p class="questions">и) 7 жёлтых шариков;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_11"></div>
+<div class="questions_result_note" id="result_note_013_11"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_11"></td>
+<td><button class="questions" onclick="check('013_11', ['', ])">
+		Check
+	</button></td>
+<td><p class="questions">й) 11 красных шариков;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_12"></div>
+<div class="questions_result_note" id="result_note_013_12"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_12"></td>
+<td><button class="questions" onclick="check('013_12', ['40', ])">
+		Check
+	</button></td>
+<td><p class="questions">к) 2 красных и 3 синих;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_13"></div>
+<div class="questions_result_note" id="result_note_013_13"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_13"></td>
+<td><button class="questions" onclick="check('013_13', ['46', ])">
+		Check
+	</button></td>
+<td><p class="questions">л) 7 зелёных и 5 жёлтых;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_14"></div>
+<div class="questions_result_note" id="result_note_013_14"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_14"></td>
+<td><button class="questions" onclick="check('013_14', ['42', ])">
+		Check
+	</button></td>
+<td><p class="questions">м) 2 синих, 3 зелёных и 4 красных;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_15"></div>
+<div class="questions_result_note" id="result_note_013_15"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_15"></td>
+<td><button class="questions" onclick="check('013_15', ['46', ])">
+		Check
+	</button></td>
+<td><p class="questions">н) 5 жёлтых, 6 синих и 7 зелёных;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_16"></div>
+<div class="questions_result_note" id="result_note_013_16"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_16"></td>
+<td><button class="questions" onclick="check('013_16', ['27', ])">
+		Check
+	</button></td>
+<td><p class="questions">о) либо 3 красных, либо 5 зелёных;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_17"></div>
+<div class="questions_result_note" id="result_note_013_17"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_17"></td>
+<td><button class="questions" onclick="check('013_17', ['18', ])">
+		Check
+	</button></td>
+<td><p class="questions">п) либо 5 синих, либо 3 зелёных, либо 2 жёлтых;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_18"></div>
+<div class="questions_result_note" id="result_note_013_18"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_18"></td>
+<td><button class="questions" onclick="check('013_18', ['34', ])">
+		Check
+	</button></td>
+<td><p class="questions">р) 2 синих и 2 красных либо 2 зелёных и 2 жёлтых;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_19"></div>
+<div class="questions_result_note" id="result_note_013_19"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_19"></td>
+<td><button class="questions" onclick="check('013_19', ['3', ])">
+		Check
+	</button></td>
+<td><p class="questions">с) 3 шарика одинакового цвета либо 2 разного цвета;</p></td>
+</tr>
+<tr>
+<td><div class="questions_result_block">
+<div class="questions_result" id="result_013_20"></div>
+<div class="questions_result_note" id="result_note_013_20"></div>
+</div></td>
+<td><input class="questions" type="text" id="input_013_20"></td>
+<td><button class="questions" onclick="check('013_20', ['36', ])">
+		Check
+	</button></td>
+<td><p class="questions">т) 3 шарика разного цвета и среди них был синий шарик?</p></td>
+</tr>
+</tbody></table>
+		</div>
+</div>
+
+	<div class="group">
+<hr class="group">
+<div class="puzzle" id="011">
+			<img class="puzzle_content" src="./images/011.png">
+			<div class="question_status">
+<div class="question_id">
+			#011</div>
+<div class="question_result_block">
+<div class="question_result" id="result_011"></div>
+<div class="question_result_note" id="result_note_011"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_011" placeholder="Shaded area?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('011', ['10/17*pi', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="">
+			012
+			<img class="puzzle_content" src="./images/012.png">
+			<div class="question_status">
+<div class="question_id">
+			#</div>
+<div class="question_result_block">
+<div class="question_result" id="result_"></div>
+<div class="question_result_note" id="result_note_"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_" placeholder="Length?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('', ['4/3', ])">
+		Check
+	</button></div>
+		</div>
+</div>
+
+	<div class="group">
+<hr class="group">
+<div class="puzzle" id="010">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 150 100">
+	<defs>
+		<style>
+			@import url("/_config/fonts/ArbutusSlab/arbutusslab.css");
+			@import url("/_config/fonts/Gabriela/gabriela.css");
+			:root {
+				--dark_blue: #003399;
+				--blue: #5a6fd4;
+				--light_blue: #ccd6eb;
+				--green: #009900;
+				--light_green: #cfecc5;
+				--red: #ff0000;
+				--light_red: #ffaaa7;
+				--orange: #ff7f00;
+			}
+		</style>
+		<!-- Hash Marks -->
+		<path id="one_hash_mark" d="M 0 -3 L 0 3" stroke="var(--dark_blue)"></path>
+		<path id="two_hash_marks" d="M 0 0 M -1 -3 L -1 3 M 1 -3 L 1 3" stroke="var(--red)"></path>
+		<!-- EN Text -->
+		<g id="text_en" lang="en" text-anchor="middle" font-size="8" font-family="Arbutus Slab">
+			<text x="110" y="15" fill="var(--dark_blue)">Reulaux Triangle</text>
+			<text x="110" y="25" fill="var(--red)">Right Triangle</text>
+			<text x="110" y="35" fill="var(--green)">Reulaux Triangle</text>
+			<text x="108" y="65" text-anchor="start" fill="var(--green)">S=1</text>
+			<text x="108" y="75" text-anchor="start" fill="var(--dark_blue)">S=?</text>
+		</g>
+		<!-- RU Text -->
+		<g id="text_ru" lang="ru" text-anchor="middle" font-size="8" font-family="Gabriela">
+			<text x="110" y="15" fill="var(--dark_blue)">Треугольник Рёло</text>
+			<text x="110" y="25" fill="var(--red)">Треугольник</text>
+			<text x="110" y="35" fill="var(--green)">Треугольник Рёло</text>
+			<text x="108" y="65" text-anchor="start" fill="var(--green)">S=1</text>
+			<text x="108" y="75" text-anchor="start" fill="var(--dark_blue)">S=?</text>
+		</g>
+		<!-- EO Text -->
+		<g id="text_eo" lang="eo" text-anchor="middle" font-size="8" font-family="Arbutus Slab">
+			<text x="108" y="14" font-size="7.5" fill="var(--dark_blue)">Triangulo de Reulaux</text>
+			<text x="108" y="22" font-size="7.5" fill="var(--red)">Orta Triangulo</text>
+			<text x="108" y="30" font-size="7.5" fill="var(--green)">Triangulo de Reulaux</text>
+			<text x="108" y="65" text-anchor="start" fill="var(--green)">S=1</text>
+			<text x="108" y="75" text-anchor="start" fill="var(--dark_blue)">S=?</text>
+		</g>
+	</defs>
+	<!-- Main figures -->
+	<g stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+		<path d="M 5 80 a 80 80 0 0 1 40 -69 a 80 80 0 0 1 40 69 a 80 80 0 0 1 -80 0 z" stroke="var(--dark_blue)" fill="var(--dark_blue)" fill-opacity="0.3"></path>
+		<path d="M 16 40 L 74 40 L 45 91 z" stroke="var(--red)"></path>
+		<path d="M 30.5 65.5 A 29 29 0 0 1 45 40 A 29 29 0 0 1 59.5 65.5 A 29 29 0 0 1 30.5 65.5 z" stroke="var(--green)" fill="var(--green)" fill-opacity="0.4"></path>
+	</g>
+	<g stroke-width="1" stroke-linecap="round">
+		<!-- Blue -->
+		<use href="#one_hash_mark" transform="translate(7.7, 59.2) rotate(-75)"></use>
+		<use href="#one_hash_mark" transform="translate(28.4, 23.4) rotate(-45)"></use>
+		<use href="#one_hash_mark" transform="translate(82.3, 59.2) rotate(75)"></use>
+		<use href="#one_hash_mark" transform="translate(61.6, 23.4) rotate(45)"></use>
+		<use href="#one_hash_mark" transform="translate(24.3, 88.3) rotate(15)"></use>
+		<use href="#one_hash_mark" transform="translate(65.7, 88.3) rotate(-15)"></use>
+		<!-- Red -->
+		<use href="#two_hash_marks" transform="translate(30.5, 40)"></use>
+		<use href="#two_hash_marks" transform="translate(59.5, 40)"></use>
+		<use href="#two_hash_marks" transform="translate(37.75, 78.25) rotate(60)"></use>
+		<use href="#two_hash_marks" transform="translate(23.25, 52.75) rotate(60)"></use>
+		<use href="#two_hash_marks" transform="translate(52.25, 78.25) rotate(-60)"></use>
+		<use href="#two_hash_marks" transform="translate(66.75, 52.75) rotate(-60)"></use>
+	</g>
+
+	<!-- Text -->
+	<!-- EN: href="#text_en" -->
+	<!-- RU: href="#text_ru" -->
+	<!-- EO: href="#text_eo" -->
+	<use href="#text_en"></use>
+</svg>
+			<div class="question_status">
+<div class="question_id">
+			#010</div>
+<div class="question_result_block">
+<div class="question_result" id="result_010"></div>
+<div class="question_result_note" id="result_note_010"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_010" placeholder="S=?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('010', ['2/(2-sqrt(3))', ])">
+		Check
+	</button></div>
+		</div>
+</div>
+
+	<div class="group">
+<hr class="group">
+<div class="puzzle" id="003">
+			<img class="puzzle_content" src="./images/003.png">
+			<div class="question_status">
+<div class="question_id">
+			#003</div>
+<div class="question_result_block">
+<div class="question_result" id="result_003"></div>
+<div class="question_result_note" id="result_note_003"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_003" placeholder="Length?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('003', ['x', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="004">
+			<img class="puzzle_content" src="./images/004.png">
+			<div class="question_status">
+<div class="question_id">
+			#004</div>
+<div class="question_result_block">
+<div class="question_result" id="result_004"></div>
+<div class="question_result_note" id="result_note_004"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_004" placeholder="Angle?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('004', ['pi/2', '90', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="005">
+			<img class="puzzle_content" src="./images/005.png">
+			<div class="question_status">
+<div class="question_id">
+			#005</div>
+<div class="question_result_block">
+<div class="question_result" id="result_005"></div>
+<div class="question_result_note" id="result_note_005"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_005" placeholder="Length?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('005', ['x+y', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="006">
+			<img class="puzzle_content" src="./images/006.png">
+			<div class="question_status">
+<div class="question_id">
+			#006</div>
+<div class="question_result_block">
+<div class="question_result" id="result_006"></div>
+<div class="question_result_note" id="result_note_006"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_006" placeholder="Length?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('006', ['4*sqrt(x*y)', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="007">
+			<img class="puzzle_content" src="./images/007.png">
+			<div class="question_status">
+<div class="question_id">
+			#007</div>
+<div class="question_result_block">
+<div class="question_result" id="result_007"></div>
+<div class="question_result_note" id="result_note_007"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_007" placeholder="Length?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('007', ['y-x', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="008">
+			<img class="puzzle_content" src="./images/008.png">
+			<div class="question_status">
+<div class="question_id">
+			#008</div>
+<div class="question_result_block">
+<div class="question_result" id="result_008"></div>
+<div class="question_result_note" id="result_note_008"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_008" placeholder="Angle?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('008', ['45', 'pi/4', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="009">
+			<img class="puzzle_content" src="./images/009.png">
+			<div class="question_status">
+<div class="question_id">
+			#009</div>
+<div class="question_result_block">
+<div class="question_result" id="result_009"></div>
+<div class="question_result_note" id="result_note_009"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_009" placeholder="Length?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('009', ['15', ])">
+		Check
+	</button></div>
+		</div>
+</div>
+
+	<div class="group">
+<hr class="group">
+<div class="puzzle" id="001">
+			<img class="puzzle_content" src="./images/001.png">
+			<div class="question_status">
+<div class="question_id">
+			#001</div>
+<div class="question_result_block">
+<div class="question_result" id="result_001"></div>
+<div class="question_result_note" id="result_note_001"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_001" placeholder="S=?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('001', ['16', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="002">
+			<img class="puzzle_content" src="./images/002.png">
+			<div class="question_status">
+<div class="question_id">
+			#002</div>
+<div class="question_result_block">
+<div class="question_result" id="result_002"></div>
+<div class="question_result_note" id="result_note_002"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_002" placeholder="S=?"></div>
+<div class="puzzle_content"><button class="question" onclick="check('002', ['32', ])">
+		Check
+	</button></div>
+		</div>
+</div>
+
+<script>
+		function change_puzzle_lang(lang, id) {
+			console.log('change_lang', lang, id)
+		}
+
+		async function check(id, ans){
+			var input_node = document.getElementById("input_"+id);
+			var result_node = document.getElementById("result_"+id);
+			var result_note_node = document.getElementById("result_note_"+id);
+			result_hide(result_node, result_note_node)
+			await sleep_ms(100);
+			try{
+				var in_val = nerdamer(input_node.value).evaluate()
+				for (const i in ans) {
+					var ans_val = nerdamer(ans[i]).evaluate();
+					if (nerdamer(in_val).eq(ans_val)) {
+						result_good(result_node, result_note_node);
+						return;
+					}
+				}
+				result_bad(result_node, result_note_node);
+			} catch (err) {
+				result_error(result_node, result_note_node, err)
+				console.log(`Error while checking answer: ${err.message}`);
+			}
+		}
+		function result_good(result_node, result_note_node) {
+			result_node.innerHTML="✔";
+			result_node.style.color = "var(--color_green_2)";
+			result_note_node.innerHTML = "👍 Correct answer!";
+			result_note_node.style.backgroundColor = "var(--color_green_1)";
+			result_note_node.style.borderColor = "var(--color_green_2)";
+			result_dispaly(result_node, result_note_node)
+		}
+		function result_bad(result_node, result_note_node) {
+			result_node.innerHTML="✘";
+			result_node.style.color = "var(--color_red_2)";
+			result_note_node.innerHTML = "Wrong answer!";
+			result_note_node.style.backgroundColor = "var(--color_red_1)";
+			result_note_node.style.borderColor = "var(--color_red_2)";
+			result_dispaly(result_node, result_note_node)
+		}
+		function result_error(result_node, result_note_node, err) {
+			result_node.innerHTML="⚠";
+			result_node.style.color = "var(--color_red_2)";
+			result_note_node.innerHTML = err.message;
+			result_note_node.style.backgroundColor = "var(--color_red_1)";
+			result_note_node.style.borderColor = "var(--color_red_2)";
+			result_dispaly(result_node, result_note_node)
+		}
+		function result_hide(result_node, result_note_node) {
+			result_note_node.style.display = "none";
+		}
+		function result_dispaly(result_node, result_note_node) {
+			result_note_node.style.display = "block";
+		}
+		function sleep_ms(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		}
+	</script>
+</body>
 </html>

@@ -1,8 +1,8 @@
 <svg width="150mm" height="100mm" viewBox="0 0 150 100" xmlns="http://www.w3.org/2000/svg">
 	<defs>
 		<style>
-			@import url("/config/fonts/ArbutusSlab/arbutusslab.css");
-			@import url("/config/fonts/Gabriela/gabriela.css");
+			@import url("/_config/fonts/ArbutusSlab/arbutusslab.css");
+			@import url("/_config/fonts/Gabriela/gabriela.css");
 			:root {
 				--dark_blue: #003399;
 				--blue: #5a6fd4;
