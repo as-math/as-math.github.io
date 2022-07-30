@@ -1,8 +1,6 @@
 <svg width="150mm" height="100mm" viewBox="0 0 150 100" xmlns="http://www.w3.org/2000/svg">
 	<defs>
 		<style>
-			@import url("/_config/fonts/ArbutusSlab/arbutusslab.css");
-			@import url("/_config/fonts/Gabriela/gabriela.css");
 			:root {
 				--dark_blue: #003399;
 				--blue: #5a6fd4;
@@ -66,8 +64,7 @@
 	</g>
 
 	<!-- Text -->
-	<!-- EN: href="#text_en" -->
-	<!-- RU: href="#text_ru" -->
-	<!-- EO: href="#text_eo" -->
-	<use href="#text_en"/>
+	<use href="#text_en" class="lang_dependent_content" lang='EN' visibility="visible"/>
+	<use href="#text_ru" class="lang_dependent_content" lang='RU' visibility="hidden"/>
+	<use href="#text_eo" class="lang_dependent_content" lang='EO' visibility="hidden"/>
 </svg>

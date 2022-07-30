@@ -206,7 +206,7 @@
 
 	<group>
 		<date>8 Jan 2022</date>
-		<puzzle id="010">
+		<puzzle id="010" lang="EO;RU;EN">
 			<image type="svg">010.svg</image>
 			<question>
 				<text>S=?</text>

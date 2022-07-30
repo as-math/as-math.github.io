@@ -3,205 +3,8 @@
 <meta charset="utf-8">
 <title>AS - Math Puzzles</title>
 <link rel="shortcut icon" href="/config/icons/ico-6gon.png" type="image/png">
-<style>
-		@import url("/config/fonts/ArbutusSlab/arbutusslab.css");
-		@import url("/config/fonts/Gabriela/gabriela.css");
-		:root {
-			--color_gray_1: #d3d3d3;
-			--color_gray_2: #a3a3a3;
-			--color_blue_1: #5a6fd4;
-			--color_green_1: #cfecc5;
-			--color_green_2: #339900;
-			--color_red_1: #ffaaa7;
-			--color_red_2: #ff0500;
-			--color_white: #ffffff;
-		}
-		@media only screen and (max-device-width: 640px) {
-			:root {
-				font-size: 30px;
-			}
-		}
-		body {
-			font-family: 'Arbutus Slab', 'Gabriela';
-			width: 100%;
-			max-width: 1200px;
-			text-align: center;
-			margin: auto;
-		}
-		table {
-			border-collapse: collapse;
-		}
-
-		/* *********************** */
-		/* ** PUZZLE PAGE TITLE ** */
-		/* *********************** */
-		div.puzzles_page_title {
-			display: table;
-			margin: auto;
-			max-width: 90vw;
-		}
-		img.puzzles_page_title {
-			display: table-cell;
-			vertical-align: middle;
-			height: 7rem;
-		}
-		h1 {
-			display: table-cell;
-			vertical-align: middle;
-			font-size: 2.5rem;
-			white-space: nowrap;
-			color: var(--color_blue_1);
-		}
-		a.puzzles_page_title {
-			display: block;
-			color: var(--color_blue_1);
-		}
-
-		/* *********** */
-		/* ** GROUP ** */
-		/* *********** */
-		div.group {
-			display: block;
-			margin: 2rem auto;
-		}
-		hr.group {
-			width: 95%;
-			border: none;
-			border-top: 0.2rem solid var(--color_gray_1);
-			margin: 0.1rem auto;
-			text-align: left;
-			font-weight: bold;
-			font-size: 1rem;
-			color: var(--color_gray_2);
-		}
-
-		/* ************ */
-		/* ** PUZZLE ** */
-		/* ************ */
-		div.puzzle {
-			display: inline-block;
-			width: min(30rem, 90vw);
-		}
-		.puzzle_content {
-			display: block;
-			max-width: 100%;
-		}
-		p.puzzle_content {
-			text-align: justify;
-		}
-		img.puzzle_content {
-			max-height: 20rem;
-			margin: auto;
-		}
-
-		/* ************** */
-		/* ** QUESTION ** */
-		/* ************** */
-		div.puzzle_content_block {
-			display: block;
-			width: 100%;
-		}
-		div.question_status {
-			display: table;
-			width: 80%;
-			margin: auto;
-			text-align: left;
-		}
-		div.question_id {
-			display: inline-block;
-			width: max-content;
-			font-weight: bold;
-			font-size: 1.5rem;
-			color: var(--color_gray_2);
-		}
-		button.puzzle_lang_button {
-			display: inline-block;
-			width: max-content;
-			float:right;
-		}
-		div.question_result_block, div.questions_result_block {
-			position: relative;
-			width: 1.3rem;
-			display: inline-block;
-		}
-		div.question_result, div.questions_result {
-			font-weight: normal;
-			font-size: 1.3rem;
-		}
-		div.question_result_note, div.questions_result_note {
-			opacity: 0;
-			transition: opacity 0.5s;
-			pointer-events: none;
-			border-radius: 0.7em;
-			border: 0.15em solid black;
-			text-align: justify;
-			display: none;
-			position: absolute;
-			width: 15rem;
-			padding: 1rem;
-			z-index: 1;
-		}
-		div.question_result:hover + div.question_result_note,
-		div.questions_result:hover + div.questions_result_note {
-			opacity: 1;
-		}
-		input.question, input.questions {
-			font-family: 'Arbutus Slab', 'Gabriela';
-			text-align: center;
-			background-color: var(--color_white);
-			border-radius: 0.7rem;
-			border: 0.15rem solid var(--color_blue_1);
-		}
-		button.question, button.questions {
-			font-family: 'Arbutus Slab', 'Gabriela';
-			text-align: center;
-			border-radius: 0.7rem;
-			background-color: var(--color_blue_1);
-			border: 0.1.5rem solid var(--color_blue_1);
-			color: var(--color_white);
-		}
-
-		/* ** Question ** */
-		input.question {
-			font-size: 1rem;
-			padding: 0.5rem;
-			margin: 0.2rem;
-			width: 80%;
-			min-width: 13rem;
-		}
-		button.question {
-			font-size: 1rem;
-			padding: 0.5rem;
-			margin: 0.1rem;
-		}
-		p.questions {
-			text-align: justify;
-			padding: 0;
-			margin-top: 4px;
-			margin-bottom: 4px;
-			line-height: 1em;
-		}
-		div.question_result_block {
-			padding-left: 0.5rem;
-		}
-		div.question_result_note {
-			left: 23px;
-		}
-
-		/* ** Questions ** */
-		input.questions {
-			font-size: 0.9rem;
-			padding: 0.2rem;
-			margin: 0.1rem;
-			width: 2rem;
-		}
-		button.questions {
-			font-size: 0.9rem;
-			padding: 0.2rem;
-			margin: 0.1rem;
-		}
-	</style>
-<script src="/config/nerdamer.core.js"></script>
+<link rel="stylesheet" href="style.css">
+<script src="/config/nerdamer.core.js"></script><script src="check_answer.js"></script><script src="change_lang.js"></script>
 </head>
 <body>
 <div class="puzzles_page_title">
@@ -211,7 +14,7 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="021">
+<div class="puzzle" id="puzzle_021">
 			<p class="puzzle_content">
 				Квадрокоптер на одном заряде аккумулятора летает 8 мин. Если с полным аккумулятором полететь по ветру, то аккумулятор сядет через 6 км, а если против ветра — через 4 км. Сколько минут надо лететь по ветру, чтобы улететь как можно дальше, но потом успеть вернуться назад? На какое максимальное расстояние можно улететь таким образом? Изменится ли ответ, если сначала полететь против ветра, а потом по ветру?
 			</p>
@@ -277,7 +80,7 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="020">
+<div class="puzzle" id="puzzle_020">
 			<p class="puzzle_content">
 				Компьютер загадывает четыре неповторяющиеся цифры для игры в быков и коров. Делает он это таким образом: цифры выбирает по очереди, генерируя их случайным образом; если сгенерированная цифра не совпадает с уже имеющимися, то добавляет её в набор, а если совпадает, то генерирует цифру заново.<br>
 				<b>Вопрос:</b> сколько в среднем раз компьютер генерирует случайную цифру, загадывая набор цифр для игры?
@@ -299,7 +102,7 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="017">
+<div class="puzzle" id="puzzle_017">
 			<img class="puzzle_content" src="./images/017.png">
 			<div class="question_status">
 <div class="question_id">
@@ -314,7 +117,7 @@
 		Check
 	</button></div>
 		</div>
-<div class="puzzle" id="018">
+<div class="puzzle" id="puzzle_018">
 			<img class="puzzle_content" src="./images/018.png">
 			<div class="question_status">
 <div class="question_id">
@@ -329,7 +132,7 @@
 		Check
 	</button></div>
 		</div>
-<div class="puzzle" id="019">
+<div class="puzzle" id="puzzle_019">
 			<img class="puzzle_content" src="./images/019.png">
 			<div class="question_status">
 <div class="question_id">
@@ -348,7 +151,7 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="016">
+<div class="puzzle" id="puzzle_016">
 			<img class="puzzle_content" src="./images/016.png">
 			<div class="question_status">
 <div class="question_id">
@@ -379,7 +182,7 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="014">
+<div class="puzzle" id="puzzle_014">
 			<img class="puzzle_content" src="./images/014.png">
 			<div class="question_status">
 <div class="question_id">
@@ -394,7 +197,7 @@
 		Check
 	</button></div>
 		</div>
-<div class="puzzle" id="015">
+<div class="puzzle" id="puzzle_015">
 			<img class="puzzle_content" src="./images/015.png">
 			<div class="question_status">
 <div class="question_id">
@@ -413,7 +216,7 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="013">
+<div class="puzzle" id="puzzle_013">
 			<p class="puzzle_content">
 				В коробке лежат 48 шариков: 10 красных, 13 синих, 18 зелёных и 7 жёлтых. Какое минимальное количество шариков надо вытащить за раз не глядя, чтобы среди них точно был:
 			</p>
@@ -652,7 +455,7 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="011">
+<div class="puzzle" id="puzzle_011">
 			<img class="puzzle_content" src="./images/011.png">
 			<div class="question_status">
 <div class="question_id">
@@ -667,7 +470,7 @@
 		Check
 	</button></div>
 		</div>
-<div class="puzzle" id="012">
+<div class="puzzle" id="puzzle_012">
 			<img class="puzzle_content" src="./images/012.png">
 			<div class="question_status">
 <div class="question_id">
@@ -686,12 +489,10 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="010">
+<div class="puzzle" id="puzzle_010">
 			<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 150 100">
 	<defs>
 		<style>
-			@import url("/_config/fonts/ArbutusSlab/arbutusslab.css");
-			@import url("/_config/fonts/Gabriela/gabriela.css");
 			:root {
 				--dark_blue: #003399;
 				--blue: #5a6fd4;
@@ -755,10 +556,9 @@
 	</g>
 
 	<!-- Text -->
-	<!-- EN: href="#text_en" -->
-	<!-- RU: href="#text_ru" -->
-	<!-- EO: href="#text_eo" -->
-	<use href="#text_en"></use>
+	<use href="#text_en" class="lang_dependent_content" lang="EN" visibility="visible"></use>
+	<use href="#text_ru" class="lang_dependent_content" lang="RU" visibility="hidden"></use>
+	<use href="#text_eo" class="lang_dependent_content" lang="EO" visibility="hidden"></use>
 </svg>
 			<div class="question_status">
 <div class="question_id">
@@ -767,6 +567,7 @@
 <div class="question_result" id="result_010"></div>
 <div class="question_result_note" id="result_note_010"></div>
 </div>
+<button class="puzzle_lang_button" lang="EO" onclick="change_puzzle_lang('EO', '010')">EO</button><button class="puzzle_lang_button" lang="RU" onclick="change_puzzle_lang('RU', '010')">RU</button><button class="puzzle_lang_button" lang="EN" onclick="change_puzzle_lang('EN', '010')">EN</button>
 </div>
 <div class="puzzle_content"><input class="question" type="text" id="input_010" placeholder="S=?"></div>
 <div class="puzzle_content"><button class="question" onclick="check('010', ['2/(2-sqrt(3))', ])">
@@ -777,7 +578,7 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="003">
+<div class="puzzle" id="puzzle_003">
 			<img class="puzzle_content" src="./images/003.png">
 			<div class="question_status">
 <div class="question_id">
@@ -792,7 +593,7 @@
 		Check
 	</button></div>
 		</div>
-<div class="puzzle" id="004">
+<div class="puzzle" id="puzzle_004">
 			<img class="puzzle_content" src="./images/004.png">
 			<div class="question_status">
 <div class="question_id">
@@ -807,7 +608,7 @@
 		Check
 	</button></div>
 		</div>
-<div class="puzzle" id="005">
+<div class="puzzle" id="puzzle_005">
 			<img class="puzzle_content" src="./images/005.png">
 			<div class="question_status">
 <div class="question_id">
@@ -822,7 +623,7 @@
 		Check
 	</button></div>
 		</div>
-<div class="puzzle" id="006">
+<div class="puzzle" id="puzzle_006">
 			<img class="puzzle_content" src="./images/006.png">
 			<div class="question_status">
 <div class="question_id">
@@ -837,7 +638,7 @@
 		Check
 	</button></div>
 		</div>
-<div class="puzzle" id="007">
+<div class="puzzle" id="puzzle_007">
 			<img class="puzzle_content" src="./images/007.png">
 			<div class="question_status">
 <div class="question_id">
@@ -852,7 +653,7 @@
 		Check
 	</button></div>
 		</div>
-<div class="puzzle" id="008">
+<div class="puzzle" id="puzzle_008">
 			<img class="puzzle_content" src="./images/008.png">
 			<div class="question_status">
 <div class="question_id">
@@ -867,7 +668,7 @@
 		Check
 	</button></div>
 		</div>
-<div class="puzzle" id="009">
+<div class="puzzle" id="puzzle_009">
 			<img class="puzzle_content" src="./images/009.png">
 			<div class="question_status">
 <div class="question_id">
@@ -886,7 +687,7 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="001">
+<div class="puzzle" id="puzzle_001">
 			<img class="puzzle_content" src="./images/001.png">
 			<div class="question_status">
 <div class="question_id">
@@ -901,7 +702,7 @@
 		Check
 	</button></div>
 		</div>
-<div class="puzzle" id="002">
+<div class="puzzle" id="puzzle_002">
 			<img class="puzzle_content" src="./images/002.png">
 			<div class="question_status">
 <div class="question_id">
@@ -918,65 +719,5 @@
 		</div>
 </div>
 
-<script>
-		function change_puzzle_lang(lang, id) {
-			console.log('change_lang', lang, id)
-		}
-
-		async function check(id, ans){
-			var input_node = document.getElementById("input_"+id);
-			var result_node = document.getElementById("result_"+id);
-			var result_note_node = document.getElementById("result_note_"+id);
-			result_hide(result_node, result_note_node)
-			await sleep_ms(100);
-			try{
-				var in_val = nerdamer(input_node.value).evaluate()
-				for (const i in ans) {
-					var ans_val = nerdamer(ans[i]).evaluate();
-					if (nerdamer(in_val).eq(ans_val)) {
-						result_good(result_node, result_note_node);
-						return;
-					}
-				}
-				result_bad(result_node, result_note_node);
-			} catch (err) {
-				result_error(result_node, result_note_node, err)
-				console.log(`Error while checking answer: ${err.message}`);
-			}
-		}
-		function result_good(result_node, result_note_node) {
-			result_node.innerHTML="✔";
-			result_node.style.color = "var(--color_green_2)";
-			result_note_node.innerHTML = "👍 Correct answer!";
-			result_note_node.style.backgroundColor = "var(--color_green_1)";
-			result_note_node.style.borderColor = "var(--color_green_2)";
-			result_dispaly(result_node, result_note_node)
-		}
-		function result_bad(result_node, result_note_node) {
-			result_node.innerHTML="✘";
-			result_node.style.color = "var(--color_red_2)";
-			result_note_node.innerHTML = "Wrong answer!";
-			result_note_node.style.backgroundColor = "var(--color_red_1)";
-			result_note_node.style.borderColor = "var(--color_red_2)";
-			result_dispaly(result_node, result_note_node)
-		}
-		function result_error(result_node, result_note_node, err) {
-			result_node.innerHTML="⚠";
-			result_node.style.color = "var(--color_red_2)";
-			result_note_node.innerHTML = err.message;
-			result_note_node.style.backgroundColor = "var(--color_red_1)";
-			result_note_node.style.borderColor = "var(--color_red_2)";
-			result_dispaly(result_node, result_note_node)
-		}
-		function result_hide(result_node, result_note_node) {
-			result_note_node.style.display = "none";
-		}
-		function result_dispaly(result_node, result_note_node) {
-			result_note_node.style.display = "block";
-		}
-		function sleep_ms(ms) {
-			return new Promise(resolve => setTimeout(resolve, ms));
-		}
-	</script>
 </body>
 </html>
