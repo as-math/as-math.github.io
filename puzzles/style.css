@@ -39,16 +39,46 @@ img.puzzles_page_title {
 	vertical-align: middle;
 	height: 7rem;
 }
-h1 {
+h1.puzzles_page_title {
 	display: table-cell;
 	vertical-align: middle;
 	font-size: 2.5rem;
 	white-space: nowrap;
 	color: var(--color_blue_1);
+	padding-left: 0.5em;
 }
 a.puzzles_page_title {
 	display: block;
 	color: var(--color_blue_1);
+}
+div.title_links_and_buttons {
+	display: table;
+	margin: auto;
+}
+div.title_links, div.title_buttons {
+	display: table-cell;
+	padding: 1rem;
+	vertical-align: middle;
+	text-align: center;
+}
+button.global_lang_button {
+	display: block;
+	width: max-content;
+	font-family: 'Arbutus Slab', 'Gabriela';
+	text-align: center;
+	border-radius: 0.3rem;
+	background-color: var(--color_green_1);
+	border: 0.15rem solid var(--color_green_2);
+	color: var(--color_green_2);
+	margin-top: 0.1rem;
+	margin-bottom: 0.1rem;
+	margin-right: auto;
+	margin-left: auto;
+}
+button.global_lang_button.active {
+	background-color: var(--color_green_2);
+	border: 0.15rem solid var(--color_green_2);
+	color: var(--color_green_1);
 }
 
 /* *********** */

@@ -1,15 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+	change_global_lang("EN");
+});
+
+function change_global_lang(lang) {
+	let lang_buttons = document.getElementsByClassName("global_lang_button");
+	for (let i=0; i < lang_buttons.length; i++){
+		if (lang_buttons[i].lang == lang) {
+			lang_buttons[i].classList.add("active");
+		} else {
+			lang_buttons[i].classList.remove("active");
+		}
+	}
 	let buttons = document.getElementsByClassName("puzzle_lang_button");
 	for (let i=0; i < buttons.length; i++){
-		if (buttons[i].lang == "EN") {
+		if (buttons[i].lang == lang) {
 			buttons[i].click();
 		}
 	}
-});
+}
 
 function change_puzzle_lang(lang, id) {
 	let puzzle = document.getElementById("puzzle_"+id);
 	change_lang_text(puzzle, lang);
+	change_lang_input(puzzle, lang);
+	change_lang_check_button(puzzle, lang);
 	change_lang_svg(puzzle, lang);
 	change_active_button(puzzle, lang)
 }
@@ -22,6 +36,52 @@ function change_lang_text(puzzle, lang) {
 				text_nodes[i].style.display = "block";
 			} else {
 				text_nodes[i].style.display = "none";
+			}
+		}
+	}
+}
+
+function change_lang_input(puzzle, lang) {
+	let input_nodes = puzzle.getElementsByTagName("input");
+	for (let i=0; i < input_nodes.length; i++){
+		if (input_nodes[i].classList.contains("question")){
+			if (lang == "EN") {
+				if (input_nodes[i].dataset.textEn != "") {
+					input_nodes[i].placeholder = input_nodes[i].dataset.textEn;
+				} else {
+					input_nodes[i].placeholder = input_nodes[i].dataset.text;
+				}
+			}
+			if (lang == "RU") {
+				if (input_nodes[i].dataset.textRu != "") {
+					input_nodes[i].placeholder = input_nodes[i].dataset.textRu;
+				} else {
+					input_nodes[i].placeholder = input_nodes[i].dataset.text;
+				}
+			}
+			if (lang == "EO") {
+				if (input_nodes[i].dataset.textEo != "") {
+					input_nodes[i].placeholder = input_nodes[i].dataset.textEo;
+				} else {
+					input_nodes[i].placeholder = input_nodes[i].dataset.text;
+				}
+			}
+		}
+	}
+}
+
+function change_lang_check_button(puzzle, lang) {
+	let button_nodes = puzzle.getElementsByTagName("button");
+	for (let i=0; i < button_nodes.length; i++){
+		if (button_nodes[i].classList.contains("question") | button_nodes[i].classList.contains("questions")) {
+			if (lang == "EN") {
+				button_nodes[i].innerHTML = "Check";
+			}
+			if (lang == "RU") {
+				button_nodes[i].innerHTML = "Проверить";
+			}
+			if (lang == "EO") {
+				button_nodes[i].innerHTML = "Kontroli";
 			}
 		}
 	}

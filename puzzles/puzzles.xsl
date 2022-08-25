@@ -30,7 +30,7 @@ extension-element-prefixes="str">
 <xsl:template name="html_body">
 	<body>
 		<xsl:call-template name="puzzles_page_title"/>
-		<xsl:call-template name="title_links"/>
+		<xsl:call-template name="title_links_and_buttons"/>
 		<xsl:apply-templates />
 	</body>
 </xsl:template>
@@ -43,11 +43,19 @@ extension-element-prefixes="str">
 	</div>
 </xsl:template>
 
-<!-- title links -->
-<xsl:template name="title_links">
-	<a class="puzzles_page_title" href="/">Home page</a>
-	<a class="puzzles_page_title" href="https://t.me/SerovaA_math"><img src="/config/icons/telegram_icon.svg" style="height: 1em; margin-right: 0.2em; margin-bottom: -0.1em;"/>Telegram channel</a>
-
+<!-- title links and buttons -->
+<xsl:template name="title_links_and_buttons">
+	<div class="title_links_and_buttons">
+		<div class="title_links">
+			<a class="puzzles_page_title" href="/">Home page</a>
+			<a class="puzzles_page_title" href="https://t.me/SerovaA_math"><img src="/config/icons/telegram_icon.svg" style="height: 1em; margin-right: 0.2em; margin-bottom: -0.1em;"/>Telegram channel</a>
+		</div>
+		<div class="title_buttons">
+			<button class="global_lang_button" lang="EN" onclick="change_global_lang('EN')">English</button>
+			<button class="global_lang_button" lang="RU" onclick="change_global_lang('RU')">Русский</button>
+			<button class="global_lang_button" lang="EO" onclick="change_global_lang('EO')">Esperanto</button>
+		</div>
+	</div>
 </xsl:template>
 
 <!--#####################-->
@@ -182,7 +190,19 @@ extension-element-prefixes="str">
 <!-- input -->
 <xsl:template name="question_input">
 	<xsl:param name="question_id"/>
-	<input class="question" type="text" id="input_{$question_id}" placeholder="{text}" />
+	<xsl:variable name="data_text">
+		<xsl:value-of select="text[not(@*)]" />
+	</xsl:variable>
+	<xsl:variable name="data_text_EN">
+		<xsl:value-of select="text[@lang='EN']" />
+	</xsl:variable>
+	<xsl:variable name="data_text_RU">
+		<xsl:value-of select="text[@lang='RU']" />
+	</xsl:variable>
+	<xsl:variable name="data_text_EO">
+		<xsl:value-of select="text[@lang='EO']" />
+	</xsl:variable>
+	<input class="question" type="text" id="input_{$question_id}" placeholder="{$data_text}" data-text="{$data_text}" data-text-en="{$data_text_EN}" data-text-ru="{$data_text_RU}" data-text-eo="{$data_text_EO}" />
 </xsl:template>
 
 <!-- button -->

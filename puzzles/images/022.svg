@@ -1,0 +1,65 @@
+<svg width="150mm" xmlns="http://www.w3.org/2000/svg" height="50mm" viewBox="0 0 150 50">
+	<defs>
+		<style>
+			:root {
+				--black: #000000;
+				--dark_gray: #888888;
+				--orange: #ff7f00;
+				--brown: #76450a;
+				--red: #ff0000;
+			}
+		</style>
+		<!--wheel-->
+		<g id="wheel">
+			<path id="frame_back_parts" stroke="var(--orange)" stroke-width="2" d="M 0 -4 L 0 4"/>
+			<path stroke="var(--black)" stroke-width="3" d="M -23 0 L 23 0 M 0 0 l 0 1 M 0 0 l 0 -1"/>
+		</g>
+		<!--frame parts-->
+		<path id="frame_back_part" stroke="var(--orange)" stroke-width="2" d="M 0 0 l 0 -4 l 10 0 q 20 0 20 4"/>
+		<path id="frame_front_part" stroke="var(--orange)" stroke-width="2" d="M 0 0 l 0 -4 q -6 0 -8 4"/>
+	</defs>
+	<!--Bike-->
+	<g stroke-linecap="round" stroke-linejoin="round" fill="none">
+		<!--wheels-->
+		<use href="#wheel" transform="translate(30 25)"/>
+		<use href="#wheel" transform="translate(120 21) rotate(-30)"/>
+		<!--pedals-->
+		<g transform="translate(80 25)">
+			<g id="pedal">
+				<path stroke="var(--black)" stroke-width="1.5" d="M 8 -4 L 8 -6 l 0 -5 l 2 0 l 0 5 l -4 0 l 0 -5 l 2 0"/>
+				<path stroke="var(--dark_gray)" stroke-width="2" d="M 0 0 L 0 -4 L 8 -4"/>
+		  </g>
+		  <use href="#pedal" transform="scale(-1, -1)"/>
+		</g>
+		<!--frame-->
+		<g stroke="var(--orange)" stroke-width="2">
+			<use href="#frame_back_part" transform="translate(30 25)"/>
+		  <use href="#frame_back_part" transform="translate(30 25) scale(1,-1)"/>
+			<use href="#frame_front_part" transform="translate(120 21) rotate(-30)"/>
+		<use href="#frame_front_part" transform="translate(120 21) rotate(-30) scale(1,-1)"/>
+			<path id="frame" stroke-width="3" d="M 60 25 L 113 25"/>
+		</g>
+		<!--handlebars-->
+		<g stroke="var(--orange)" transform="translate(113 25) rotate(-30)" stroke-width="3">
+			<path d="M 0 0 L 4 0"/>
+			<path id="handle" d="M 4 0 q 0 -10 -3 -18"/>
+			<use href="#handle" transform="scale(1, -1)"/>
+		</g>
+		<!--saddle-->
+    <path stroke="var(--brown)" fill="var(--brown)" d="M 0 -10 C -5 -5 -5 5 0 10 S 8 5 15 5 C 30 5 30 -5 15 -5 C 8 -5 5 -15 0 -10 z" transform="translate(60 25) scale(0.6, 0.6)"/>
+  </g>
+	<!--Angle and length-->
+	<g stroke="var(--red)" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-width="0.6">
+		<!--angle-->
+		<g transform="translate(113 25)">
+		  <path d="M 0 0 l 30 0" stroke-dasharray="2 2"/>
+			<path d="M 0 0 l 30 0" stroke-dasharray="2 2" transform="rotate(-30)"/>
+		  <path d="M 20 0 A 20 20 0 0 0 17.3 -10"/>
+			<text fill="var(--red)" font-size="8" y="-3" x="21">30°</text>
+		</g>
+		<!--length-->
+		<path stroke-dasharray="2 2" d="M 30 45 L 120 45"/>
+		<path d="M 30 45 l 2 -1 M 30 45 l 2 1 M 120 45 l -2 -1 M 120 45 l -2 1"/>
+		<text fill="var(--red)" text-anchor="middle" y="43" font-size="6" x="75">110 cm</text>
+	</g>
+</svg>
