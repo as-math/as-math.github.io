@@ -70,8 +70,8 @@ button.global_lang_button {
 	background-color: var(--color_green_1);
 	border: 0.15rem solid var(--color_green_2);
 	color: var(--color_green_2);
-	margin-top: 0.1rem;
-	margin-bottom: 0.1rem;
+	margin-top: 0.2rem;
+	margin-bottom: 0.2rem;
 	margin-right: auto;
 	margin-left: auto;
 }
