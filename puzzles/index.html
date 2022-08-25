@@ -44,9 +44,6 @@
 	</defs>
 	<!--Bike-->
 	<g stroke-linecap="round" stroke-linejoin="round" fill="none">
-		<!--wheels-->
-		<use href="#wheel" transform="translate(30 25)"></use>
-		<use href="#wheel" transform="translate(120 21) rotate(-30)"></use>
 		<!--pedals-->
 		<g transform="translate(80 25)">
 			<g id="pedal">
@@ -58,9 +55,13 @@
 		<!--frame-->
 		<g stroke="var(--orange)" stroke-width="2">
 			<use href="#frame_back_part" transform="translate(30 25)"></use>
-		  <use href="#frame_back_part" transform="translate(30 25) scale(1,-1)"></use>
+			<use href="#frame_back_part" transform="translate(30 25) scale(1,-1)"></use>
 			<use href="#frame_front_part" transform="translate(120 21) rotate(-30)"></use>
-		<use href="#frame_front_part" transform="translate(120 21) rotate(-30) scale(1,-1)"></use>
+			<use href="#frame_front_part" transform="translate(120 21) rotate(-30) scale(1,-1)"></use>
+			<!--wheels-->
+			<use href="#wheel" transform="translate(30 25)"></use>
+			<use href="#wheel" transform="translate(120 21) rotate(-30)"></use>
+
 			<path id="frame" stroke-width="3" d="M 60 25 L 113 25"></path>
 		</g>
 		<!--handlebars-->
