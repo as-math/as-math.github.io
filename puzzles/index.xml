@@ -3,6 +3,25 @@
 <document>
 
 	<group>
+		<date>26 Aug 2022</date>
+		<puzzle id="023" lang="EO;RU;EN">
+			<image type="svg">023.svg</image>
+			<text lang="RU">
+				1)&#8194;Может ли паровозик развернуться на такой дороге?<br/>
+				2)&#8194;Можно ли построить такой циклический маршрут, который бы покрывал всю дорогу и при этом был симметричен относительно поворота на 90°?
+			</text>
+			<text lang="EN">
+				1)&#8194;Can a train turn around on such a road?<br/>
+				2)&#8194;Is it possible to build such a cyclic route that would cover the entire road and at the same time be symmetrical with respect to a 90° turn?
+			</text>
+			<text lang="EO">
+				1)&#8194;Ĉu trajno povas turni ĉirkaŭe sur tia vojo?<br/>
+				2)&#8194;Ĉu eblas konstrui tian cikla itinero kiu kovrus la tutan vojon kaj samtempe esti simetria kun respekto al 90° turno?
+			</text>
+		</puzzle>
+	</group>
+
+	<group>
 		<date>25 Aug 2022</date>
 		<puzzle id="022" lang="EO;RU;EN">
 			<image type="svg">022.svg</image>
@@ -67,11 +86,11 @@
 
 	<group>
 		<date>26 Jan 2022</date>
-		<puzzle id="017">
-			<image>017.png</image>
+		<puzzle id="019">
+			<image>019.png</image>
 			<question>
-				<text>Side of the triangle?</text>
-				<answer>1.6</answer>
+				<text>Major axis of the ellipse?</text>
+				<answer>sqrt(7)</answer>
 			</question>
 		</puzzle>
 		<puzzle id="018">
@@ -81,11 +100,11 @@
 				<answer>1+sqrt(3)</answer>
 			</question>
 		</puzzle>
-		<puzzle id="019">
-			<image>019.png</image>
+		<puzzle id="017">
+			<image>017.png</image>
 			<question>
-				<text>Major axis of the ellipse?</text>
-				<answer>sqrt(7)</answer>
+				<text>Side of the triangle?</text>
+				<answer>1.6</answer>
 			</question>
 		</puzzle>
 	</group>
@@ -107,18 +126,18 @@
 
 	<group>
 		<date>13 Jan 2022</date>
-		<puzzle id="014">
-			<image>014.png</image>
-			<question>
-				<text>S=?</text>
-				<answer>66</answer>
-			</question>
-		</puzzle>
 		<puzzle id="015">
 			<image>015.png</image>
 			<question>
 				<text>R/r=?</text>
 				<answer>sqrt(2)</answer>
+			</question>
+		</puzzle>
+		<puzzle id="014">
+			<image>014.png</image>
+			<question>
+				<text>S=?</text>
+				<answer>66</answer>
 			</question>
 		</puzzle>
 	</group>
@@ -216,18 +235,18 @@
 
 	<group>
 		<date>10 Jan 2022</date>
-		<puzzle id="011">
-			<image>011.png</image>
-			<question>
-				<text>Shaded area?</text>
-				<answer>10/17*pi</answer>
-			</question>
-		</puzzle>
 		<puzzle id="012">
 			<image>012.png</image>
 			<question>
 				<text>Length?</text>
 				<answer>4/3</answer>
+			</question>
+		</puzzle>
+		<puzzle id="011">
+			<image>011.png</image>
+			<question>
+				<text>Shaded area?</text>
+				<answer>10/17*pi</answer>
 			</question>
 		</puzzle>
 	</group>
@@ -245,40 +264,11 @@
 
 	<group>
 		<date>28 Dec 2021</date>
-		<puzzle id="003">
-			<image>003.png</image>
+		<puzzle id="009">
+			<image>009.png</image>
 			<question>
 				<text>Length?</text>
-				<answer type="text">x</answer>
-			</question>
-		</puzzle>
-		<puzzle id="004">
-			<image>004.png</image>
-			<question>
-				<text>Angle?</text>
-				<answer>pi/2</answer>
-				<answer>90</answer>
-			</question>
-		</puzzle>
-		<puzzle id="005">
-			<image>005.png</image>
-			<question>
-				<text>Length?</text>
-				<answer type="text">x+y</answer>
-			</question>
-		</puzzle>
-		<puzzle id="006">
-			<image>006.png</image>
-			<question>
-				<text>Length?</text>
-				<answer type="text">4*sqrt(x*y)</answer>
-			</question>
-		</puzzle>
-		<puzzle id="007">
-			<image>007.png</image>
-			<question>
-				<text>Length?</text>
-				<answer type="text">y-x</answer>
+				<answer>15</answer>
 			</question>
 		</puzzle>
 		<puzzle id="008">
@@ -289,29 +279,58 @@
 				<answer>pi/4</answer>
 			</question>
 		</puzzle>
-		<puzzle id="009">
-			<image>009.png</image>
+		<puzzle id="007">
+			<image>007.png</image>
 			<question>
 				<text>Length?</text>
-				<answer>15</answer>
+				<answer type="text">y-x</answer>
+			</question>
+		</puzzle>
+		<puzzle id="006">
+			<image>006.png</image>
+			<question>
+				<text>Length?</text>
+				<answer type="text">4*sqrt(x*y)</answer>
+			</question>
+		</puzzle>
+		<puzzle id="005">
+			<image>005.png</image>
+			<question>
+				<text>Length?</text>
+				<answer type="text">x+y</answer>
+			</question>
+		</puzzle>
+		<puzzle id="004">
+			<image>004.png</image>
+			<question>
+				<text>Angle?</text>
+				<answer>pi/2</answer>
+				<answer>90</answer>
+			</question>
+		</puzzle>
+		<puzzle id="003">
+			<image>003.png</image>
+			<question>
+				<text>Length?</text>
+				<answer type="text">x</answer>
 			</question>
 		</puzzle>
 	</group>
 
 	<group>
 		<date>26 Dec 2021</date>
-		<puzzle id="001">
-			<image>001.png</image>
-			<question>
-				<text>S=?</text>
-				<answer>16</answer>
-			</question>
-		</puzzle>
 		<puzzle id="002">
 			<image>002.png</image>
 			<question>
 				<text>S=?</text>
 				<answer>32</answer>
+			</question>
+		</puzzle>
+		<puzzle id="001">
+			<image>001.png</image>
+			<question>
+				<text>S=?</text>
+				<answer>16</answer>
 			</question>
 		</puzzle>
 	</group>

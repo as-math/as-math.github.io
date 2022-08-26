@@ -1,0 +1,49 @@
+<svg width="100mm" height="100mm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+	<defs>
+		<style>
+			:root {
+				--black: #000000;
+				--dark_gray: #888888;
+				--orange: #ff7f00;
+				--brown: #76450a;
+				--red: #ff0000;
+			}
+		</style>
+		<path id="path_part_1" d="M 15 13 l 0 -43 a 12 12 0 0 1 12 -12 l 22 0 a 27 27 0 0 1 27 27 l 0 3 a 27 27 0 0 1 -27 27 l -19 0"/>
+		<path id="path_part_2" d="M -15 -17 l 0 -32 a 27 27 0 0 1 27 -27 l 3 0 a 27 27 0 0 1 27 27 l 0 22 a 12 12 0 0 1 -12 12 l -1 0"/>
+		<mask id="railway_mask_part_1" x="-200" y="-200" width="400" height="400">
+			<rect x="-200" y="-200" width="400" height="400" fill="white" />
+			<use href="#path_part_1" stroke="black" stroke-width="2" fill="none"/>
+		</mask>
+		<mask id="railway_ties_mask_part_1" x="-200" y="-200" width="400" height="400">
+			<rect x="-200" y="-200" width="400" height="400" fill="white" />
+			<path d="M 15 -31 l 0 -15" stroke="black" stroke-width="6" fill="none" />
+			<path d="M 49 -15 a 27 27 0 0 1 27 27" stroke="black" stroke-width="4" fill="none" />
+		</mask>
+		<mask id="railway_mask_part_2" x="-200" y="-200" width="400" height="400">
+			<rect x="-200" y="-200" width="400" height="400" fill="white" />
+			<use href="#path_part_2" stroke="black" stroke-width="2" fill="none"/>
+		</mask>
+		<mask id="railway_ties_mask_part_2" x="-200" y="-200" width="400" height="400">
+			<rect x="-200" y="-200" width="400" height="400" fill="white" />
+			<path d="M 15 -15 l 34 0" stroke="black" stroke-width="6" fill="none" />
+			<path d="M 37 -42 l 10 0" stroke="black" stroke-width="6" fill="none" />
+		</mask>
+		<g id="promenade_logo_part_1" fill="none">
+			<use href="#path_part_1" stroke="var(--brown)" stroke-width="6" stroke-dasharray="1 2" stroke-dashoffset="1.8" mask="url(#railway_ties_mask_part_1)" />
+			<use href="#path_part_1" stroke="black" stroke-width="4" mask="url(#railway_mask_part_1)" />
+		</g>
+		<g id="promenade_logo_part_2" fill="none">
+			<use href="#path_part_2" stroke="var(--brown)" stroke-width="6" stroke-dasharray="1 2" stroke-dashoffset="1" mask="url(#railway_ties_mask_part_2)" />
+			<use href="#path_part_2" stroke="black" stroke-width="4" mask="url(#railway_mask_part_2)" />
+		</g>
+	</defs>
+	<use href="#promenade_logo_part_1" transform="translate(100 100) rotate(270)"/>
+	<use href="#promenade_logo_part_1" transform="translate(100 100) rotate(180)"/>
+	<use href="#promenade_logo_part_1" transform="translate(100 100) rotate(90)"/>
+	<use href="#promenade_logo_part_1" transform="translate(100 100)"/>
+	<use href="#promenade_logo_part_2" transform="translate(100 100)"/>
+	<use href="#promenade_logo_part_2" transform="translate(100 100) rotate(90)"/>
+	<use href="#promenade_logo_part_2" transform="translate(100 100) rotate(180)"/>
+	<use href="#promenade_logo_part_2" transform="translate(100 100) rotate(270)"/>
+</svg>

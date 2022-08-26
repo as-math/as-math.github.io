@@ -21,6 +21,82 @@
 
 	<div class="group">
 <hr class="group">
+<div class="puzzle" id="puzzle_023">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 200 200">
+	<defs>
+		<style>
+			:root {
+				--black: #000000;
+				--dark_gray: #888888;
+				--orange: #ff7f00;
+				--brown: #76450a;
+				--red: #ff0000;
+			}
+		</style>
+		<path id="path_part_1" d="M 15 13 l 0 -43 a 12 12 0 0 1 12 -12 l 22 0 a 27 27 0 0 1 27 27 l 0 3 a 27 27 0 0 1 -27 27 l -19 0"></path>
+		<path id="path_part_2" d="M -15 -17 l 0 -32 a 27 27 0 0 1 27 -27 l 3 0 a 27 27 0 0 1 27 27 l 0 22 a 12 12 0 0 1 -12 12 l -1 0"></path>
+		<mask id="railway_mask_part_1" x="-200" y="-200" width="400" height="400">
+			<rect x="-200" y="-200" width="400" height="400" fill="white"></rect>
+			<use href="#path_part_1" stroke="black" stroke-width="2" fill="none"></use>
+		</mask>
+		<mask id="railway_ties_mask_part_1" x="-200" y="-200" width="400" height="400">
+			<rect x="-200" y="-200" width="400" height="400" fill="white"></rect>
+			<path d="M 15 -31 l 0 -15" stroke="black" stroke-width="6" fill="none"></path>
+			<path d="M 49 -15 a 27 27 0 0 1 27 27" stroke="black" stroke-width="4" fill="none"></path>
+		</mask>
+		<mask id="railway_mask_part_2" x="-200" y="-200" width="400" height="400">
+			<rect x="-200" y="-200" width="400" height="400" fill="white"></rect>
+			<use href="#path_part_2" stroke="black" stroke-width="2" fill="none"></use>
+		</mask>
+		<mask id="railway_ties_mask_part_2" x="-200" y="-200" width="400" height="400">
+			<rect x="-200" y="-200" width="400" height="400" fill="white"></rect>
+			<path d="M 15 -15 l 34 0" stroke="black" stroke-width="6" fill="none"></path>
+			<path d="M 37 -42 l 10 0" stroke="black" stroke-width="6" fill="none"></path>
+		</mask>
+		<g id="promenade_logo_part_1" fill="none">
+			<use href="#path_part_1" stroke="var(--brown)" stroke-width="6" stroke-dasharray="1 2" stroke-dashoffset="1.8" mask="url(#railway_ties_mask_part_1)"></use>
+			<use href="#path_part_1" stroke="black" stroke-width="4" mask="url(#railway_mask_part_1)"></use>
+		</g>
+		<g id="promenade_logo_part_2" fill="none">
+			<use href="#path_part_2" stroke="var(--brown)" stroke-width="6" stroke-dasharray="1 2" stroke-dashoffset="1" mask="url(#railway_ties_mask_part_2)"></use>
+			<use href="#path_part_2" stroke="black" stroke-width="4" mask="url(#railway_mask_part_2)"></use>
+		</g>
+	</defs>
+	<use href="#promenade_logo_part_1" transform="translate(100 100) rotate(270)"></use>
+	<use href="#promenade_logo_part_1" transform="translate(100 100) rotate(180)"></use>
+	<use href="#promenade_logo_part_1" transform="translate(100 100) rotate(90)"></use>
+	<use href="#promenade_logo_part_1" transform="translate(100 100)"></use>
+	<use href="#promenade_logo_part_2" transform="translate(100 100)"></use>
+	<use href="#promenade_logo_part_2" transform="translate(100 100) rotate(90)"></use>
+	<use href="#promenade_logo_part_2" transform="translate(100 100) rotate(180)"></use>
+	<use href="#promenade_logo_part_2" transform="translate(100 100) rotate(270)"></use>
+</svg>
+			<p class="puzzle_content" lang="RU">
+				1) Может ли паровозик развернуться на такой дороге?<br>
+				2) Можно ли построить такой циклический маршрут, который бы покрывал всю дорогу и при этом был симметричен относительно поворота на 90°?
+			</p>
+			<p class="puzzle_content" lang="EN">
+				1) Can a train turn around on such a road?<br>
+				2) Is it possible to build such a cyclic route that would cover the entire road and at the same time be symmetrical with respect to a 90° turn?
+			</p>
+			<p class="puzzle_content" lang="EO">
+				1) Ĉu trajno povas turni ĉirkaŭe sur tia vojo?<br>
+				2) Ĉu eblas konstrui tian cikla itinero kiu kovrus la tutan vojon kaj samtempe esti simetria kun respekto al 90° turno?
+			</p>
+		<div class="question_status">
+<div class="question_id">
+			#023</div>
+<div class="question_result_block">
+<div class="question_result" id="result_023"></div>
+<div class="question_result_note" id="result_note_023"></div>
+</div>
+<button class="puzzle_lang_button" lang="EO" onclick="change_puzzle_lang('EO', '023')">EO</button><button class="puzzle_lang_button" lang="RU" onclick="change_puzzle_lang('RU', '023')">RU</button><button class="puzzle_lang_button" lang="EN" onclick="change_puzzle_lang('EN', '023')">EN</button>
+</div>
+</div>
+</div>
+
+	<div class="group">
+<hr class="group">
 <div class="puzzle" id="puzzle_022">
 			<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 150 50">
 	<defs>
@@ -215,18 +291,18 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="puzzle_017">
-			<img class="puzzle_content" src="./images/017.png">
+<div class="puzzle" id="puzzle_019">
+			<img class="puzzle_content" src="./images/019.png">
 			<div class="question_status">
 <div class="question_id">
-			#017</div>
+			#019</div>
 <div class="question_result_block">
-<div class="question_result" id="result_017"></div>
-<div class="question_result_note" id="result_note_017"></div>
+<div class="question_result" id="result_019"></div>
+<div class="question_result_note" id="result_note_019"></div>
 </div>
 </div>
-<div class="puzzle_content"><input class="question" type="text" id="input_017" placeholder="Side of the triangle?" data-text="Side of the triangle?" data-text-en="" data-text-ru="" data-text-eo=""></div>
-<div class="puzzle_content"><button class="question" onclick="check('017', ['1.6', ])">
+<div class="puzzle_content"><input class="question" type="text" id="input_019" placeholder="Major axis of the ellipse?" data-text="Major axis of the ellipse?" data-text-en="" data-text-ru="" data-text-eo=""></div>
+<div class="puzzle_content"><button class="question" onclick="check('019', ['sqrt(7)', ])">
 		Check
 	</button></div>
 		</div>
@@ -245,18 +321,18 @@
 		Check
 	</button></div>
 		</div>
-<div class="puzzle" id="puzzle_019">
-			<img class="puzzle_content" src="./images/019.png">
+<div class="puzzle" id="puzzle_017">
+			<img class="puzzle_content" src="./images/017.png">
 			<div class="question_status">
 <div class="question_id">
-			#019</div>
+			#017</div>
 <div class="question_result_block">
-<div class="question_result" id="result_019"></div>
-<div class="question_result_note" id="result_note_019"></div>
+<div class="question_result" id="result_017"></div>
+<div class="question_result_note" id="result_note_017"></div>
 </div>
 </div>
-<div class="puzzle_content"><input class="question" type="text" id="input_019" placeholder="Major axis of the ellipse?" data-text="Major axis of the ellipse?" data-text-en="" data-text-ru="" data-text-eo=""></div>
-<div class="puzzle_content"><button class="question" onclick="check('019', ['sqrt(7)', ])">
+<div class="puzzle_content"><input class="question" type="text" id="input_017" placeholder="Side of the triangle?" data-text="Side of the triangle?" data-text-en="" data-text-ru="" data-text-eo=""></div>
+<div class="puzzle_content"><button class="question" onclick="check('017', ['1.6', ])">
 		Check
 	</button></div>
 		</div>
@@ -295,21 +371,6 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="puzzle_014">
-			<img class="puzzle_content" src="./images/014.png">
-			<div class="question_status">
-<div class="question_id">
-			#014</div>
-<div class="question_result_block">
-<div class="question_result" id="result_014"></div>
-<div class="question_result_note" id="result_note_014"></div>
-</div>
-</div>
-<div class="puzzle_content"><input class="question" type="text" id="input_014" placeholder="S=?" data-text="S=?" data-text-en="" data-text-ru="" data-text-eo=""></div>
-<div class="puzzle_content"><button class="question" onclick="check('014', ['66', ])">
-		Check
-	</button></div>
-		</div>
 <div class="puzzle" id="puzzle_015">
 			<img class="puzzle_content" src="./images/015.png">
 			<div class="question_status">
@@ -322,6 +383,21 @@
 </div>
 <div class="puzzle_content"><input class="question" type="text" id="input_015" placeholder="R/r=?" data-text="R/r=?" data-text-en="" data-text-ru="" data-text-eo=""></div>
 <div class="puzzle_content"><button class="question" onclick="check('015', ['sqrt(2)', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="puzzle_014">
+			<img class="puzzle_content" src="./images/014.png">
+			<div class="question_status">
+<div class="question_id">
+			#014</div>
+<div class="question_result_block">
+<div class="question_result" id="result_014"></div>
+<div class="question_result_note" id="result_note_014"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_014" placeholder="S=?" data-text="S=?" data-text-en="" data-text-ru="" data-text-eo=""></div>
+<div class="puzzle_content"><button class="question" onclick="check('014', ['66', ])">
 		Check
 	</button></div>
 		</div>
@@ -568,21 +644,6 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="puzzle_011">
-			<img class="puzzle_content" src="./images/011.png">
-			<div class="question_status">
-<div class="question_id">
-			#011</div>
-<div class="question_result_block">
-<div class="question_result" id="result_011"></div>
-<div class="question_result_note" id="result_note_011"></div>
-</div>
-</div>
-<div class="puzzle_content"><input class="question" type="text" id="input_011" placeholder="Shaded area?" data-text="Shaded area?" data-text-en="" data-text-ru="" data-text-eo=""></div>
-<div class="puzzle_content"><button class="question" onclick="check('011', ['10/17*pi', ])">
-		Check
-	</button></div>
-		</div>
 <div class="puzzle" id="puzzle_012">
 			<img class="puzzle_content" src="./images/012.png">
 			<div class="question_status">
@@ -595,6 +656,21 @@
 </div>
 <div class="puzzle_content"><input class="question" type="text" id="input_012" placeholder="Length?" data-text="Length?" data-text-en="" data-text-ru="" data-text-eo=""></div>
 <div class="puzzle_content"><button class="question" onclick="check('012', ['4/3', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="puzzle_011">
+			<img class="puzzle_content" src="./images/011.png">
+			<div class="question_status">
+<div class="question_id">
+			#011</div>
+<div class="question_result_block">
+<div class="question_result" id="result_011"></div>
+<div class="question_result_note" id="result_note_011"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_011" placeholder="Shaded area?" data-text="Shaded area?" data-text-en="" data-text-ru="" data-text-eo=""></div>
+<div class="puzzle_content"><button class="question" onclick="check('011', ['10/17*pi', ])">
 		Check
 	</button></div>
 		</div>
@@ -691,78 +767,18 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="puzzle_003">
-			<img class="puzzle_content" src="./images/003.png">
+<div class="puzzle" id="puzzle_009">
+			<img class="puzzle_content" src="./images/009.png">
 			<div class="question_status">
 <div class="question_id">
-			#003</div>
+			#009</div>
 <div class="question_result_block">
-<div class="question_result" id="result_003"></div>
-<div class="question_result_note" id="result_note_003"></div>
+<div class="question_result" id="result_009"></div>
+<div class="question_result_note" id="result_note_009"></div>
 </div>
 </div>
-<div class="puzzle_content"><input class="question" type="text" id="input_003" placeholder="Length?" data-text="Length?" data-text-en="" data-text-ru="" data-text-eo=""></div>
-<div class="puzzle_content"><button class="question" onclick="check('003', ['x', ])">
-		Check
-	</button></div>
-		</div>
-<div class="puzzle" id="puzzle_004">
-			<img class="puzzle_content" src="./images/004.png">
-			<div class="question_status">
-<div class="question_id">
-			#004</div>
-<div class="question_result_block">
-<div class="question_result" id="result_004"></div>
-<div class="question_result_note" id="result_note_004"></div>
-</div>
-</div>
-<div class="puzzle_content"><input class="question" type="text" id="input_004" placeholder="Angle?" data-text="Angle?" data-text-en="" data-text-ru="" data-text-eo=""></div>
-<div class="puzzle_content"><button class="question" onclick="check('004', ['pi/2', '90', ])">
-		Check
-	</button></div>
-		</div>
-<div class="puzzle" id="puzzle_005">
-			<img class="puzzle_content" src="./images/005.png">
-			<div class="question_status">
-<div class="question_id">
-			#005</div>
-<div class="question_result_block">
-<div class="question_result" id="result_005"></div>
-<div class="question_result_note" id="result_note_005"></div>
-</div>
-</div>
-<div class="puzzle_content"><input class="question" type="text" id="input_005" placeholder="Length?" data-text="Length?" data-text-en="" data-text-ru="" data-text-eo=""></div>
-<div class="puzzle_content"><button class="question" onclick="check('005', ['x+y', ])">
-		Check
-	</button></div>
-		</div>
-<div class="puzzle" id="puzzle_006">
-			<img class="puzzle_content" src="./images/006.png">
-			<div class="question_status">
-<div class="question_id">
-			#006</div>
-<div class="question_result_block">
-<div class="question_result" id="result_006"></div>
-<div class="question_result_note" id="result_note_006"></div>
-</div>
-</div>
-<div class="puzzle_content"><input class="question" type="text" id="input_006" placeholder="Length?" data-text="Length?" data-text-en="" data-text-ru="" data-text-eo=""></div>
-<div class="puzzle_content"><button class="question" onclick="check('006', ['4*sqrt(x*y)', ])">
-		Check
-	</button></div>
-		</div>
-<div class="puzzle" id="puzzle_007">
-			<img class="puzzle_content" src="./images/007.png">
-			<div class="question_status">
-<div class="question_id">
-			#007</div>
-<div class="question_result_block">
-<div class="question_result" id="result_007"></div>
-<div class="question_result_note" id="result_note_007"></div>
-</div>
-</div>
-<div class="puzzle_content"><input class="question" type="text" id="input_007" placeholder="Length?" data-text="Length?" data-text-en="" data-text-ru="" data-text-eo=""></div>
-<div class="puzzle_content"><button class="question" onclick="check('007', ['y-x', ])">
+<div class="puzzle_content"><input class="question" type="text" id="input_009" placeholder="Length?" data-text="Length?" data-text-en="" data-text-ru="" data-text-eo=""></div>
+<div class="puzzle_content"><button class="question" onclick="check('009', ['15', ])">
 		Check
 	</button></div>
 		</div>
@@ -781,18 +797,78 @@
 		Check
 	</button></div>
 		</div>
-<div class="puzzle" id="puzzle_009">
-			<img class="puzzle_content" src="./images/009.png">
+<div class="puzzle" id="puzzle_007">
+			<img class="puzzle_content" src="./images/007.png">
 			<div class="question_status">
 <div class="question_id">
-			#009</div>
+			#007</div>
 <div class="question_result_block">
-<div class="question_result" id="result_009"></div>
-<div class="question_result_note" id="result_note_009"></div>
+<div class="question_result" id="result_007"></div>
+<div class="question_result_note" id="result_note_007"></div>
 </div>
 </div>
-<div class="puzzle_content"><input class="question" type="text" id="input_009" placeholder="Length?" data-text="Length?" data-text-en="" data-text-ru="" data-text-eo=""></div>
-<div class="puzzle_content"><button class="question" onclick="check('009', ['15', ])">
+<div class="puzzle_content"><input class="question" type="text" id="input_007" placeholder="Length?" data-text="Length?" data-text-en="" data-text-ru="" data-text-eo=""></div>
+<div class="puzzle_content"><button class="question" onclick="check('007', ['y-x', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="puzzle_006">
+			<img class="puzzle_content" src="./images/006.png">
+			<div class="question_status">
+<div class="question_id">
+			#006</div>
+<div class="question_result_block">
+<div class="question_result" id="result_006"></div>
+<div class="question_result_note" id="result_note_006"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_006" placeholder="Length?" data-text="Length?" data-text-en="" data-text-ru="" data-text-eo=""></div>
+<div class="puzzle_content"><button class="question" onclick="check('006', ['4*sqrt(x*y)', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="puzzle_005">
+			<img class="puzzle_content" src="./images/005.png">
+			<div class="question_status">
+<div class="question_id">
+			#005</div>
+<div class="question_result_block">
+<div class="question_result" id="result_005"></div>
+<div class="question_result_note" id="result_note_005"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_005" placeholder="Length?" data-text="Length?" data-text-en="" data-text-ru="" data-text-eo=""></div>
+<div class="puzzle_content"><button class="question" onclick="check('005', ['x+y', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="puzzle_004">
+			<img class="puzzle_content" src="./images/004.png">
+			<div class="question_status">
+<div class="question_id">
+			#004</div>
+<div class="question_result_block">
+<div class="question_result" id="result_004"></div>
+<div class="question_result_note" id="result_note_004"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_004" placeholder="Angle?" data-text="Angle?" data-text-en="" data-text-ru="" data-text-eo=""></div>
+<div class="puzzle_content"><button class="question" onclick="check('004', ['pi/2', '90', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="puzzle_003">
+			<img class="puzzle_content" src="./images/003.png">
+			<div class="question_status">
+<div class="question_id">
+			#003</div>
+<div class="question_result_block">
+<div class="question_result" id="result_003"></div>
+<div class="question_result_note" id="result_note_003"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_003" placeholder="Length?" data-text="Length?" data-text-en="" data-text-ru="" data-text-eo=""></div>
+<div class="puzzle_content"><button class="question" onclick="check('003', ['x', ])">
 		Check
 	</button></div>
 		</div>
@@ -800,21 +876,6 @@
 
 	<div class="group">
 <hr class="group">
-<div class="puzzle" id="puzzle_001">
-			<img class="puzzle_content" src="./images/001.png">
-			<div class="question_status">
-<div class="question_id">
-			#001</div>
-<div class="question_result_block">
-<div class="question_result" id="result_001"></div>
-<div class="question_result_note" id="result_note_001"></div>
-</div>
-</div>
-<div class="puzzle_content"><input class="question" type="text" id="input_001" placeholder="S=?" data-text="S=?" data-text-en="" data-text-ru="" data-text-eo=""></div>
-<div class="puzzle_content"><button class="question" onclick="check('001', ['16', ])">
-		Check
-	</button></div>
-		</div>
 <div class="puzzle" id="puzzle_002">
 			<img class="puzzle_content" src="./images/002.png">
 			<div class="question_status">
@@ -827,6 +888,21 @@
 </div>
 <div class="puzzle_content"><input class="question" type="text" id="input_002" placeholder="S=?" data-text="S=?" data-text-en="" data-text-ru="" data-text-eo=""></div>
 <div class="puzzle_content"><button class="question" onclick="check('002', ['32', ])">
+		Check
+	</button></div>
+		</div>
+<div class="puzzle" id="puzzle_001">
+			<img class="puzzle_content" src="./images/001.png">
+			<div class="question_status">
+<div class="question_id">
+			#001</div>
+<div class="question_result_block">
+<div class="question_result" id="result_001"></div>
+<div class="question_result_note" id="result_note_001"></div>
+</div>
+</div>
+<div class="puzzle_content"><input class="question" type="text" id="input_001" placeholder="S=?" data-text="S=?" data-text-en="" data-text-ru="" data-text-eo=""></div>
+<div class="puzzle_content"><button class="question" onclick="check('001', ['16', ])">
 		Check
 	</button></div>
 		</div>
