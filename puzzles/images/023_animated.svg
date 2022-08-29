@@ -1,0 +1,189 @@
+<svg width="200mm" height="200mm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" id="023_animated_svg">
+	<defs>
+		<style>
+			:root {
+				--brown: #76450a;
+				--tr_1_main: #FF8C00;
+				--tr_1_fill: #FFFF00;
+				--tr_2_main: #008000;
+				--tr_2_fill: #33FF33;
+				--tr_3_main: #FF0000;
+				--tr_3_fill: #FF3333;
+				--tr_4_main: #0000FF;
+				--tr_4_fill: #3333FF;
+				--wheels: #696969;
+				--chimney: #000000;
+			}
+		</style>
+		<path id="path_part_1" d="M 15 13 l 0 -43 a 12 12 0 0 1 12 -12 l 22 0 a 27 27 0 0 1 27 27 l 0 3 a 27 27 0 0 1 -27 27 l -19 0"/>
+		<path id="path_part_2" d="M -15 -17 l 0 -32 a 27 27 0 0 1 27 -27 l 3 0 a 27 27 0 0 1 27 27 l 0 22 a 12 12 0 0 1 -12 12 l -1 0"/>
+		<mask id="railway_mask_part_1" x="-200" y="-200" width="400" height="400">
+			<rect x="-200" y="-200" width="400" height="400" fill="white" />
+			<use href="#path_part_1" stroke="black" stroke-width="2" fill="none"/>
+		</mask>
+		<mask id="railway_ties_mask_part_1" x="-200" y="-200" width="400" height="400">
+			<rect x="-200" y="-200" width="400" height="400" fill="white" />
+			<path d="M 15 -31 l 0 -15" stroke="black" stroke-width="6" fill="none" />
+			<path d="M 49 -15 a 27 27 0 0 1 27 27" stroke="black" stroke-width="4" fill="none" />
+		</mask>
+		<mask id="railway_mask_part_2" x="-200" y="-200" width="400" height="400">
+			<rect x="-200" y="-200" width="400" height="400" fill="white" />
+			<use href="#path_part_2" stroke="black" stroke-width="2" fill="none"/>
+		</mask>
+		<mask id="railway_ties_mask_part_2" x="-200" y="-200" width="400" height="400">
+			<rect x="-200" y="-200" width="400" height="400" fill="white" />
+			<path d="M 15 -15 l 34 0" stroke="black" stroke-width="6" fill="none" />
+			<path d="M 37 -42 l 10 0" stroke="black" stroke-width="6" fill="none" />
+		</mask>
+		<g id="promenade_logo_part_1" fill="none">
+			<use href="#path_part_1" stroke="var(--brown)" stroke-width="6" stroke-dasharray="1 2" stroke-dashoffset="1.8" mask="url(#railway_ties_mask_part_1)" />
+			<use href="#path_part_1" stroke="black" stroke-width="4" mask="url(#railway_mask_part_1)" />
+		</g>
+		<g id="promenade_logo_part_2" fill="none">
+			<use href="#path_part_2" stroke="var(--brown)" stroke-width="6" stroke-dasharray="1 2" stroke-dashoffset="1" mask="url(#railway_ties_mask_part_2)" />
+			<use href="#path_part_2" stroke="black" stroke-width="4" mask="url(#railway_mask_part_2)" />
+		</g>
+	</defs>
+	<g transform=" translate(100 100) rotate(45)">
+		<use href="#promenade_logo_part_1" transform="rotate(270)"/>
+		<use href="#promenade_logo_part_1" transform="rotate(180)"/>
+		<use href="#promenade_logo_part_1" transform="rotate(90)"/>
+		<use href="#promenade_logo_part_1" />
+		<use href="#promenade_logo_part_2" />
+		<use href="#promenade_logo_part_2" transform="rotate(90)"/>
+		<use href="#promenade_logo_part_2" transform="rotate(180)"/>
+		<use href="#promenade_logo_part_2" transform="rotate(270)"/>
+		<path id="train_path_1" stroke="none" fill="none" d="M 0 0 m -15 0 l 0 -49 a 27 27 0 0 1 27 -27 l 3 0 a 27 27 0 0 1 27 27 l 0 22 a 12 12 0 0 1 -12 12 l -60 0 a 12 12 0 0 1 -12 -12 l 0 -22 a 27 27 0 0 1 27 -27 l 3 0 a 27 27 0 0 1 27 27 l 0 49 l 0 49 a 27 27 0 0 1 -27 27 l -3 0 a 27 27 0 0 1 -27 -27 l 0 -22 a 12 12 0 0 1 12 -12 l 60 0 a 12 12 0 0 1 12 12 l 0 22 a 27 27 0 0 1 -27 27 l -3 0 a 27 27 0 0 1 -27 -27 l 0 -49"/>
+		<path id="train_path_2" stroke="none" fill="none" d="M 0 0 m 0 -15 l 49 0 a 27 27 0 0 1 27 27 l 0 3 a 27 27 0 0 1 -27 27 l -22 0 a 12 12 0 0 1 -12 -12 l 0 -60 a 12 12 0 0 1 12 -12 l 22 0 a 27 27 0 0 1 27 27 l 0 3 a 27 27 0 0 1 -27 27 l -49 0 l -49 0 a 27 27 0 0 1 -27 -27 l 0 -3 a 27 27 0 0 1 27 -27 l 22 0 a 12 12 0 0 1 12 12 l 0 60 a 12 12 0 0 1 -12 12 l -22 0 a 27 27 0 0 1 -27 -27 l 0 -3 a 27 27 0 0 1 27 -27 l 49 0"/>
+		<path id="train_path_3" stroke="none" fill="none" d="M 0 0 m 15 0 l 0 49 a 27 27 0 0 1 -27 27 l -3 0 a 27 27 0 0 1 -27 -27 l 0 -22 a 12 12 0 0 1 12 -12 l 60 0 a 12 12 0 0 1 12 12 l 0 22 a 27 27 0 0 1 -27 27 l -3 0 a 27 27 0 0 1 -27 -27 l 0 -49 l 0 -49 a 27 27 0 0 1 27 -27 l 3 0 a 27 27 0 0 1 27 27 l 0 22 a 12 12 0 0 1 -12 12 l -60 0 a 12 12 0 0 1 -12 -12 l 0 -22 a 27 27 0 0 1 27 -27 l 3 0 a 27 27 0 0 1 27 27 l 0 49"/>
+		<path id="train_path_4" stroke="none" fill="none" d="M 0 0 m 0 15 l -49 0 a 27 27 0 0 1 -27 -27 l 0 -3 a 27 27 0 0 1 27 -27 l 22 0 a 12 12 0 0 1 12 12 l 0 60 a 12 12 0 0 1 -12 12 l -22 0 a 27 27 0 0 1 -27 -27 l 0 -3 a 27 27 0 0 1 27 -27 l 49 0 l 49 0 a 27 27 0 0 1 27 27 l 0 3 a 27 27 0 0 1 -27 27 l -22 0 a 12 12 0 0 1 -12 -12 l 0 -60 a 12 12 0 0 1 12 -12 l 22 0 a 27 27 0 0 1 27 27 l 0 3 a 27 27 0 0 1 -27 27 l -49 0"/>
+		<!--Train 1-->
+		<g id="train_1_1">
+			<path d="M 0 0 m -1.5 -0.5 l 0 -1.5 m 0 -0.5 l 0 -1.5 m 3 0 l 0 1.5 m 0 0.5 l 0 1.5" stroke-width="1" stroke="var(--wheels)" />
+			<path d="M 0 0 m -1 0 l 0 -4 l 2 0 l 0 4 l -2 0 z" stroke="var(--tr_1_main)" stroke-width="0.7" fill="var(--tr_1_fill"/>
+			<path d="M 0 0 m -2 0 l 4 0 l 0 4 l -4 0 z" stroke="var(--tr_1_main)" stroke-width="0.7" fill="var(--tr_1_fill)" />
+			<circle cx="0" cy="-3" r="0.7" fill="var(--chimney)" />
+		</g>
+		<g id="train_1_2">
+			<path d="M 0 0 m -2 0 l 0 -3 l 4 0 l 0 6 l -4 0 z" stroke="var(--tr_1_main)" fill="var(--tr_1_fill)" />
+		</g>
+		<g id="train_1_3">
+			<path d="M 0 0 m -2 0 l 0 -3 l 4 0 l 0 6 l -4 0 z" stroke="var(--tr_1_main)" fill="var(--tr_1_fill)" />
+		</g>
+		<!--Train 2-->
+		<g id="train_2_1">
+			<path d="M 0 0 m -1.5 -0.5 l 0 -1.5 m 0 -0.5 l 0 -1.5 m 3 0 l 0 1.5 m 0 0.5 l 0 1.5" stroke-width="1" stroke="var(--wheels)" />
+			<path d="M 0 0 m -1 0 l 0 -4 l 2 0 l 0 4 l -2 0 z" stroke="var(--tr_2_main)" stroke-width="0.7" fill="var(--tr_2_fill"/>
+			<path d="M 0 0 m -2 0 l 4 0 l 0 4 l -4 0 z" stroke="var(--tr_2_main)" stroke-width="0.7" fill="var(--tr_2_fill)" />
+			<circle cx="0" cy="-3" r="0.7" fill="var(--chimney)" />
+		</g>
+		<g id="train_2_2">
+			<path d="M 0 0 m -2 0 l 0 -3 l 4 0 l 0 6 l -4 0 z" stroke="var(--tr_2_main)" fill="var(--tr_2_fill)" />
+		</g>
+		<g id="train_2_3">
+			<path d="M 0 0 m -2 0 l 0 -3 l 4 0 l 0 6 l -4 0 z" stroke="var(--tr_2_main)" fill="var(--tr_2_fill)" />
+		</g>
+		<!--Train 3-->
+		<g id="train_3_1">
+			<path d="M 0 0 m -1.5 -0.5 l 0 -1.5 m 0 -0.5 l 0 -1.5 m 3 0 l 0 1.5 m 0 0.5 l 0 1.5" stroke-width="1" stroke="var(--wheels)" />
+			<path d="M 0 0 m -1 0 l 0 -4 l 2 0 l 0 4 l -2 0 z" stroke="var(--tr_3_main)" stroke-width="0.7" fill="var(--tr_3_fill"/>
+			<path d="M 0 0 m -2 0 l 4 0 l 0 4 l -4 0 z" stroke="var(--tr_3_main)" stroke-width="0.7" fill="var(--tr_3_fill)" />
+			<circle cx="0" cy="-3" r="0.7" fill="var(--chimney)" />
+		</g>
+		<g id="train_3_2">
+			<path d="M 0 0 m -2 0 l 0 -3 l 4 0 l 0 6 l -4 0 z" stroke="var(--tr_3_main)" fill="var(--tr_3_fill)" />
+		</g>
+		<g id="train_3_3">
+			<path d="M 0 0 m -2 0 l 0 -3 l 4 0 l 0 6 l -4 0 z" stroke="var(--tr_3_main)" fill="var(--tr_3_fill)" />
+		</g>
+		<!--Train 4-->
+		<g id="train_4_1">
+			<path d="M 0 0 m -1.5 -0.5 l 0 -1.5 m 0 -0.5 l 0 -1.5 m 3 0 l 0 1.5 m 0 0.5 l 0 1.5" stroke-width="1" stroke="var(--wheels)" />
+			<path d="M 0 0 m -1 0 l 0 -4 l 2 0 l 0 4 l -2 0 z" stroke="var(--tr_4_main)" stroke-width="0.7" fill="var(--tr_4_fill"/>
+			<path d="M 0 0 m -2 0 l 4 0 l 0 4 l -4 0 z" stroke="var(--tr_4_main)" stroke-width="0.7" fill="var(--tr_4_fill)" />
+			<circle cx="0" cy="-3" r="0.7" fill="var(--chimney)" />
+		</g>
+		<g id="train_4_2">
+			<path d="M 0 0 m -2 0 l 0 -3 l 4 0 l 0 6 l -4 0 z" stroke="var(--tr_4_main)" fill="var(--tr_4_fill)" />
+		</g>
+		<g id="train_4_3">
+			<path d="M 0 0 m -2 0 l 0 -3 l 4 0 l 0 6 l -4 0 z" stroke="var(--tr_4_main)" fill="var(--tr_4_fill)" />
+		</g>
+	</g>
+	<script>
+		let road_path_1 = document.getElementById("train_path_1");
+		let road_path_2 = document.getElementById("train_path_2");
+		let road_path_3 = document.getElementById("train_path_3");
+		let road_path_4 = document.getElementById("train_path_4");
+		let train_1_1 = document.getElementById("train_1_1");
+		let train_1_2 = document.getElementById("train_1_2");
+		let train_1_3 = document.getElementById("train_1_3");
+		let train_2_1 = document.getElementById("train_2_1");
+		let train_2_2 = document.getElementById("train_2_2");
+		let train_2_3 = document.getElementById("train_2_3");
+		let train_3_1 = document.getElementById("train_3_1");
+		let train_3_2 = document.getElementById("train_3_2");
+		let train_3_3 = document.getElementById("train_3_3");
+		let train_4_1 = document.getElementById("train_4_1");
+		let train_4_2 = document.getElementById("train_4_2");
+		let train_4_3 = document.getElementById("train_4_3");
+		let t = 0;
+		let num = 0;
+		function road_mod(t) {
+			return (t + road_path_1.getTotalLength()) % road_path_1.getTotalLength();
+		}
+		function sleep_ms(ms) {
+			return new Promise(resolve => setTimeout(resolve, ms));
+		}
+		async function next_step() {
+			num = num+1;
+			t = t + 0.4;
+			t = t % road_path_1.getTotalLength();
+			console.log(num, t);
+			let tr_1_1_f = road_path_1.getPointAtLength(road_mod(t+4+9));
+			let tr_1_1_b = road_path_1.getPointAtLength(road_mod(t-4+9));
+			let tr_1_2_f = road_path_1.getPointAtLength(road_mod(t+3));
+			let tr_1_2_b = road_path_1.getPointAtLength(road_mod(t-3));
+			let tr_1_3_f = road_path_1.getPointAtLength(road_mod(t+3-8));
+			let tr_1_3_b = road_path_1.getPointAtLength(road_mod(t-3-8));
+			let tr_2_1_f = road_path_2.getPointAtLength(road_mod(t+4+9));
+			let tr_2_1_b = road_path_2.getPointAtLength(road_mod(t-4+9));
+			let tr_2_2_f = road_path_2.getPointAtLength(road_mod(t+3));
+			let tr_2_2_b = road_path_2.getPointAtLength(road_mod(t-3));
+			let tr_2_3_f = road_path_2.getPointAtLength(road_mod(t+3-8));
+			let tr_2_3_b = road_path_2.getPointAtLength(road_mod(t-3-8));
+			let tr_3_1_f = road_path_3.getPointAtLength(road_mod(t+4+9));
+			let tr_3_1_b = road_path_3.getPointAtLength(road_mod(t-4+9));
+			let tr_3_2_f = road_path_3.getPointAtLength(road_mod(t+3));
+			let tr_3_2_b = road_path_3.getPointAtLength(road_mod(t-3));
+			let tr_3_3_f = road_path_3.getPointAtLength(road_mod(t+3-8));
+			let tr_3_3_b = road_path_3.getPointAtLength(road_mod(t-3-8));
+			let tr_4_1_f = road_path_4.getPointAtLength(road_mod(t+4+9));
+			let tr_4_1_b = road_path_4.getPointAtLength(road_mod(t-4+9));
+			let tr_4_2_f = road_path_4.getPointAtLength(road_mod(t+3));
+			let tr_4_2_b = road_path_4.getPointAtLength(road_mod(t-3));
+			let tr_4_3_f = road_path_4.getPointAtLength(road_mod(t+3-8));
+			let tr_4_3_b = road_path_4.getPointAtLength(road_mod(t-3-8));
+
+			train_1_1.setAttribute("transform", `translate(${(tr_1_1_f.x + tr_1_1_b.x)/2} ${(tr_1_1_f.y + tr_1_1_b.y)/2}) rotate(${Math.atan2(tr_1_1_f.x - tr_1_1_b.x, tr_1_1_b.y - tr_1_1_f.y)*180/Math.PI})`);
+			train_1_2.setAttribute("transform", `translate(${(tr_1_2_f.x + tr_1_2_b.x)/2} ${(tr_1_2_f.y + tr_1_2_b.y)/2}) rotate(${Math.atan2(tr_1_2_f.x - tr_1_2_b.x, tr_1_2_b.y - tr_1_2_f.y)*180/Math.PI})`);
+			train_1_3.setAttribute("transform", `translate(${(tr_1_3_f.x + tr_1_3_b.x)/2} ${(tr_1_3_f.y + tr_1_3_b.y)/2}) rotate(${Math.atan2(tr_1_3_f.x - tr_1_3_b.x, tr_1_3_b.y - tr_1_3_f.y)*180/Math.PI})`);
+			train_2_1.setAttribute("transform", `translate(${(tr_2_1_f.x + tr_2_1_b.x)/2} ${(tr_2_1_f.y + tr_2_1_b.y)/2}) rotate(${Math.atan2(tr_2_1_f.x - tr_2_1_b.x, tr_2_1_b.y - tr_2_1_f.y)*180/Math.PI})`);
+			train_2_2.setAttribute("transform", `translate(${(tr_2_2_f.x + tr_2_2_b.x)/2} ${(tr_2_2_f.y + tr_2_2_b.y)/2}) rotate(${Math.atan2(tr_2_2_f.x - tr_2_2_b.x, tr_2_2_b.y - tr_2_2_f.y)*180/Math.PI})`);
+			train_2_3.setAttribute("transform", `translate(${(tr_2_3_f.x + tr_2_3_b.x)/2} ${(tr_2_3_f.y + tr_2_3_b.y)/2}) rotate(${Math.atan2(tr_2_3_f.x - tr_2_3_b.x, tr_2_3_b.y - tr_2_3_f.y)*180/Math.PI})`);
+			train_3_1.setAttribute("transform", `translate(${(tr_3_1_f.x + tr_3_1_b.x)/2} ${(tr_3_1_f.y + tr_3_1_b.y)/2}) rotate(${Math.atan2(tr_3_1_f.x - tr_3_1_b.x, tr_3_1_b.y - tr_3_1_f.y)*180/Math.PI})`);
+			train_3_2.setAttribute("transform", `translate(${(tr_3_2_f.x + tr_3_2_b.x)/2} ${(tr_3_2_f.y + tr_3_2_b.y)/2}) rotate(${Math.atan2(tr_3_2_f.x - tr_3_2_b.x, tr_3_2_b.y - tr_3_2_f.y)*180/Math.PI})`);
+			train_3_3.setAttribute("transform", `translate(${(tr_3_3_f.x + tr_3_3_b.x)/2} ${(tr_3_3_f.y + tr_3_3_b.y)/2}) rotate(${Math.atan2(tr_3_3_f.x - tr_3_3_b.x, tr_3_3_b.y - tr_3_3_f.y)*180/Math.PI})`);
+			train_4_1.setAttribute("transform", `translate(${(tr_4_1_f.x + tr_4_1_b.x)/2} ${(tr_4_1_f.y + tr_4_1_b.y)/2}) rotate(${Math.atan2(tr_4_1_f.x - tr_4_1_b.x, tr_4_1_b.y - tr_4_1_f.y)*180/Math.PI})`);
+			train_4_2.setAttribute("transform", `translate(${(tr_4_2_f.x + tr_4_2_b.x)/2} ${(tr_4_2_f.y + tr_4_2_b.y)/2}) rotate(${Math.atan2(tr_4_2_f.x - tr_4_2_b.x, tr_4_2_b.y - tr_4_2_f.y)*180/Math.PI})`);
+			train_4_3.setAttribute("transform", `translate(${(tr_4_3_f.x + tr_4_3_b.x)/2} ${(tr_4_3_f.y + tr_4_3_b.y)/2}) rotate(${Math.atan2(tr_4_3_f.x - tr_4_3_b.x, tr_4_3_b.y - tr_4_3_f.y)*180/Math.PI})`);
+			await sleep_ms(10);
+		}
+		async function start() {
+			while (true) {
+				await next_step();
+			}
+		}
+		start();
+	</script>
+</svg>

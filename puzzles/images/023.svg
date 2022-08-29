@@ -2,11 +2,7 @@
 	<defs>
 		<style>
 			:root {
-				--black: #000000;
-				--dark_gray: #888888;
-				--orange: #ff7f00;
 				--brown: #76450a;
-				--red: #ff0000;
 			}
 		</style>
 		<path id="path_part_1" d="M 15 13 l 0 -43 a 12 12 0 0 1 12 -12 l 22 0 a 27 27 0 0 1 27 27 l 0 3 a 27 27 0 0 1 -27 27 l -19 0"/>
