@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Print problems</title>
+	<style>
+		figure {
+			display: inline-block;
+			margin: 0;
+		}
+		p {margin: 0;}
+		h3{margin: 0;}
+		.answer{
+			font-weight: bold;
+			font-style: italic;
+		}
+		table {
+			margin: 0;
+			padding: 0;
+		}
+		html {
+			text-align: justify;
+			font-family: Cambria;
+		}
+		button {
+			border: 2px solid #58a700;
+			background-color: #CBCBA2;
+			border-radius: 10px;
+			font-size: 12px;
+			text-align: center;
+			padding: 0;
+			width: 25px;
+		}
+		#settings {
+			box-sizing: border-box;
+			width: 100%;
+			max-width: 600px;
+			margin: auto;
+			padding: 15px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			border-radius: 15px;
+			border: 2px solid #58a700;
+			background-color: #f5f5dc;
+		}
+		.settings-cell {
+			display: inline-block;
+			vertical-align: top;
+		}
+		#main-table {
+			box-sizing: border-box;
+			width: 100%;
+			max-width: 600px;
+			margin: auto;
+			margin-top: 10px;
+			margin-bottom: 20px;
+			border-radius: 15px;
+			border: 2px solid #58a700;
+			background-color: #f5f5dc;
+		}
+		#main-table > tbody > tr > td {
+			border: 2px solid gray;
+			border-radius: 15px;
+			padding: 6px;
+			vertical-align: top;
+		}
+		#main-table > tbody > tr > td.num {
+			vertical-align: top;
+			font-weight: bold;
+		}
+		#main-table > tbody > tr > td.settings > table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+		#main-table > tbody > tr > td.settings > table > tbody > tr > td {
+			margin: 1px;
+		}
+		#main-table > tbody > tr > td.settings > table > tbody > tr > td > button {
+			font-size: 12px;
+			text-align: center;
+			padding: 0;
+			width: 25px;
+		}
+		#main-table > tbody > tr > td.content {
+			width: 100%;
+		}
+		#main-table > tbody > tr > td.content > textarea {
+			box-sizing: border-box;
+			width: 100%;
+			height: 120px;
+			resize: vertical;
+		}
+		#print-result {
+			margin: auto;
+		}
+		.result_td_num {
+			vertical-align: top;
+			font-weight: bold;
+		}
+		.result_td_content {
+			vertical-align: top;
+		}
+		@media print {
+			#settings {display: none;}
+			#main-table {display: none;}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="settings">
+		<div class="settings-cell">
+			<table>
+				<tr><td><input type="number" size="1" id="rows" min="0" value="1" onChange="generate_table()" style="width: 1cm"></td><td>Строк</td></tr>
+				<tr><td><input type="number" size="1" id="columns" min="0" value="1" onChange="generate_table()" style="width: 1cm"></td><td>Столбцов</td></tr>
+				<tr><td><input type="number" size="1" id="font-size" min="1" value="14" onChange="set_font_size()" style="width: 1cm"></td><td>Шрифт (px)</td></tr>
+				<tr><td><input type="checkbox" id="show_ans" onChange="show_ans()"></td><td>Ответы</td></tr>
+			</table>
+		</div>
+		<div class="settings-cell">
+			<table>
+				<tr><td><input type="number" size="1" id="prob-padding" min="-10" value="1" onChange="set_problem_padding()" style="width: 1cm"></td><td>Между задачами (mm)</td></tr>
+				<tr><td><input type="number" size="1" id="td-sep" min="0" value="5" onChange="generate_table()" style="width: 1cm"></td><td>Между столбцами (mm)</td></tr>
+				<tr><td><input type="number" size="1" id="tr-sep" min="0" value="5" onChange="generate_table()" style="width: 1cm"></td><td>Между строками (mm)</td></tr>
+			</table>
+		</div>
+	</div>
+
+<table id="main-table">
+	<tbody>
+		<tr class="problem">
+			<td class="num" contenteditable="true" onInput = "generate_table()"></td>
+			<td class="settings">
+				<table>
+					<tr>
+						<td><button onclick="move_problem_up(this.closest('.problem'));">🡹</button></td>
+						<td><button onclick="change_problem_content(this.closest('.problem'));">✎</button></td>
+					</tr>
+					<tr>
+						<td><button onclick="move_problem_down(this.closest('.problem'));">🡻</button></td>
+						<td><button onclick="this.closest('.problem').remove();">✘</button></td>
+					</tr>
+				</table>
+			</td>
+			<td class="content" contenteditable="true" onInput = "generate_table()"><h3>Title</h3></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td></td>
+			<td></td>
+			<td style="text-align: center;">
+				<button onclick="create_new_problem_row(this.parentNode.parentNode.parentNode.parentNode)">+</button>
+			</td>
+		</tr>
+	</tfoot>
+</table>
+
+<table id="print-result"></table>
+
+<script>
+	function create_new_problem_row(table) {
+		let tbody = table.getElementsByTagName("tbody")[0];
+		let row = document.createElement("tr");
+		let cell_num = document.createElement("td");
+		let cell_settings = document.createElement("td");
+		let cell_content = document.createElement("td");
+		row.appendChild(cell_num);
+		row.appendChild(cell_settings);
+		row.appendChild(cell_content);
+		row.classList.add("problem");
+		cell_num.classList.add("num");
+		cell_num.innerHTML = tbody.childElementCount + '.';
+		cell_num.contentEditable = "true";
+		cell_num.oninput = function(){generate_table();};
+		cell_settings.classList.add("settings");
+		cell_settings.innerHTML = "<table><tr>" + 
+						"<td><button onclick='move_problem_up(this.closest(\".problem\"));'>🡹</button></td>" +
+						"<td><button onclick='change_problem_content(this.closest(\".problem\"));'>✎</button></td>" +
+						"</tr><tr>" +
+						"<td><button onclick='move_problem_down(this.closest(\".problem\"));'>🡻</button></td>" +
+						"<td><button onclick='this.closest(\".problem\").remove();'>✘</button></td>" +
+						"</tr></table>";
+		cell_content.classList.add("content");
+		cell_content.contentEditable = "true";
+		cell_content.oninput = function(){generate_table();};
+		tbody.appendChild(row);
+		generate_table();
+	}
+	function change_problem_content(tag) {
+		console
+		if (tag.classList.contains("editing")){
+			tag.classList.remove("editing");
+			let content_tag = tag.getElementsByClassName("content")[0];
+			let content_input = content_tag.getElementsByTagName("textarea")[0];
+			content_tag.innerHTML = content_input.value;
+			generate_table();
+		} else {
+			tag.classList.add("editing");
+			let content_tag = tag.getElementsByClassName("content")[0];
+			let content_text = content_tag.innerHTML;
+			content_tag.innerHTML = "";
+			let content_input = document.createElement("textarea");
+			content_input.value = content_text;
+			content_tag.appendChild(content_input);
+		}
+	}
+	function move_problem_up(tag) {
+		let sibling = tag.previousElementSibling;
+		if (sibling != null){
+			let parent = tag.parentNode;
+			tag.remove();
+			parent.insertBefore(tag, sibling);
+			let buf = tag.getElementsByClassName("num")[0].innerHTML;
+			tag.getElementsByClassName("num")[0].innerHTML = sibling.getElementsByClassName("num")[0].innerHTML;
+			sibling.getElementsByClassName("num")[0].innerHTML = buf;
+			generate_table();
+		}
+	}
+	function move_problem_down(tag) {
+		let sibling = tag.nextElementSibling;
+		if (sibling != null){
+			let parent = tag.parentNode;
+			sibling.remove();
+			parent.insertBefore(sibling, tag);
+			let buf = tag.getElementsByClassName("num")[0].innerHTML;
+			tag.getElementsByClassName("num")[0].innerHTML = sibling.getElementsByClassName("num")[0].innerHTML;
+			sibling.getElementsByClassName("num")[0].innerHTML = buf;
+			generate_table();
+		}
+	}
+</script>
+<script>
+	// Settings script
+	var style = document.createElement("style");
+	document.head.appendChild(style);
+	var sheet = style.sheet;
+	sheet.addRule(".result_td_content", "padding-bottom: 0;", 0);
+	sheet.addRule(".answer", "display: none;", 1);
+	sheet.addRule(".td_sep", "width: 0;", 2);
+	sheet.addRule(".tr_sep", "height: 0;", 3);
+	function first_generate() {
+		generate_table()
+		set_font_size();
+		set_problem_padding();
+		show_ans();
+	}
+	first_generate();
+	function generate_table() {
+		var table = document.getElementById("print-result");
+		table.innerHTML = "";
+		let content = main_table_to_print();
+		var rows = document.getElementById("rows").value;
+		var columns = document.getElementById("columns").value;
+		for (i = 0; i < rows; i++){
+			if (i > 0){
+				var tr_sep = document.createElement("tr");
+				tr_sep.className = "tr_sep";
+				tr_sep.style.height = document.getElementById("tr-sep").value+"mm";
+				table.appendChild(tr_sep);
+			}
+			var tr = document.createElement("tr");
+			table.appendChild(tr);
+			for (j = 0; j < columns; j++){
+				if (j > 0){
+					var td_sep = document.createElement("td");
+					td_sep.className = "td_sep";
+					td_sep.style.width = document.getElementById("td-sep").value+"mm";
+					tr.appendChild(td_sep);
+				}
+				var td = document.createElement("td");
+				tr.appendChild(td);
+				td.appendChild(content.cloneNode(true));
+			}
+		}
+	}
+
+	function main_table_to_print() {
+		var problems = document.getElementById("main-table").getElementsByTagName("tbody")[0];
+		var table = document.createElement("table");
+		table.classList.add("result_problems_table");
+		for (i = 0; i < problems.children.length; i++) {
+			let tr = document.createElement("tr");
+			let td_num = document.createElement("td");
+			let td_content = document.createElement("td");
+			table.appendChild(tr);
+			tr.appendChild(td_num);
+			tr.appendChild(td_content);
+			td_num.classList.add("result_td_num");
+			td_content.classList.add("result_td_content");
+			td_num.innerHTML = problems.children[i].getElementsByClassName("num")[0].innerHTML;
+			if (problems.children[i].classList.contains("editing")) {
+				td_content.innerHTML = problems.children[i].getElementsByClassName("content")[0].getElementsByTagName("textarea")[0].value;
+			} else {
+				td_content.innerHTML = problems.children[i].getElementsByClassName("content")[0].innerHTML;
+			}
+		}
+		return table;
+	}
+	
+	function set_font_size() {
+		document.getElementById("print-result").style.fontSize = document.getElementById("font-size").value.toString() + "px";
+	}
+	
+	function set_problem_padding() {
+		sheet.cssRules[0].style.paddingBottom = document.getElementById("prob-padding").value.toString() + "mm";
+	}
+	
+	function show_ans() {
+		if (document.getElementById("show_ans").checked){
+			sheet.cssRules[1].style.display = "block";
+		} else {
+			sheet.cssRules[1].style.display = "none";
+		}
+	}
+
+</script>
+</html>
