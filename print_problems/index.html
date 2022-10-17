@@ -138,7 +138,7 @@
 					</tr>
 					<tr>
 						<td><button onclick="move_problem_down(this.closest('.problem'));">🡻</button></td>
-						<td><button onclick="this.closest('.problem').remove();">✘</button></td>
+						<td><button onclick="this.closest('.problem').remove(); generate_table();">✘</button></td>
 					</tr>
 				</table>
 			</td>
@@ -179,7 +179,7 @@
 						"<td><button onclick='change_problem_content(this.closest(\".problem\"));'>✎</button></td>" +
 						"</tr><tr>" +
 						"<td><button onclick='move_problem_down(this.closest(\".problem\"));'>🡻</button></td>" +
-						"<td><button onclick='this.closest(\".problem\").remove();'>✘</button></td>" +
+						"<td><button onclick='this.closest(\".problem\").remove(); generate_table();'>✘</button></td>" +
 						"</tr></table>";
 		cell_content.classList.add("content");
 		cell_content.contentEditable = "true";
