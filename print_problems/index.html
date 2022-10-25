@@ -4,6 +4,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Print problems</title>
 	<style>
+		xmp {
+			display: inline-block;
+			color: gray;
+		}
 		figure {
 			display: inline-block;
 			margin: 0;
@@ -46,6 +50,13 @@
 		.settings-cell {
 			display: inline-block;
 			vertical-align: top;
+		}
+		#useful-symbols {
+			padding-top: 1em;
+		}
+		#useful-symbols > div {
+			display: inline-block;
+			width: 4em;
 		}
 		#main-table {
 			box-sizing: border-box;
@@ -123,6 +134,10 @@
 				<tr><td><input type="number" size="1" id="td-sep" min="0" value="5" onChange="generate_table()" style="width: 1cm"></td><td>Между столбцами (mm)</td></tr>
 				<tr><td><input type="number" size="1" id="tr-sep" min="0" value="5" onChange="generate_table()" style="width: 1cm"></td><td>Между строками (mm)</td></tr>
 			</table>
+		</div>
+		<div id="useful-symbols">
+			Полезные символы:<br>
+			+ − ± × · ⋆ ÷ = ≈ ≠ ≝ ≟ ≡ ( ) [ ] { }〈 〉 ≡ &lt;<xmp>&lt;</xmp> &gt;<xmp>&gt;</xmp> ⩽ ⩾ ≪ ≫ ⋂ ⋃ ∀ ∃ ∄ ∈ ∉ ∋ ∌ ⊂ ⊃ ⊄ ⊅ ⊆ ⊇ ⊊ ⊋ ⋮ ∥ ∦ ⊥ ∟ ∠ ∡ ∢ «» — –
 		</div>
 	</div>
 
