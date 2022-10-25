@@ -35,7 +35,7 @@
 			padding: 0;
 			width: 25px;
 		}
-		#settings {
+		#settings, #images-list-block {
 			box-sizing: border-box;
 			width: 100%;
 			max-width: 600px;
@@ -57,6 +57,18 @@
 		#useful-symbols > div {
 			display: inline-block;
 			width: 4em;
+		}
+		#images-list td {
+			border: 2px solid gray;
+			border-radius: 15px;
+			padding: 6px;
+		}
+		#images-list img {
+			max-width: 50px;
+			max-height: 50px;
+		}
+		#images-list xmp {
+			white-space: pre-wrap;
 		}
 		#main-table {
 			box-sizing: border-box;
@@ -95,6 +107,10 @@
 		#main-table > tbody > tr > td.content {
 			width: 100%;
 		}
+		#main-table > tbody > tr > td.content img{
+			width: 30%;
+			float: right;
+		}
 		#main-table > tbody > tr > td.content > textarea {
 			box-sizing: border-box;
 			width: 100%;
@@ -111,35 +127,47 @@
 		.result_td_content {
 			vertical-align: baseline;
 		}
+		.result_td_content img{
+			width: 30%;
+			float: right;
+		}
 		@media print {
-			#settings {display: none;}
-			#main-table {display: none;}
+			#settings, #main-table, #images-list-block {display: none;}
 		}
 	</style>
 </head>
 
 <body>
-	<div id="settings">
-		<div class="settings-cell">
-			<table>
-				<tr><td><input type="number" size="1" id="rows" min="0" value="1" onChange="generate_table()" style="width: 1cm"></td><td>Строк</td></tr>
-				<tr><td><input type="number" size="1" id="columns" min="0" value="1" onChange="generate_table()" style="width: 1cm"></td><td>Столбцов</td></tr>
-				<tr><td><input type="number" size="1" id="font-size" min="1" value="14" onChange="set_font_size()" style="width: 1cm"></td><td>Шрифт (px)</td></tr>
-				<tr><td><input type="checkbox" id="show_ans" onChange="show_ans()"></td><td>Ответы</td></tr>
-			</table>
-		</div>
-		<div class="settings-cell">
-			<table>
-				<tr><td><input type="number" size="1" id="prob-padding" min="-10" value="1" onChange="set_problem_padding()" style="width: 1cm"></td><td>Между задачами (mm)</td></tr>
-				<tr><td><input type="number" size="1" id="td-sep" min="0" value="5" onChange="generate_table()" style="width: 1cm"></td><td>Между столбцами (mm)</td></tr>
-				<tr><td><input type="number" size="1" id="tr-sep" min="0" value="5" onChange="generate_table()" style="width: 1cm"></td><td>Между строками (mm)</td></tr>
-			</table>
-		</div>
-		<div id="useful-symbols">
-			Полезные символы:<br>
-			+ − ± × · ⋆ ÷ = ≈ ≠ ≝ ≟ ≡ ( ) [ ] { }〈 〉 ≡ &lt;<xmp>&lt;</xmp> &gt;<xmp>&gt;</xmp> ⩽ ⩾ ≪ ≫ ⋂ ⋃ ∀ ∃ ∄ ∈ ∉ ∋ ∌ ⊂ ⊃ ⊄ ⊅ ⊆ ⊇ ⊊ ⊋ ⋮ ∥ ∦ ⊥ ∟ ∠ ∡ ∢ «» — –
-		</div>
+<div id="settings">
+	<div class="settings-cell">
+		<table>
+			<tr><td><input type="number" size="1" id="rows" min="0" value="1" onChange="generate_table()" style="width: 1cm"></td><td>Строк</td></tr>
+			<tr><td><input type="number" size="1" id="columns" min="0" value="1" onChange="generate_table()" style="width: 1cm"></td><td>Столбцов</td></tr>
+			<tr><td><input type="number" size="1" id="font-size" min="1" value="14" onChange="set_font_size()" style="width: 1cm"></td><td>Шрифт (px)</td></tr>
+			<tr><td><input type="checkbox" id="show_ans" onChange="show_ans()"></td><td>Ответы</td></tr>
+		</table>
 	</div>
+	<div class="settings-cell">
+		<table>
+			<tr><td><input type="number" size="1" id="prob-padding" min="-10" value="1" onChange="set_problem_padding()" style="width: 1cm"></td><td>Между задачами (mm)</td></tr>
+			<tr><td><input type="number" size="1" id="td-sep" min="0" value="5" onChange="generate_table()" style="width: 1cm"></td><td>Между столбцами (mm)</td></tr>
+			<tr><td><input type="number" size="1" id="tr-sep" min="0" value="5" onChange="generate_table()" style="width: 1cm"></td><td>Между строками (mm)</td></tr>
+		</table>
+	</div>
+	<div id="useful-symbols">
+		Полезные символы:<br>
+		+ − ± × · ⋆ ÷ = ≈ ≠ ≝ ≟ ≡ ( ) [ ] { }〈 〉 ≡ &lt;<xmp>&lt;</xmp> &gt;<xmp>&gt;</xmp> ⩽ ⩾ ≪ ≫ ⋂ ⋃ ∀ ∃ ∄ ∈ ∉ ∋ ∌ ⊂ ⊃ ⊄ ⊅ ⊆ ⊇ ⊊ ⊋ ⋮ ∥ ∦ ⊥ ∟ ∠ ∡ ∢ «» — –
+	</div>
+</div>
+
+<div id="images-list-block">
+	Добавить картинку:<br>
+	<input type="file" accept="image/*" name="image" id="file" onchange="loadImage(event)">
+	<br>
+	<table id="images-list">
+
+	</table>
+</div>
 
 <table id="main-table">
 	<tbody>
@@ -328,6 +356,24 @@
 			sheet.cssRules[1].style.display = "none";
 		}
 	}
-
+</script>
+<script>
+	// Load Images
+	function loadImage(event) {
+		let imagesListTable = document.getElementById('images-list');
+		let tr = document.createElement("tr");
+		let td1 = document.createElement("td");
+		let td2 = document.createElement("td");
+		let td3 = document.createElement("td");
+		td1.innerHTML = "<button onclick='this.closest(\"tr\").remove(); generate_table();'>✘</button>";
+		let image = document.createElement("img");
+		image.src = URL.createObjectURL(event.target.files[0]);
+		td3.innerHTML = '<xmp><img src="'+URL.createObjectURL(event.target.files[0])+'"/></xmp>';
+		imagesListTable.appendChild(tr);
+		tr.appendChild(td1);
+		tr.appendChild(td2);
+		tr.appendChild(td3);
+		td2.appendChild(image);
+	};
 </script>
 </html>
