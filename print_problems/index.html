@@ -35,6 +35,17 @@
 			padding: 0;
 			width: 25px;
 		}
+		#print-button {
+			display: block;
+			border: 2px solid #366106;
+			background-color: #58a700;
+			color: #FFFFFF;
+			border-radius: 10px;
+			font-size: 15px;
+			padding: 3px;
+			width: auto;
+			margin-top: 10px;
+		}
 		#settings, #images-list-block {
 			box-sizing: border-box;
 			width: 100%;
@@ -158,6 +169,7 @@
 		Полезные символы:<br>
 		+ − ± × · ⋆ ÷ = ≈ ≠ ≝ ≟ ≡ ( ) [ ] { }〈 〉 ≡ &lt;<xmp>&lt;</xmp> &gt;<xmp>&gt;</xmp> ⩽ ⩾ ≪ ≫ ⋂ ⋃ ∀ ∃ ∄ ∈ ∉ ∋ ∌ ⊂ ⊃ ⊄ ⊅ ⊆ ⊇ ⊊ ⊋ ⋮ ∥ ∦ ⊥ ∟ ∠ ∡ ∢ «» — –
 	</div>
+	<button id="print-button" onclick="window.print();">Печать!</button>
 </div>
 
 <div id="images-list-block">
@@ -165,35 +177,17 @@
 	<input type="file" accept="image/*" name="image" id="file" onchange="loadImage(event)">
 	<br>
 	<table id="images-list">
-
 	</table>
 </div>
 
 <table id="main-table">
-	<tbody>
-		<tr class="problem">
-			<td class="num" contenteditable="true" onInput = "generate_table()"></td>
-			<td class="settings">
-				<table>
-					<tr>
-						<td><button onclick="move_problem_up(this.closest('.problem'));">🡹</button></td>
-						<td><button onclick="change_problem_content(this.closest('.problem'));">✎</button></td>
-					</tr>
-					<tr>
-						<td><button onclick="move_problem_down(this.closest('.problem'));">🡻</button></td>
-						<td><button onclick="this.closest('.problem').remove(); generate_table();">✘</button></td>
-					</tr>
-				</table>
-			</td>
-			<td class="content" contenteditable="true" onInput = "generate_table()"><h3>Title</h3></td>
-		</tr>
-	</tbody>
+	<tbody></tbody>
 	<tfoot>
 		<tr>
 			<td></td>
 			<td></td>
 			<td style="text-align: center;">
-				<button onclick="create_new_problem_row(this.parentNode.parentNode.parentNode.parentNode)">+</button>
+				<button onclick="create_new_problem_row()">+</button>
 			</td>
 		</tr>
 	</tfoot>
@@ -202,7 +196,8 @@
 <table id="print-result"></table>
 
 <script>
-	function create_new_problem_row(table) {
+	function create_new_problem_row(title=false) {
+		let table = document.getElementById("main-table");
 		let tbody = table.getElementsByTagName("tbody")[0];
 		let row = document.createElement("tr");
 		let cell_num = document.createElement("td");
@@ -213,7 +208,6 @@
 		row.appendChild(cell_content);
 		row.classList.add("problem");
 		cell_num.classList.add("num");
-		cell_num.innerHTML = tbody.childElementCount + '.';
 		cell_num.contentEditable = "true";
 		cell_num.oninput = function(){generate_table();};
 		cell_settings.classList.add("settings");
@@ -227,6 +221,17 @@
 		cell_content.classList.add("content");
 		cell_content.contentEditable = "true";
 		cell_content.oninput = function(){generate_table();};
+		if (title) {
+			cell_content.innerHTML = "<h3>Title</h3>";
+		} else {
+			let prob_count = 1;
+			for (i = 0; i < tbody.children.length; i++) {
+				if (tbody.children[i].getElementsByClassName("num")[0].innerHTML != "") {
+					prob_count += 1;
+				}
+			}
+			cell_num.innerHTML = prob_count + '.';
+		}
 		tbody.appendChild(row);
 		generate_table();
 	}
@@ -282,13 +287,17 @@
 	sheet.addRule(".answer", "display: none;", 1);
 	sheet.addRule(".td_sep", "width: 0;", 2);
 	sheet.addRule(".tr_sep", "height: 0;", 3);
+
 	function first_generate() {
-		generate_table()
+		create_new_problem_row(title=true);
+		generate_table();
 		set_font_size();
 		set_problem_padding();
 		show_ans();
 	}
+
 	first_generate();
+
 	function generate_table() {
 		var table = document.getElementById("print-result");
 		table.innerHTML = "";
