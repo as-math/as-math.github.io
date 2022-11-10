@@ -223,11 +223,14 @@
 		cell_content.oninput = function(){generate_table();};
 		if (title) {
 			cell_content.innerHTML = "<h3>Title</h3>";
+			cell_num.innerHTML = "";
 		} else {
 			let prob_count = 1;
 			for (i = 0; i < tbody.children.length; i++) {
-				if (tbody.children[i].getElementsByClassName("num")[0].innerHTML != "") {
+				if ((tbody.children[i].getElementsByClassName("num")[0].innerHTML != "") &&
+				    (tbody.children[i].getElementsByClassName("num")[0].innerHTML != "<br>")) {
 					prob_count += 1;
+					console.log(i, "not empty", tbody.children[i].getElementsByClassName("num")[0].innerHTML);
 				}
 			}
 			cell_num.innerHTML = prob_count + '.';
