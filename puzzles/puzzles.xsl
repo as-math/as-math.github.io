@@ -62,7 +62,7 @@ extension-element-prefixes="str">
 <!--#####   GROUP   #####-->
 <xsl:template match="group">
 	<div class="group">
-		<hr class="group"><xsl:value-of select="date"/></hr>
+		<h1 class="group"><xsl:value-of select="date"/></h1>
 		<xsl:apply-templates select="puzzle"/>
 	</div>
 </xsl:template>

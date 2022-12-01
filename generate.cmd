@@ -1,0 +1,1 @@
+python config/xslt.py puzzles/index.xml puzzles/puzzles.xsl puzzles/index.html

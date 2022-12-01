@@ -3,6 +3,17 @@
 <document>
 
 	<group>
+		<date>1 Dec 2022</date>
+		<puzzle id="024">
+			<image type="svg">024.svg</image>
+			<question>
+				<text>R/R=?</text>
+				<answer>(2+sqrt(3))/(2-sqrt(3))</answer>
+			</question>
+		</puzzle>
+	</group>
+
+	<group>
 		<date>26 Aug 2022</date>
 		<puzzle id="023" lang="EO;RU;EN">
 			<image type="svg">023.svg</image>

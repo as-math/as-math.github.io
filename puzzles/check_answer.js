@@ -12,6 +12,10 @@ async function check(id, ans){
 				result_good(result_node, result_note_node);
 				return;
 			}
+			if (Math.abs(nerdamer(in_val) - (ans_val))<0.000001) {
+				result_good(result_node, result_note_node);
+				return;
+			}
 		}
 		result_bad(result_node, result_note_node);
 	} catch (err) {

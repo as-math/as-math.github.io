@@ -90,7 +90,7 @@ div.group {
 	display: block;
 	margin: 2rem auto;
 }
-hr.group {
+h1.group {
 	width: 95%;
 	border: none;
 	border-top: 0.2rem solid var(--color_gray_1);
