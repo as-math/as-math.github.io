@@ -4,6 +4,15 @@
 
 	<group>
 		<date>1 Dec 2022</date>
+		<puzzle id="025" lang="EO;RU;EN">
+			<image type="svg">025.svg</image>
+			<question>
+				<text lang="EN">Eccentricity of ellipses</text>
+				<text lang="RU">Эксцентриситет эллипсов</text>
+				<text lang="EO">Discentreco de elipsoj</text>
+				<answer>0.8</answer>
+			</question>
+		</puzzle>
 		<puzzle id="024">
 			<image type="svg">024.svg</image>
 			<question>
