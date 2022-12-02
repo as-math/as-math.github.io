@@ -12,7 +12,7 @@
 					--color_white: #ffffff;
 			}
 		</style>
-		<linearGradient id="Gradient1" x1="0%" x2="0%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+		<linearGradient id="svg024_Gradient1" x1="0%" x2="0%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
 				<stop stop-color="var(--color_red_2)" offset="40%"/>
 				<stop stop-color="var(--color_blue_1)" offset="60%"/>
 		</linearGradient>
@@ -24,7 +24,7 @@
 		<circle cx="0" cy="-17.32" r="15" stroke="var(--color_green_2)"/>
 		<circle cx="0" cy="0" r="2.32" stroke="var(--color_blue_1)"/>
 	</g>
-	<g font-family="Arbutus Slab" transform="translate(75 40)" font-size="15" fill="url(#Gradient1)">
+	<g font-family="Arbutus Slab" transform="translate(75 40)" font-size="15" fill="url(#svg024_Gradient1)">
 		<rect x="0" y="-2" width="11.5" height="1" />
 		<text dominant-baseline="middle">
 			<tspan x="0" y="-8">R</tspan>
