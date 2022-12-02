@@ -11,10 +11,19 @@ function change_global_lang(lang) {
 			lang_buttons[i].classList.remove("active");
 		}
 	}
-	let buttons = document.getElementsByClassName("puzzle_lang_button");
-	for (let i=0; i < buttons.length; i++){
-		if (buttons[i].lang == lang) {
-			buttons[i].click();
+	let puzzles = document.getElementsByClassName("puzzle")
+	for (let i=0; i < puzzles.length; i++){
+		let buttons = puzzles[i].getElementsByClassName("puzzle_lang_button");
+		if (buttons.length != 0) {
+			for (let j=0; j < buttons.length; j++){
+				if (buttons[j].lang == lang) {
+					buttons[j].click();
+				}
+			}
+		} else {
+			change_lang_input(puzzles[i], lang);
+			change_lang_check_button(puzzles[i], lang);
+			change_lang_question_tip(puzzles[i], lang)
 		}
 	}
 }
@@ -26,6 +35,7 @@ function change_puzzle_lang(lang, id) {
 	change_lang_check_button(puzzle, lang);
 	change_lang_svg(puzzle, lang);
 	change_active_button(puzzle, lang)
+	change_lang_question_tip(puzzle, lang)
 }
 
 function change_lang_text(puzzle, lang) {
@@ -82,6 +92,23 @@ function change_lang_check_button(puzzle, lang) {
 			}
 			if (lang == "EO") {
 				button_nodes[i].innerHTML = "Kontroli";
+			}
+		}
+	}
+}
+
+function change_lang_question_tip(puzzle, lang) {
+	let ques_tip_nodes = puzzle.getElementsByClassName("question_tip");
+	for (let i=0; i < ques_tip_nodes.length; i++){
+		if (ques_tip_nodes[i].tagName == "DIV") {
+			if (lang == "EN") {
+				ques_tip_nodes[i].innerHTML = "The answer is a mathematical expression. You can use brackets, basic mathematical operations and functions.<br><br>For example: (2*pi+1)/sqrt(2)+3^2";
+			}
+			if (lang == "RU") {
+				ques_tip_nodes[i].innerHTML = "Ответом является математическое выражение. Можно использовать скобки, основные математические операции и функции.<br><br>Например: (2*pi+1)/sqrt(2)+3^2";
+			}
+			if (lang == "EO") {
+				ques_tip_nodes[i].innerHTML = "La respondo estas matematika esprimo. Vi povas uzi krampojn, bazajn matematikajn operaciojn kaj funkciojn.<br><br>Ekzemple: (2*pi+1)/sqrt(2)+3^2";
 			}
 		}
 	}

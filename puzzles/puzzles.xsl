@@ -184,6 +184,9 @@ extension-element-prefixes="str">
 		<xsl:call-template name="question_button">
 			<xsl:with-param name="question_id" select="$question_id"/>
 		</xsl:call-template>
+		<xsl:call-template name="question_tip">
+			<xsl:with-param name="question_id" select="$question_id"/>
+		</xsl:call-template>
 	</div>
 </xsl:template>
 
@@ -205,7 +208,7 @@ extension-element-prefixes="str">
 	<input class="question" type="text" id="input_{$question_id}" placeholder="{$data_text}" data-text="{$data_text}" data-text-en="{$data_text_EN}" data-text-ru="{$data_text_RU}" data-text-eo="{$data_text_EO}" />
 </xsl:template>
 
-<!-- button -->
+<!-- question button -->
 <xsl:template name="question_button">
 	<xsl:param name="question_id"/>
 	<xsl:variable name="answer">
@@ -218,8 +221,17 @@ extension-element-prefixes="str">
 		<xsl:text>]</xsl:text>
 	</xsl:variable>
 	<button class="question" onclick="check('{$question_id}', {$answer})">
-		Check
+		Check2
 	</button>
+</xsl:template>
+
+<!-- answer format tip -->
+<xsl:template name="question_tip">
+	<xsl:param name="question_id"/>
+	<button class="question_tip">
+		?
+	</button>
+	<div class="question_tip" id="question_tip_{$question_id}">Test</div>
 </xsl:template>
 
 <!-- Questions -->
