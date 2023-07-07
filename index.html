@@ -1,50 +1,69 @@
 <html>
 	<head>
-		<title>AS - Math</title>
-		<meta name="google-site-verification" content="S4kMSuE_rtsIKDHk5pk5xYT6K8a8GD-nUYVn5eVHHpk" />
-		<link rel="shortcut icon" href="/config/icons/ico-6gon.png" type="image/png" />
+		<title>AS Math</title>
+		<link rel="icon" type="image/svg+xml" href="https://as-math.github.io/media-files/icons/as-math_icons/as-math_logo.svg">
+		<!-- Colors -->
+		<link rel="stylesheet" href="https://as-math.github.io/media-files/colors/colors-root.css">
+		<!-- Fonts -->
+		<link rel="stylesheet" href="https://as-math.github.io/media-files/fonts/ArbutusSlab/arbutusSlab.css">
+		<link rel="stylesheet" href="https://as-math.github.io/media-files/fonts/Kurale/kurale.css">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<style>
-			@import url("/config/fonts/ArbutusSlab/arbutusslab.css");
-			@import url("/config/fonts/Gabriela/gabriela.css");
-			:root {
-			--color_gray_1: #d3d3d3;
-			--color_gray_2: #a3a3a3;
-			--color_blue_1: #5a6fd4;
-			--color_green_1: #99ee66;
-			--color_green_2: #339900;
-			--color_red_1: #fc9898;
-			--color_red_2: #ff0500;
-			--color_white: #ffffff;
-			}
-			@media only screen and (max-device-width: 640px) {
-				:root {
-					font-size: 30px;
-				}
-			}
 			html {
-				font-size: 16px;
+				font-family: "Arbutus Slab";
+				font-size: 18px;
 			}
-			body {
-				font-family: 'Arbutus Slab', 'Gabriela';
-				width: 100%;
-				max-width: 1200px;
-				text-align: center;
-				margin: auto;
+
+			.heading {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 0 1em;
 			}
-			a.head_link {
-				display: block;
-				color: var(--color_blue_1);
+			.heading > .logo {
+				height: 4rem;
 			}
+			.heading > .title {
+				margin: 0;
+				padding: 0;
+				font-family: "Arbutus Slab";
+				font-size: 2rem;
+				color: var(--blue);
+			}
+
+			.content {
+				margin-top: 2rem;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			.menu > ul {
+				margin: 0;
+				list-style-type: none;
+			}
+			.menu > ul > li > a {
+				color: black
+			} 
 		</style>
 	</head>
+
 	<body>
-		<div style="margin: auto; display: table; max-width: 90vw;">
-			<img src="/config/icons/title-6gon.png" style="display: table-cell; vertical-align: middle; height: 7em;"/>
-			<h1 style="display: table-cell; vertical-align: middle; font-size: 2.5em; white-space: nowrap; color: var(--color_blue_1);">AS - Math</h1>
+		<div class="heading">
+			<img class="logo" src="https://as-math.github.io/media-files/icons/as-math_icons/as-math_logo.svg"/>
+			<h1 class="title">AS Math</h1>
 		</div>
-		<div><a class="head_link" href="/puzzles">Math puzzles</a></div>
-		<div><a class="head_link" href="/print_problems">Print problems</a></div>
-		<div><a class="head_link" href="/bulls_and_cows">Bull and cows</a></div>
-		<div><a class="head_link" href="/pascal_triangle">Pascal triangle</a></div>
+		<div class="content">
+			<nav class="menu">
+				<ul>
+					<li><a class="head_link" href="/puzzles">Math puzzles</a></li>
+					<li><a class="head_link" href="/print_problems">Print problems</a></li>
+					<li><a class="head_link" href="/bulls_and_cows">Bull and cows</a></li>
+					<li><a class="head_link" href="/pascal_triangle">Pascal triangle</a></li>
+				</ul>
+			</nav>
+		</div>
 	</body>
 </html>
